@@ -325,7 +325,16 @@
 					<!-- ACCOUNT -->
 					<div class="col-md-3 clearfix">
 						<div class="header-ctn">
-							
+							@if (User.Identity.IsAuthenticated)
+							{
+								<!-- Wishlist -->
+								<div>
+									<a href="#">
+										<i class="fa fa-heart-o"></i>
+										<span>Your Wishlist</span>
+										<div class="qty">2</div>
+									</a>
+								</div>
 								<!-- /Wishlist -->
 								<!-- Cart -->
 								<div class="dropdown">
@@ -347,8 +356,8 @@
 										</div>
 									</div>
 								</div>
-							
-                            
+							}
+                            }
                         </div>
                     </div>
                 </div>
@@ -562,44 +571,8 @@
                     var productWidgets = document.getElementsByClassName('product-widget-count');
                     $('#totalqty').html(productWidgets.length);
                     $('#totalPrice').html('TOTAL: ' +selectedProducts.toFixed(2) + '$');
-            $('#totalqty').html(0);
-            var isAuthenticated = '@User.Identity.IsAuthenticated' === 'True';
-            if (isAuthenticated) {
-                $.ajax({
-                    url: '/Home/Cart',
-                    type: 'GET',
-                    success: function (data) {
-                        $('#cart-list').html(data);
-                        var productWidgets = document.getElementsByClassName('product-widget-count');
-                        $('#totalqty').html(productWidgets.length);
-                    }
-                });
-            } else {
-                let localCart = JSON.parse(localStorage.getItem("Order")) || [];
-                if (localCart.length === 0) {
-                    //showAlertError('No items in the cart.');
-                    return;
                 }
-                $.ajax({
-                    url: '/Home/CartWithLocal',
-                    type: 'POST',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    },
-                    data: JSON.stringify(localCart),
-                    success: function (data) {
-                        $('#cart-list').html(data);
-                        var productWidgets = document.getElementsByClassName('product-widget-count');
-                        $('#totalqty').html(productWidgets.length);
-                    },
-                    error: function () {
-                        console.log('Failed to add product to cart.');
-                    }
-                });
-            }
-           
-
+            });
         });
 
         const username = '@UserManager.GetUserName(User)';
@@ -679,14 +652,16 @@
             });
         }
 
-        $('#cart-icon').click(function () {
-            var isAuthenticated = '@User.Identity.IsAuthenticated' === 'True';
-            if (isAuthenticated) {
-                $.ajax({
-                    url: '/Home/Cart',
-                    type: 'GET',
-                    success: function (data) {
-                        $('#cart-list').html(data);
+       
+        
+
+
+        $('#cart-icon').click(function () {      
+            $.ajax({
+                url: '/Home/Cart',
+                type: 'GET',
+                success: function (data) {
+                    $('#cart-list').html(data);
                     var productWidgets = document.getElementsByClassName('product-widget-count');
                     $('#totalqty').html(productWidgets.length);
                     var selectedProducts = 0;
@@ -697,33 +672,8 @@
                         }
                     });
                     $('#totalPrice').html('TOTAL: ' + selectedProducts.toFixed(2) + '$');
-                    }
-                });
-            } else {
-                let localCart = JSON.parse(localStorage.getItem("Order")) || [];
-                if (localCart.length === 0) {
-                    //showAlertError('No items in the cart.');
-                    return;
                 }
-                $.ajax({
-                    url: '/Home/CartWithLocal',
-                    type: 'POST',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    },
-                    data: JSON.stringify(localCart),
-                    success: function (data) {
-                        $('#cart-list').html(data);
-                        var productWidgets = document.getElementsByClassName('product-widget-count');
-                        $('#totalqty').html(productWidgets.length);
-                    },
-                    error: function () {
-                        console.log('Failed to add product to cart.');
-                    }
-                });
-            }
-
+            });
         });
 
 		$('#checkout-btn').click(function (e) {
@@ -764,31 +714,6 @@
 		});
 		//write function deleteOrder call ajax
 		function deleteOrder(id) {
-             var isAuthenticated = '@User.Identity.IsAuthenticated' === 'True';
-            let orders = JSON.parse(localStorage.getItem("Order"))
-            if (!isAuthenticated) {
-                let obj = orders.filter(c => c.colorId !== id)
-                localStorage.setItem("Order", JSON.stringify(obj))
-                $('#totalqty').html(obj.length);
-                $.ajax({
-                    url: '/Home/CartWithLocal',
-                    type: 'POST',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    },
-                    data: JSON.stringify(obj),
-                    success: function (data) {
-                        $('#cart-list').html(data);
-                        var productWidgets = document.getElementsByClassName('product-widget-count');
-                        $('#totalqty').html(productWidgets.length);
-                    },
-                    error: function () {
-                        $('#cart-list').html('');
-                    }
-                });
-            } else {
-
             $.ajax({
                 url: '/Home/DeleteOrder',
                 type: 'POST',
@@ -809,7 +734,6 @@
                     $('#totalPrice').html('TOTAL: ' + selectedProducts.toFixed(2) + '$');
                 }
             });
-            }
         }
 		function confirmLogout() {
 			Swal.fire({

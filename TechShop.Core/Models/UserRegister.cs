@@ -16,9 +16,8 @@ namespace TechShop.Core.Models
         [RegularExpression(@"^[\p{L}\p{M}]+(\s[\p{L}\p{M}]+)*$", ErrorMessage = "Full Name cannot contain special characters.")]
         public string FullName {  get; set; }
 
-        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])(?!.*[\p{IsCombiningDiacriticalMarks}ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÝàáâãèéêìíòóôõùúýĂăĐđĨĩŨũƠơƯư]).{6,}$", ErrorMessage = "Password must be at least 6 characters long, contain at least one uppercase letter, one lowercase letter, one special character, one number, no spaces, and no Unicode.")]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{6,}$", ErrorMessage = "Password must be at least 6 characters long, contain at least one uppercase letter, one lowercase letter, one special character, one number, and no spaces.")]
         public string Password { get; set; }
-
 
         [Compare("Password", ErrorMessage = "Password and confirmation password do not match.")]
         public string RepeatPassword { get; set; }

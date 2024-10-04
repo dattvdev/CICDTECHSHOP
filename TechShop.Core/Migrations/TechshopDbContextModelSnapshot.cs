@@ -51,19 +51,19 @@ namespace TechShop.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "35876399-17ca-49a4-adbf-679932581012",
+                            Id = "03f424ef-a625-489a-9a51-bac8dc88df4a",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "2492a74d-3c9f-4a27-9e21-9783ebeb8ee1",
+                            Id = "605cce82-4026-467d-8620-97a7db6f6273",
                             Name = "Collaborator",
                             NormalizedName = "COLLABORATOR"
                         },
                         new
                         {
-                            Id = "cdad2dad-54da-4ba6-b06a-e787fd18685a",
+                            Id = "8758368f-fce5-46ad-8ac4-f864c47114bd",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         });
@@ -158,33 +158,33 @@ namespace TechShop.Core.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "bdf2f396-543a-4d69-ad81-e346218aec1e",
-                            RoleId = "35876399-17ca-49a4-adbf-679932581012"
+                            UserId = "8d264581-742d-41be-bd07-78c0453e875e",
+                            RoleId = "03f424ef-a625-489a-9a51-bac8dc88df4a"
                         },
                         new
                         {
-                            UserId = "e1c5db55-de77-41c1-ab45-c022d32a2034",
-                            RoleId = "2492a74d-3c9f-4a27-9e21-9783ebeb8ee1"
+                            UserId = "415a79a3-ea4f-4bb7-a6dc-9abf82cba517",
+                            RoleId = "605cce82-4026-467d-8620-97a7db6f6273"
                         },
                         new
                         {
-                            UserId = "dfda172b-27f8-44d5-aef4-d029719eeab7",
-                            RoleId = "2492a74d-3c9f-4a27-9e21-9783ebeb8ee1"
+                            UserId = "821ea039-ebbf-4105-a966-065738232bbf",
+                            RoleId = "605cce82-4026-467d-8620-97a7db6f6273"
                         },
                         new
                         {
-                            UserId = "dfd365b0-ed6c-4627-8d91-6f6488d301b1",
-                            RoleId = "2492a74d-3c9f-4a27-9e21-9783ebeb8ee1"
+                            UserId = "c28a969e-7d9d-4375-935c-94fd7a32447b",
+                            RoleId = "605cce82-4026-467d-8620-97a7db6f6273"
                         },
                         new
                         {
-                            UserId = "7954dd0b-fc37-488f-9f9b-cf64179fa2d9",
-                            RoleId = "2492a74d-3c9f-4a27-9e21-9783ebeb8ee1"
+                            UserId = "8fd53c73-9883-4d1c-b084-3e35853e15cf",
+                            RoleId = "8758368f-fce5-46ad-8ac4-f864c47114bd"
                         },
                         new
                         {
-                            UserId = "f7ab9962-24e9-43fa-b81d-af09531b6048",
-                            RoleId = "cdad2dad-54da-4ba6-b06a-e787fd18685a"
+                            UserId = "7b22ab2c-9296-459e-84f2-2adb73ae5eb2",
+                            RoleId = "8758368f-fce5-46ad-8ac4-f864c47114bd"
                         });
                 });
 
@@ -229,9 +229,9 @@ namespace TechShop.Core.Migrations
                     b.HasData(
                         new
                         {
-                            ID = new Guid("998593d3-4b26-4599-b074-e6ffbb3bc029"),
+                            ID = new Guid("af13f1a2-bd0f-40a2-980a-65ae20860c91"),
                             AccessLevel = 2,
-                            UserID = "bdf2f396-543a-4d69-ad81-e346218aec1e"
+                            UserID = "8d264581-742d-41be-bd07-78c0453e875e"
                         });
                 });
 
@@ -264,82 +264,82 @@ namespace TechShop.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("7a0f7330-2fe2-432d-91c1-ee96a48a8ca8"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8768),
+                            Id = new Guid("47d6c021-87a6-44c0-bf6d-d400ce8aeef2"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7643),
                             Name = "Apple",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8769),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7645),
                             UrlSlug = "apple"
                         },
                         new
                         {
-                            Id = new Guid("85e9a56d-fc9b-4e1f-ad68-21cca7dfb436"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8772),
+                            Id = new Guid("69d1badd-25a1-4d32-8b55-fef6f7b519ed"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7656),
                             Name = "Samsung",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8772),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7657),
                             UrlSlug = "samsung"
                         },
                         new
                         {
-                            Id = new Guid("6153d1df-8e4c-4f10-ab8e-a60809573c05"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8775),
+                            Id = new Guid("e43f1172-920a-465f-a2ae-6f249615127d"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7664),
                             Name = "Sony",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8776),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7665),
                             UrlSlug = "sony"
                         },
                         new
                         {
-                            Id = new Guid("48720627-137e-4089-9668-f8f3b823186a"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8778),
+                            Id = new Guid("4378e25a-b9af-4cfb-aab6-50d39d4acc7a"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7674),
                             Name = "Dell",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8779),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7674),
                             UrlSlug = "dell"
                         },
                         new
                         {
-                            Id = new Guid("a0afc49f-f2c1-4c04-8916-4e05b6ac7fe0"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8781),
+                            Id = new Guid("8289000d-d3c4-4f82-9a2f-8f8b2c969b22"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7678),
                             Name = "HP",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8782),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7679),
                             UrlSlug = "hp"
                         },
                         new
                         {
-                            Id = new Guid("efd5a997-0a4f-457a-9969-df088d01c82e"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8787),
+                            Id = new Guid("3756f15d-dfb0-4f59-8970-cbfba08d6a0c"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7683),
                             Name = "Lenovo",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8787),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7684),
                             UrlSlug = "lenovo"
                         },
                         new
                         {
-                            Id = new Guid("c86a7099-dea4-46b2-9017-12bc015d23e4"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8789),
+                            Id = new Guid("e8ef4371-53f4-4a5e-a466-02314813db37"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7688),
                             Name = "Microsoft",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8791),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7689),
                             UrlSlug = "microsoft"
                         },
                         new
                         {
-                            Id = new Guid("210eb0ed-23fd-42f8-9dd7-b00cfd19715e"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8793),
+                            Id = new Guid("9b245f1d-e6fa-4419-a832-a059f4b67fef"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7692),
                             Name = "Asus",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8794),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7692),
                             UrlSlug = "asus"
                         },
                         new
                         {
-                            Id = new Guid("ed7da3d4-b839-4c35-ae1c-663760a9794d"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8796),
+                            Id = new Guid("d9bd6258-c767-4c70-8451-8327ec3b9e87"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7696),
                             Name = "Acer",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8797),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7696),
                             UrlSlug = "acer"
                         },
                         new
                         {
-                            Id = new Guid("fe9d1df6-9f06-4436-b52f-bc821466c09a"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8800),
+                            Id = new Guid("e964ac17-9719-402c-b0a2-01951d1b31d5"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7700),
                             Name = "Huawei",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8801),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7701),
                             UrlSlug = "huawei"
                         });
                 });
@@ -373,74 +373,74 @@ namespace TechShop.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("6d0dfc2c-f26f-4ec4-aab7-59079e5fe7c5"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8689),
+                            Id = new Guid("1c0a8365-f773-447f-bd57-d077c0d35bfe"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7533),
                             Name = "Phones",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8692),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7534),
                             UrlSlug = "phones"
                         },
                         new
                         {
-                            Id = new Guid("80ff6f18-ea57-43f3-9b8d-226a4b002758"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8696),
+                            Id = new Guid("5e841f78-2a03-489d-84f0-68dbb3c517ca"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7546),
                             Name = "Laptops",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8696),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7547),
                             UrlSlug = "laptops"
                         },
                         new
                         {
-                            Id = new Guid("2f17b91e-1f82-4720-8f32-c972ec3c8a09"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8713),
+                            Id = new Guid("9fec396e-94c7-426b-a79a-f9345ea94de4"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7563),
                             Name = "Tablets",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8713),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7564),
                             UrlSlug = "tablets"
                         },
                         new
                         {
-                            Id = new Guid("908d467a-84ca-4b7f-a37c-d9964bd3d788"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8720),
+                            Id = new Guid("08316261-0d65-42da-a033-0320c202bbfa"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7580),
                             Name = "Watches",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8721),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7581),
                             UrlSlug = "watches"
                         },
                         new
                         {
-                            Id = new Guid("76f25b28-3096-4a32-9a3a-5646b720015f"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8723),
+                            Id = new Guid("b75fdf86-928a-4311-897d-dfdc98ffbcdf"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7585),
                             Name = "PCs",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8735),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7592),
                             UrlSlug = "pcs"
                         },
                         new
                         {
-                            Id = new Guid("ad295af0-70e4-4a63-8e37-eeb960e8998e"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8742),
+                            Id = new Guid("3ed05c58-1153-40d5-8bea-4f37757eaee4"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7602),
                             Name = "TVs",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8743),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7603),
                             UrlSlug = "tvs"
                         },
                         new
                         {
-                            Id = new Guid("09e18647-e4e5-4eb2-8b47-cf0d8802eafd"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8753),
+                            Id = new Guid("dd515d07-2b68-429c-af48-5910917bbadf"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7610),
                             Name = "Accessories",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8753),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7611),
                             UrlSlug = "accessories"
                         },
                         new
                         {
-                            Id = new Guid("aff23a31-95a1-4f59-8d71-7d99aa9eb71a"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8756),
+                            Id = new Guid("e863a608-ba3d-4c19-88aa-ccf8fbb887cd"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7614),
                             Name = "Audio",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8756),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7615),
                             UrlSlug = "audio"
                         },
                         new
                         {
-                            Id = new Guid("dbc5b522-1516-4469-a7a1-b42e2637b3cd"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8758),
+                            Id = new Guid("9a32ac7e-b354-44a9-b9e2-ef6a2458d76f"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7619),
                             Name = "Cameras",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8759),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7620),
                             UrlSlug = "cameras"
                         });
                 });
@@ -471,17 +471,17 @@ namespace TechShop.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("61440a81-0cbf-4ba4-a9d8-be04f00b9109"),
-                            CollaboratorId = new Guid("28e0105a-3dbe-45c1-8bdf-332755f6e704"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 979, DateTimeKind.Local).AddTicks(183),
-                            CustomerId = new Guid("0f2456ef-da81-4455-9dfc-e5d6d4205849")
+                            Id = new Guid("8e5e9094-ec27-4c57-b5f1-11827cbe74bf"),
+                            CollaboratorId = new Guid("d7bdf57d-2249-4de5-be3f-3509ee5e6e7d"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9810),
+                            CustomerId = new Guid("7e63353d-082c-403a-b8ec-88302752b402")
                         },
                         new
                         {
-                            Id = new Guid("70d16e23-5df5-486e-8e68-e49aa8550a9c"),
-                            CollaboratorId = new Guid("cf4d2168-28f5-489d-ab2a-61c4a9937f81"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 979, DateTimeKind.Local).AddTicks(189),
-                            CustomerId = new Guid("0f2456ef-da81-4455-9dfc-e5d6d4205849")
+                            Id = new Guid("3d7bc032-2950-4d50-9502-028d1b6c8341"),
+                            CollaboratorId = new Guid("09bf0abb-f2de-4269-9bd9-89b655574c1c"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9824),
+                            CustomerId = new Guid("7e63353d-082c-403a-b8ec-88302752b402")
                         });
                 });
 
@@ -516,31 +516,31 @@ namespace TechShop.Core.Migrations
                     b.HasData(
                         new
                         {
-                            ID = new Guid("28e0105a-3dbe-45c1-8bdf-332755f6e704"),
-                            EndDate = new DateTime(2025, 2, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8628),
-                            StartDate = new DateTime(2024, 4, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8611),
-                            UserID = "e1c5db55-de77-41c1-ab45-c022d32a2034"
+                            ID = new Guid("d7bdf57d-2249-4de5-be3f-3509ee5e6e7d"),
+                            EndDate = new DateTime(2025, 2, 28, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7419),
+                            StartDate = new DateTime(2024, 4, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7410),
+                            UserID = "415a79a3-ea4f-4bb7-a6dc-9abf82cba517"
                         },
                         new
                         {
-                            ID = new Guid("cf4d2168-28f5-489d-ab2a-61c4a9937f81"),
-                            EndDate = new DateTime(2025, 2, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8636),
-                            StartDate = new DateTime(2024, 6, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8634),
-                            UserID = "dfda172b-27f8-44d5-aef4-d029719eeab7"
+                            ID = new Guid("09bf0abb-f2de-4269-9bd9-89b655574c1c"),
+                            EndDate = new DateTime(2025, 2, 28, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7451),
+                            StartDate = new DateTime(2024, 6, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7449),
+                            UserID = "821ea039-ebbf-4105-a966-065738232bbf"
                         },
                         new
                         {
-                            ID = new Guid("841c0bd9-a823-4fbc-98eb-28b4c50c534b"),
-                            EndDate = new DateTime(2025, 2, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8641),
-                            StartDate = new DateTime(2024, 7, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8639),
-                            UserID = "dfd365b0-ed6c-4627-8d91-6f6488d301b1"
+                            ID = new Guid("e4e6f358-cd42-43e0-a6b5-a57ffd4f7d85"),
+                            EndDate = new DateTime(2025, 2, 28, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7458),
+                            StartDate = new DateTime(2024, 7, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7456),
+                            UserID = "c28a969e-7d9d-4375-935c-94fd7a32447b"
                         },
                         new
                         {
-                            ID = new Guid("1e4a2c6e-1051-4122-8093-de12dd13f518"),
-                            EndDate = new DateTime(2025, 2, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8645),
-                            StartDate = new DateTime(2024, 7, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8644),
-                            UserID = "7954dd0b-fc37-488f-9f9b-cf64179fa2d9"
+                            ID = new Guid("b501f3bf-e448-48ba-b5e3-2f04f5edafaf"),
+                            EndDate = new DateTime(2025, 2, 28, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7463),
+                            StartDate = new DateTime(2024, 7, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7462),
+                            UserID = "8fd53c73-9883-4d1c-b084-3e35853e15cf"
                         });
                 });
 
@@ -585,167 +585,167 @@ namespace TechShop.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("a64613fe-8ff4-4339-8964-5ef3e36e876c"),
+                            Id = new Guid("1ed3e918-43fe-41d8-ab97-faa9c2c18e81"),
                             CommentText = "Good",
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9787),
-                            ProductId = new Guid("99144d35-20d1-45bb-9301-d7275b874d94"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9224),
+                            ProductId = new Guid("97622d2b-8ce7-4c41-ba15-7443e5c6e48f"),
                             Rate = 5,
-                            UserId = "bdf2f396-543a-4d69-ad81-e346218aec1e"
+                            UserId = "8d264581-742d-41be-bd07-78c0453e875e"
                         },
                         new
                         {
-                            Id = new Guid("68d210b6-988f-4841-8f77-7e624d87d439"),
+                            Id = new Guid("c72b4e21-2132-4e8e-956c-264521b67399"),
                             CommentText = "Not good",
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9792),
-                            ProductId = new Guid("495a42be-85fd-452c-abfc-55edead730af"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9234),
+                            ProductId = new Guid("838697de-b0d3-41b1-b147-cb650b0799ae"),
                             Rate = 3,
-                            UserId = "e1c5db55-de77-41c1-ab45-c022d32a2034"
+                            UserId = "415a79a3-ea4f-4bb7-a6dc-9abf82cba517"
                         },
                         new
                         {
-                            Id = new Guid("fd08bbf6-1d51-41e6-a2fd-1ba7fe1d4807"),
+                            Id = new Guid("2eb44b50-03dc-4260-9112-e4f5dd5b58b1"),
                             CommentText = "Excellent value for money!",
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9801),
-                            ProductId = new Guid("c91d55b2-fae9-4da6-b248-c1f6be6e439a"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9239),
+                            ProductId = new Guid("6f85c21e-7562-49ec-967c-1259850f0197"),
                             Rate = 5,
-                            UserId = "dfda172b-27f8-44d5-aef4-d029719eeab7"
+                            UserId = "821ea039-ebbf-4105-a966-065738232bbf"
                         },
                         new
                         {
-                            Id = new Guid("3fac9b73-305e-43db-91c1-bc98df10e5e4"),
+                            Id = new Guid("870c5f78-635d-4d3c-8743-6503cda5313f"),
                             CommentText = "Not worth the price.",
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9804),
-                            ProductId = new Guid("3fd418e6-652b-45f2-9687-224b0655e437"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9244),
+                            ProductId = new Guid("963c9e39-a3a3-4423-864c-58d5f73c174a"),
                             Rate = 2,
-                            UserId = "dfd365b0-ed6c-4627-8d91-6f6488d301b1"
+                            UserId = "c28a969e-7d9d-4375-935c-94fd7a32447b"
                         },
                         new
                         {
-                            Id = new Guid("602d79c7-6d77-4c8e-9fb1-64d4b128bbb7"),
+                            Id = new Guid("cba0c0b7-5861-4170-acdd-448df80df222"),
                             CommentText = "Great customer service.",
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9807),
-                            ProductId = new Guid("e3589f3d-78ca-4a76-9624-caf516166ddf"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9249),
+                            ProductId = new Guid("79e46632-4787-438a-b0d7-3289d4fcebb8"),
                             Rate = 4,
-                            UserId = "bdf2f396-543a-4d69-ad81-e346218aec1e"
+                            UserId = "8d264581-742d-41be-bd07-78c0453e875e"
                         },
                         new
                         {
-                            Id = new Guid("79ec51b2-f376-4be3-8f18-5fa0e56f6662"),
+                            Id = new Guid("5d936bec-d762-4e71-bebb-d0b3e93b2604"),
                             CommentText = "The product arrived damaged.",
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9811),
-                            ProductId = new Guid("96f0fead-2b10-4c3e-b5d4-5d788dfc7628"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9254),
+                            ProductId = new Guid("81db7cf2-516c-4ea4-a622-4ab5574498bc"),
                             Rate = 1,
-                            UserId = "e1c5db55-de77-41c1-ab45-c022d32a2034"
+                            UserId = "415a79a3-ea4f-4bb7-a6dc-9abf82cba517"
                         },
                         new
                         {
-                            Id = new Guid("7c3c5eab-c53d-426d-9a31-77d47e23110e"),
+                            Id = new Guid("11e6a718-6d09-49b0-aab6-fab994490705"),
                             CommentText = "I agree with you!",
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9988),
-                            ProductId = new Guid("99144d35-20d1-45bb-9301-d7275b874d94"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9566),
+                            ProductId = new Guid("97622d2b-8ce7-4c41-ba15-7443e5c6e48f"),
                             Rate = 0,
-                            UserId = "e1c5db55-de77-41c1-ab45-c022d32a2034",
-                            UserReplyId = new Guid("a64613fe-8ff4-4339-8964-5ef3e36e876c")
+                            UserId = "415a79a3-ea4f-4bb7-a6dc-9abf82cba517",
+                            UserReplyId = new Guid("1ed3e918-43fe-41d8-ab97-faa9c2c18e81")
                         },
                         new
                         {
-                            Id = new Guid("b2dc47f0-c0c5-439e-a8ff-31508501b6a6"),
+                            Id = new Guid("b1907f3b-b7c2-49c2-8968-a1a61760126e"),
                             CommentText = "I had a different experience.",
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 979, DateTimeKind.Local).AddTicks(14),
-                            ProductId = new Guid("99144d35-20d1-45bb-9301-d7275b874d94"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9612),
+                            ProductId = new Guid("97622d2b-8ce7-4c41-ba15-7443e5c6e48f"),
                             Rate = 0,
-                            UserId = "dfda172b-27f8-44d5-aef4-d029719eeab7",
-                            UserReplyId = new Guid("a64613fe-8ff4-4339-8964-5ef3e36e876c")
+                            UserId = "821ea039-ebbf-4105-a966-065738232bbf",
+                            UserReplyId = new Guid("1ed3e918-43fe-41d8-ab97-faa9c2c18e81")
                         },
                         new
                         {
-                            Id = new Guid("7d79e633-1e45-4102-a81b-f5c6b63e82e0"),
+                            Id = new Guid("62fd06b3-9081-473e-8b3f-2d84231bf3e5"),
                             CommentText = "Why do you think so?",
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 979, DateTimeKind.Local).AddTicks(22),
-                            ProductId = new Guid("495a42be-85fd-452c-abfc-55edead730af"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9624),
+                            ProductId = new Guid("838697de-b0d3-41b1-b147-cb650b0799ae"),
                             Rate = 0,
-                            UserId = "bdf2f396-543a-4d69-ad81-e346218aec1e",
-                            UserReplyId = new Guid("68d210b6-988f-4841-8f77-7e624d87d439")
+                            UserId = "8d264581-742d-41be-bd07-78c0453e875e",
+                            UserReplyId = new Guid("c72b4e21-2132-4e8e-956c-264521b67399")
                         },
                         new
                         {
-                            Id = new Guid("34c80a15-066b-466f-bf3b-3bb932c20601"),
+                            Id = new Guid("567a2fb2-42f0-465c-84c8-af02cbf589dd"),
                             CommentText = "I had a similar issue.",
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 979, DateTimeKind.Local).AddTicks(34),
-                            ProductId = new Guid("495a42be-85fd-452c-abfc-55edead730af"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9637),
+                            ProductId = new Guid("838697de-b0d3-41b1-b147-cb650b0799ae"),
                             Rate = 0,
-                            UserId = "dfda172b-27f8-44d5-aef4-d029719eeab7",
-                            UserReplyId = new Guid("68d210b6-988f-4841-8f77-7e624d87d439")
+                            UserId = "821ea039-ebbf-4105-a966-065738232bbf",
+                            UserReplyId = new Guid("c72b4e21-2132-4e8e-956c-264521b67399")
                         },
                         new
                         {
-                            Id = new Guid("a2f28ba7-6384-4ba3-ac3c-d42bdba79247"),
+                            Id = new Guid("2465da2f-cacc-4252-9352-ba6c44e2dd75"),
                             CommentText = "I agree, it's a great product.",
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 979, DateTimeKind.Local).AddTicks(46),
-                            ProductId = new Guid("c91d55b2-fae9-4da6-b248-c1f6be6e439a"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9650),
+                            ProductId = new Guid("6f85c21e-7562-49ec-967c-1259850f0197"),
                             Rate = 0,
-                            UserId = "dfd365b0-ed6c-4627-8d91-6f6488d301b1",
-                            UserReplyId = new Guid("fd08bbf6-1d51-41e6-a2fd-1ba7fe1d4807")
+                            UserId = "c28a969e-7d9d-4375-935c-94fd7a32447b",
+                            UserReplyId = new Guid("2eb44b50-03dc-4260-9112-e4f5dd5b58b1")
                         },
                         new
                         {
-                            Id = new Guid("1a3d947f-aa4c-460a-add7-7e99bf048514"),
+                            Id = new Guid("b7bc095e-aea2-49f8-bcd1-819d11f84946"),
                             CommentText = "I thought it was okay.",
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 979, DateTimeKind.Local).AddTicks(55),
-                            ProductId = new Guid("3fd418e6-652b-45f2-9687-224b0655e437"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9667),
+                            ProductId = new Guid("963c9e39-a3a3-4423-864c-58d5f73c174a"),
                             Rate = 0,
-                            UserId = "e1c5db55-de77-41c1-ab45-c022d32a2034",
-                            UserReplyId = new Guid("3fac9b73-305e-43db-91c1-bc98df10e5e4")
+                            UserId = "415a79a3-ea4f-4bb7-a6dc-9abf82cba517",
+                            UserReplyId = new Guid("870c5f78-635d-4d3c-8743-6503cda5313f")
                         },
                         new
                         {
-                            Id = new Guid("6b8aa4ae-d356-4ac3-afe3-fab48737b6cb"),
+                            Id = new Guid("5bbd82a6-c38f-49ed-ba0b-0dd8d7a9fd1e"),
                             CommentText = "It depends on what you're looking for.",
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 979, DateTimeKind.Local).AddTicks(69),
-                            ProductId = new Guid("3fd418e6-652b-45f2-9687-224b0655e437"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9687),
+                            ProductId = new Guid("963c9e39-a3a3-4423-864c-58d5f73c174a"),
                             Rate = 0,
-                            UserId = "bdf2f396-543a-4d69-ad81-e346218aec1e",
-                            UserReplyId = new Guid("3fac9b73-305e-43db-91c1-bc98df10e5e4")
+                            UserId = "8d264581-742d-41be-bd07-78c0453e875e",
+                            UserReplyId = new Guid("870c5f78-635d-4d3c-8743-6503cda5313f")
                         },
                         new
                         {
-                            Id = new Guid("558cf74c-dd8f-4710-9176-db6a8155fcef"),
+                            Id = new Guid("2d730a3e-f11f-47d2-9e2d-649cc75b1117"),
                             CommentText = "I had a different experience with the service.",
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 979, DateTimeKind.Local).AddTicks(81),
-                            ProductId = new Guid("e3589f3d-78ca-4a76-9624-caf516166ddf"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9704),
+                            ProductId = new Guid("79e46632-4787-438a-b0d7-3289d4fcebb8"),
                             Rate = 0,
-                            UserId = "dfda172b-27f8-44d5-aef4-d029719eeab7",
-                            UserReplyId = new Guid("602d79c7-6d77-4c8e-9fb1-64d4b128bbb7")
+                            UserId = "821ea039-ebbf-4105-a966-065738232bbf",
+                            UserReplyId = new Guid("cba0c0b7-5861-4170-acdd-448df80df222")
                         },
                         new
                         {
-                            Id = new Guid("7ca167e4-43f1-4f2d-bfdf-7cb4a725e494"),
+                            Id = new Guid("e36195f3-9ab0-4cfd-bf92-8eb85d140b5f"),
                             CommentText = "They were very helpful for me too.",
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 979, DateTimeKind.Local).AddTicks(91),
-                            ProductId = new Guid("e3589f3d-78ca-4a76-9624-caf516166ddf"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9721),
+                            ProductId = new Guid("79e46632-4787-438a-b0d7-3289d4fcebb8"),
                             Rate = 0,
-                            UserId = "dfd365b0-ed6c-4627-8d91-6f6488d301b1",
-                            UserReplyId = new Guid("602d79c7-6d77-4c8e-9fb1-64d4b128bbb7")
+                            UserId = "c28a969e-7d9d-4375-935c-94fd7a32447b",
+                            UserReplyId = new Guid("cba0c0b7-5861-4170-acdd-448df80df222")
                         },
                         new
                         {
-                            Id = new Guid("a27ff99b-64fd-4e94-810c-658ddce8a56f"),
+                            Id = new Guid("33bddd93-c688-4a64-af9a-62aefe1be959"),
                             CommentText = "Did you contact support?",
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 979, DateTimeKind.Local).AddTicks(102),
-                            ProductId = new Guid("96f0fead-2b10-4c3e-b5d4-5d788dfc7628"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9745),
+                            ProductId = new Guid("81db7cf2-516c-4ea4-a622-4ab5574498bc"),
                             Rate = 0,
-                            UserId = "bdf2f396-543a-4d69-ad81-e346218aec1e",
-                            UserReplyId = new Guid("79ec51b2-f376-4be3-8f18-5fa0e56f6662")
+                            UserId = "8d264581-742d-41be-bd07-78c0453e875e",
+                            UserReplyId = new Guid("5d936bec-d762-4e71-bebb-d0b3e93b2604")
                         },
                         new
                         {
-                            Id = new Guid("dc03242a-20e3-407f-b46a-d94941199f1f"),
+                            Id = new Guid("df908308-f869-4410-a648-771669e65b49"),
                             CommentText = "I had the same issue. They sent a replacement quickly.",
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 979, DateTimeKind.Local).AddTicks(126),
-                            ProductId = new Guid("96f0fead-2b10-4c3e-b5d4-5d788dfc7628"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9777),
+                            ProductId = new Guid("81db7cf2-516c-4ea4-a622-4ab5574498bc"),
                             Rate = 0,
-                            UserId = "dfd365b0-ed6c-4627-8d91-6f6488d301b1",
-                            UserReplyId = new Guid("79ec51b2-f376-4be3-8f18-5fa0e56f6662")
+                            UserId = "c28a969e-7d9d-4375-935c-94fd7a32447b",
+                            UserReplyId = new Guid("5d936bec-d762-4e71-bebb-d0b3e93b2604")
                         });
                 });
 
@@ -776,9 +776,9 @@ namespace TechShop.Core.Migrations
                     b.HasData(
                         new
                         {
-                            ID = new Guid("0f2456ef-da81-4455-9dfc-e5d6d4205849"),
+                            ID = new Guid("7e63353d-082c-403a-b8ec-88302752b402"),
                             LoyaltyPoints = 150,
-                            UserID = "f7ab9962-24e9-43fa-b81d-af09531b6048"
+                            UserID = "7b22ab2c-9296-459e-84f2-2adb73ae5eb2"
                         });
                 });
 
@@ -815,84 +815,84 @@ namespace TechShop.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("67507f8c-2351-48b7-b07e-6b50b69fb7db"),
-                            CategoryId = new Guid("6d0dfc2c-f26f-4ec4-aab7-59079e5fe7c5"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9660),
+                            Id = new Guid("eb1a7e41-fe30-4fad-80ac-310243d276f7"),
+                            CategoryId = new Guid("1c0a8365-f773-447f-bd57-d077c0d35bfe"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9007),
                             Name = "4GB RAM",
-                            SpecificationId = new Guid("140cb12c-ba27-4e99-8d60-319711f1ecf1"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9660)
+                            SpecificationId = new Guid("948251d0-8263-4e6e-979f-c870aac3076f"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9009)
                         },
                         new
                         {
-                            Id = new Guid("894f8507-cf37-4d63-9c16-993b543654a6"),
-                            CategoryId = new Guid("6d0dfc2c-f26f-4ec4-aab7-59079e5fe7c5"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9664),
+                            Id = new Guid("5f657eb3-0e5a-4d92-9e62-511eb5eca44e"),
+                            CategoryId = new Guid("1c0a8365-f773-447f-bd57-d077c0d35bfe"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9021),
                             Name = "128GB Storage",
-                            SpecificationId = new Guid("140cb12c-ba27-4e99-8d60-319711f1ecf1"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9664)
+                            SpecificationId = new Guid("948251d0-8263-4e6e-979f-c870aac3076f"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9022)
                         },
                         new
                         {
-                            Id = new Guid("90abdddb-d6a9-414f-b40d-70e1756a0b83"),
-                            CategoryId = new Guid("80ff6f18-ea57-43f3-9b8d-226a4b002758"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9667),
+                            Id = new Guid("e2f32831-c697-42f3-aeec-de4088d64477"),
+                            CategoryId = new Guid("5e841f78-2a03-489d-84f0-68dbb3c517ca"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9027),
                             Name = "8GB RAM",
-                            SpecificationId = new Guid("140cb12c-ba27-4e99-8d60-319711f1ecf1"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9668)
+                            SpecificationId = new Guid("948251d0-8263-4e6e-979f-c870aac3076f"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9028)
                         },
                         new
                         {
-                            Id = new Guid("fa45c0be-014d-4e41-bbd4-4fc7bec97358"),
-                            CategoryId = new Guid("80ff6f18-ea57-43f3-9b8d-226a4b002758"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9673),
+                            Id = new Guid("7925a857-398f-4b7f-a7d0-a01904e05e6e"),
+                            CategoryId = new Guid("5e841f78-2a03-489d-84f0-68dbb3c517ca"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9032),
                             Name = "256GB Storage",
-                            SpecificationId = new Guid("140cb12c-ba27-4e99-8d60-319711f1ecf1"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9674)
+                            SpecificationId = new Guid("948251d0-8263-4e6e-979f-c870aac3076f"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9033)
                         },
                         new
                         {
-                            Id = new Guid("54794ede-52fb-46fb-b35f-9285d51338eb"),
-                            CategoryId = new Guid("2f17b91e-1f82-4720-8f32-c972ec3c8a09"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9677),
+                            Id = new Guid("7b15e343-ae04-40d1-9950-0d2e0e23c343"),
+                            CategoryId = new Guid("9fec396e-94c7-426b-a79a-f9345ea94de4"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9037),
                             Name = "OLED Display",
-                            SpecificationId = new Guid("140cb12c-ba27-4e99-8d60-319711f1ecf1"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9677)
+                            SpecificationId = new Guid("948251d0-8263-4e6e-979f-c870aac3076f"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9037)
                         },
                         new
                         {
-                            Id = new Guid("a94775da-e452-4270-9a05-537f103cd70b"),
-                            CategoryId = new Guid("2f17b91e-1f82-4720-8f32-c972ec3c8a09"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9680),
+                            Id = new Guid("9790b22f-453f-4374-8d34-951b2be08d0e"),
+                            CategoryId = new Guid("9fec396e-94c7-426b-a79a-f9345ea94de4"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9043),
                             Name = "5G Connectivity",
-                            SpecificationId = new Guid("140cb12c-ba27-4e99-8d60-319711f1ecf1"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9681)
+                            SpecificationId = new Guid("948251d0-8263-4e6e-979f-c870aac3076f"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9044)
                         },
                         new
                         {
-                            Id = new Guid("3c4265fb-955d-4e2d-9d7f-2f40ca0164ff"),
-                            CategoryId = new Guid("908d467a-84ca-4b7f-a37c-d9964bd3d788"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9684),
+                            Id = new Guid("e70d04c4-c1c7-45d4-aa33-a7906a492742"),
+                            CategoryId = new Guid("08316261-0d65-42da-a033-0320c202bbfa"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9047),
                             Name = "Water Resistant",
-                            SpecificationId = new Guid("140cb12c-ba27-4e99-8d60-319711f1ecf1"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9685)
+                            SpecificationId = new Guid("948251d0-8263-4e6e-979f-c870aac3076f"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9048)
                         },
                         new
                         {
-                            Id = new Guid("5a6e4e4e-f8ce-46f7-b5e2-7e8968ce43ed"),
-                            CategoryId = new Guid("908d467a-84ca-4b7f-a37c-d9964bd3d788"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9687),
+                            Id = new Guid("7da27815-7ec1-4747-b42d-a04ac778c62c"),
+                            CategoryId = new Guid("08316261-0d65-42da-a033-0320c202bbfa"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9052),
                             Name = "Heart Rate Monitor",
-                            SpecificationId = new Guid("140cb12c-ba27-4e99-8d60-319711f1ecf1"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9688)
+                            SpecificationId = new Guid("948251d0-8263-4e6e-979f-c870aac3076f"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9053)
                         },
                         new
                         {
-                            Id = new Guid("37d35afd-167d-4be2-915d-80074b52c4b8"),
-                            CategoryId = new Guid("ad295af0-70e4-4a63-8e37-eeb960e8998e"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9692),
+                            Id = new Guid("bde49d4d-4693-4315-b7f3-4441e690c411"),
+                            CategoryId = new Guid("3ed05c58-1153-40d5-8bea-4f37757eaee4"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9061),
                             Name = "4K UHD",
-                            SpecificationId = new Guid("140cb12c-ba27-4e99-8d60-319711f1ecf1"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9693)
+                            SpecificationId = new Guid("948251d0-8263-4e6e-979f-c870aac3076f"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9062)
                         });
                 });
 
@@ -948,11 +948,11 @@ namespace TechShop.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("31414b0c-3bbe-4554-8486-0ac395122e64"),
+                            Id = new Guid("e66f82d9-7fed-44ad-8ae2-3d9f409a17e1"),
                             Address = "New York, USA",
-                            CollaboratorId = new Guid("28e0105a-3dbe-45c1-8bdf-332755f6e704"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9590),
-                            CustomerId = new Guid("0f2456ef-da81-4455-9dfc-e5d6d4205849"),
+                            CollaboratorId = new Guid("d7bdf57d-2249-4de5-be3f-3509ee5e6e7d"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8835),
+                            CustomerId = new Guid("7e63353d-082c-403a-b8ec-88302752b402"),
                             MethodPaymment = "Credit Card",
                             Name = "John Doe",
                             Status = 1,
@@ -960,11 +960,11 @@ namespace TechShop.Core.Migrations
                         },
                         new
                         {
-                            Id = new Guid("e93998d4-4f87-4e31-905d-78d701c39974"),
+                            Id = new Guid("76d08cc3-fece-48a3-91a3-197e87c291eb"),
                             Address = "Los Angeles, USA",
-                            CollaboratorId = new Guid("28e0105a-3dbe-45c1-8bdf-332755f6e704"),
-                            CreatedAt = new DateTime(2024, 9, 21, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9597),
-                            CustomerId = new Guid("0f2456ef-da81-4455-9dfc-e5d6d4205849"),
+                            CollaboratorId = new Guid("d7bdf57d-2249-4de5-be3f-3509ee5e6e7d"),
+                            CreatedAt = new DateTime(2024, 9, 25, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8854),
+                            CustomerId = new Guid("7e63353d-082c-403a-b8ec-88302752b402"),
                             MethodPaymment = "PayPal",
                             Name = "Jane Doe",
                             Status = 2,
@@ -972,11 +972,11 @@ namespace TechShop.Core.Migrations
                         },
                         new
                         {
-                            Id = new Guid("1128508f-956a-4d0d-bd29-563ced37221e"),
+                            Id = new Guid("04451aa3-4eb6-47d5-86aa-0cb265f76a5e"),
                             Address = "San Francisco, USA",
-                            CollaboratorId = new Guid("28e0105a-3dbe-45c1-8bdf-332755f6e704"),
-                            CreatedAt = new DateTime(2024, 9, 16, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9607),
-                            CustomerId = new Guid("0f2456ef-da81-4455-9dfc-e5d6d4205849"),
+                            CollaboratorId = new Guid("d7bdf57d-2249-4de5-be3f-3509ee5e6e7d"),
+                            CreatedAt = new DateTime(2024, 9, 20, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8866),
+                            CustomerId = new Guid("7e63353d-082c-403a-b8ec-88302752b402"),
                             MethodPaymment = "Bank Transfer",
                             Name = "John Doe",
                             Status = 3,
@@ -1013,43 +1013,43 @@ namespace TechShop.Core.Migrations
                     b.HasData(
                         new
                         {
-                            InvoiceId = new Guid("31414b0c-3bbe-4554-8486-0ac395122e64"),
-                            ProductColorsId = new Guid("a7183b5b-3fb8-4319-a450-2ef9846f0800"),
+                            InvoiceId = new Guid("e66f82d9-7fed-44ad-8ae2-3d9f409a17e1"),
+                            ProductColorsId = new Guid("8aa53a8f-6358-4b16-aa7c-640f02bd26f5"),
                             ProductPrice = 999.99000000000001,
                             Quantity = 1
                         },
                         new
                         {
-                            InvoiceId = new Guid("31414b0c-3bbe-4554-8486-0ac395122e64"),
-                            ProductColorsId = new Guid("55341dcd-b668-4f86-9f20-fa976e086e7d"),
+                            InvoiceId = new Guid("e66f82d9-7fed-44ad-8ae2-3d9f409a17e1"),
+                            ProductColorsId = new Guid("3eb5f024-6d98-4bc5-ab11-789e5cc55139"),
                             ProductPrice = 799.99000000000001,
                             Quantity = 2
                         },
                         new
                         {
-                            InvoiceId = new Guid("e93998d4-4f87-4e31-905d-78d701c39974"),
-                            ProductColorsId = new Guid("1e414639-10d2-4acc-a8ff-f6899551cdbf"),
+                            InvoiceId = new Guid("76d08cc3-fece-48a3-91a3-197e87c291eb"),
+                            ProductColorsId = new Guid("2570da2a-3417-4ddb-8495-ee1fd82f5c8e"),
                             ProductPrice = 849.99000000000001,
                             Quantity = 1
                         },
                         new
                         {
-                            InvoiceId = new Guid("e93998d4-4f87-4e31-905d-78d701c39974"),
-                            ProductColorsId = new Guid("d766c004-7f88-46de-95bf-32dbfb273d02"),
+                            InvoiceId = new Guid("76d08cc3-fece-48a3-91a3-197e87c291eb"),
+                            ProductColorsId = new Guid("309f4640-5110-4f27-a086-7c83a355b47a"),
                             ProductPrice = 999.99000000000001,
                             Quantity = 3
                         },
                         new
                         {
-                            InvoiceId = new Guid("1128508f-956a-4d0d-bd29-563ced37221e"),
-                            ProductColorsId = new Guid("9dd2f04b-de01-4295-9cab-6e6bf6992fbe"),
+                            InvoiceId = new Guid("04451aa3-4eb6-47d5-86aa-0cb265f76a5e"),
+                            ProductColorsId = new Guid("fe569fd5-81ec-4657-b4c1-22b3871a2124"),
                             ProductPrice = 1199.99,
                             Quantity = 1
                         },
                         new
                         {
-                            InvoiceId = new Guid("1128508f-956a-4d0d-bd29-563ced37221e"),
-                            ProductColorsId = new Guid("87fc82e9-9e05-4f88-9a49-13c590c22534"),
+                            InvoiceId = new Guid("04451aa3-4eb6-47d5-86aa-0cb265f76a5e"),
+                            ProductColorsId = new Guid("e07e09e0-631f-4a57-a653-b806d3d98c84"),
                             ProductPrice = 1199.99,
                             Quantity = 1
                         });
@@ -1082,65 +1082,65 @@ namespace TechShop.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("da8ec773-6b4a-445d-9f4b-4242a5ccead9"),
-                            ChatId = new Guid("61440a81-0cbf-4ba4-a9d8-be04f00b9109"),
-                            CreateAt = new DateTime(2024, 9, 26, 9, 41, 52, 979, DateTimeKind.Local).AddTicks(196),
+                            Id = new Guid("faa0685b-c6f3-4bcb-8ed8-3ad045e19674"),
+                            ChatId = new Guid("8e5e9094-ec27-4c57-b5f1-11827cbe74bf"),
+                            CreateAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9841),
                             IsCustomer = true,
                             Text_message = "Hello you"
                         },
                         new
                         {
-                            Id = new Guid("196b793b-bb3e-46ba-b35f-690eafb0023f"),
-                            ChatId = new Guid("61440a81-0cbf-4ba4-a9d8-be04f00b9109"),
-                            CreateAt = new DateTime(2024, 9, 26, 9, 42, 52, 979, DateTimeKind.Local).AddTicks(201),
+                            Id = new Guid("c67ee899-e612-4a58-875c-4df6a3b0ab76"),
+                            ChatId = new Guid("8e5e9094-ec27-4c57-b5f1-11827cbe74bf"),
+                            CreateAt = new DateTime(2024, 9, 30, 10, 23, 36, 315, DateTimeKind.Local).AddTicks(9853),
                             IsCustomer = false,
                             Text_message = "Hello, how are you today"
                         },
                         new
                         {
-                            Id = new Guid("0d4ac38f-86b1-4ad2-8759-2e11a31cca6c"),
-                            ChatId = new Guid("61440a81-0cbf-4ba4-a9d8-be04f00b9109"),
-                            CreateAt = new DateTime(2024, 9, 26, 9, 43, 52, 979, DateTimeKind.Local).AddTicks(205),
+                            Id = new Guid("a7b9773e-43ec-4ae6-890a-2040515cff33"),
+                            ChatId = new Guid("8e5e9094-ec27-4c57-b5f1-11827cbe74bf"),
+                            CreateAt = new DateTime(2024, 9, 30, 10, 24, 36, 315, DateTimeKind.Local).AddTicks(9861),
                             IsCustomer = true,
                             Text_message = "Im fine, but my boss at FPT 'Chen ep' me, i can't work at the company anymore"
                         },
                         new
                         {
-                            Id = new Guid("567409c2-2100-4d78-96a1-dd02a55e342c"),
-                            ChatId = new Guid("61440a81-0cbf-4ba4-a9d8-be04f00b9109"),
-                            CreateAt = new DateTime(2024, 9, 26, 9, 44, 52, 979, DateTimeKind.Local).AddTicks(207),
+                            Id = new Guid("7bf01183-026b-479c-9fbe-75ddceba118d"),
+                            ChatId = new Guid("8e5e9094-ec27-4c57-b5f1-11827cbe74bf"),
+                            CreateAt = new DateTime(2024, 9, 30, 10, 25, 36, 315, DateTimeKind.Local).AddTicks(9865),
                             IsCustomer = false,
                             Text_message = "Your boss is Nguyen Phuc Du"
                         },
                         new
                         {
-                            Id = new Guid("7f9a27f1-55f3-4d07-a5ab-9efae69cb2eb"),
-                            ChatId = new Guid("61440a81-0cbf-4ba4-a9d8-be04f00b9109"),
-                            CreateAt = new DateTime(2024, 9, 26, 9, 45, 52, 979, DateTimeKind.Local).AddTicks(210),
+                            Id = new Guid("4d03dd4e-1b0b-458f-bcc6-7aeda12cb491"),
+                            ChatId = new Guid("8e5e9094-ec27-4c57-b5f1-11827cbe74bf"),
+                            CreateAt = new DateTime(2024, 9, 30, 10, 26, 36, 315, DateTimeKind.Local).AddTicks(9873),
                             IsCustomer = true,
                             Text_message = "Yes, i working like a dog day and day, and he not allow me rest, alse the holiday he assign so many task to me"
                         },
                         new
                         {
-                            Id = new Guid("1a224c1a-c782-4b28-a6cc-4ddc681a22e7"),
-                            ChatId = new Guid("61440a81-0cbf-4ba4-a9d8-be04f00b9109"),
-                            CreateAt = new DateTime(2024, 9, 26, 9, 46, 52, 979, DateTimeKind.Local).AddTicks(213),
+                            Id = new Guid("5d8ed3b4-defb-401f-a294-555b1699f680"),
+                            ChatId = new Guid("8e5e9094-ec27-4c57-b5f1-11827cbe74bf"),
+                            CreateAt = new DateTime(2024, 9, 30, 10, 27, 36, 315, DateTimeKind.Local).AddTicks(9878),
                             IsCustomer = false,
                             Text_message = "Im sorry about that, i hear so many the complain about your boss"
                         },
                         new
                         {
-                            Id = new Guid("c32757c7-8cbc-4119-90d7-65171d69bf4d"),
-                            ChatId = new Guid("70d16e23-5df5-486e-8e68-e49aa8550a9c"),
-                            CreateAt = new DateTime(2024, 9, 26, 9, 47, 52, 979, DateTimeKind.Local).AddTicks(216),
+                            Id = new Guid("1d6dc86e-4821-4205-9b1e-9450bddc0ec0"),
+                            ChatId = new Guid("3d7bc032-2950-4d50-9502-028d1b6c8341"),
+                            CreateAt = new DateTime(2024, 9, 30, 10, 28, 36, 315, DateTimeKind.Local).AddTicks(9882),
                             IsCustomer = true,
                             Text_message = "Hello"
                         },
                         new
                         {
-                            Id = new Guid("0d4ad93e-e3cd-4b07-adbc-671d1a6f3b8f"),
-                            ChatId = new Guid("70d16e23-5df5-486e-8e68-e49aa8550a9c"),
-                            CreateAt = new DateTime(2024, 9, 26, 9, 48, 52, 979, DateTimeKind.Local).AddTicks(221),
+                            Id = new Guid("ed23d914-607c-4fa4-a91b-cebb23637454"),
+                            ChatId = new Guid("3d7bc032-2950-4d50-9502-028d1b6c8341"),
+                            CreateAt = new DateTime(2024, 9, 30, 10, 29, 36, 315, DateTimeKind.Local).AddTicks(9886),
                             IsCustomer = false,
                             Text_message = "F*ck you"
                         });
@@ -1180,43 +1180,43 @@ namespace TechShop.Core.Migrations
                     b.HasData(
                         new
                         {
-                            CustomerId = new Guid("0f2456ef-da81-4455-9dfc-e5d6d4205849"),
-                            ProductColorId = new Guid("a7183b5b-3fb8-4319-a450-2ef9846f0800"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9767),
+                            CustomerId = new Guid("7e63353d-082c-403a-b8ec-88302752b402"),
+                            ProductColorId = new Guid("8aa53a8f-6358-4b16-aa7c-640f02bd26f5"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9179),
                             Quanitity = 2,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9768)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9180)
                         },
                         new
                         {
-                            CustomerId = new Guid("0f2456ef-da81-4455-9dfc-e5d6d4205849"),
-                            ProductColorId = new Guid("55341dcd-b668-4f86-9f20-fa976e086e7d"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9771),
+                            CustomerId = new Guid("7e63353d-082c-403a-b8ec-88302752b402"),
+                            ProductColorId = new Guid("3eb5f024-6d98-4bc5-ab11-789e5cc55139"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9188),
                             Quanitity = 1,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9771)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9188)
                         },
                         new
                         {
-                            CustomerId = new Guid("0f2456ef-da81-4455-9dfc-e5d6d4205849"),
-                            ProductColorId = new Guid("1e414639-10d2-4acc-a8ff-f6899551cdbf"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9773),
+                            CustomerId = new Guid("7e63353d-082c-403a-b8ec-88302752b402"),
+                            ProductColorId = new Guid("2570da2a-3417-4ddb-8495-ee1fd82f5c8e"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9191),
                             Quanitity = 3,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9774)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9192)
                         },
                         new
                         {
-                            CustomerId = new Guid("0f2456ef-da81-4455-9dfc-e5d6d4205849"),
-                            ProductColorId = new Guid("d766c004-7f88-46de-95bf-32dbfb273d02"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9776),
+                            CustomerId = new Guid("7e63353d-082c-403a-b8ec-88302752b402"),
+                            ProductColorId = new Guid("309f4640-5110-4f27-a086-7c83a355b47a"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9198),
                             Quanitity = 1,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9776)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9199)
                         },
                         new
                         {
-                            CustomerId = new Guid("0f2456ef-da81-4455-9dfc-e5d6d4205849"),
-                            ProductColorId = new Guid("9dd2f04b-de01-4295-9cab-6e6bf6992fbe"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9778),
+                            CustomerId = new Guid("7e63353d-082c-403a-b8ec-88302752b402"),
+                            ProductColorId = new Guid("fe569fd5-81ec-4657-b4c1-22b3871a2124"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9201),
                             Quanitity = 2,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9779)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(9202)
                         });
                 });
 
@@ -1265,275 +1265,275 @@ namespace TechShop.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("99144d35-20d1-45bb-9301-d7275b874d94"),
-                            BrandId = new Guid("7a0f7330-2fe2-432d-91c1-ee96a48a8ca8"),
-                            CategoryId = new Guid("6d0dfc2c-f26f-4ec4-aab7-59079e5fe7c5"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8811),
+                            Id = new Guid("97622d2b-8ce7-4c41-ba15-7443e5c6e48f"),
+                            BrandId = new Guid("47d6c021-87a6-44c0-bf6d-d400ce8aeef2"),
+                            CategoryId = new Guid("1c0a8365-f773-447f-bd57-d077c0d35bfe"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7729),
                             Description = "Latest Apple iPhone with A15 Bionic chip.",
                             Discount = 5,
                             Image = "https://example.com/images/iphone13.jpg",
                             Name = "iPhone 13",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8813),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7730),
                             UrlSlug = "iphone-13"
                         },
                         new
                         {
-                            Id = new Guid("495a42be-85fd-452c-abfc-55edead730af"),
-                            BrandId = new Guid("85e9a56d-fc9b-4e1f-ad68-21cca7dfb436"),
-                            CategoryId = new Guid("80ff6f18-ea57-43f3-9b8d-226a4b002758"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8818),
+                            Id = new Guid("838697de-b0d3-41b1-b147-cb650b0799ae"),
+                            BrandId = new Guid("69d1badd-25a1-4d32-8b55-fef6f7b519ed"),
+                            CategoryId = new Guid("5e841f78-2a03-489d-84f0-68dbb3c517ca"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7746),
                             Description = "Flagship Samsung phone with Exynos 2100.",
                             Discount = 10,
                             Image = "https://example.com/images/galaxy-s21.jpg",
                             Name = "Samsung Galaxy S21",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8819),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7746),
                             UrlSlug = "galaxy-s21"
                         },
                         new
                         {
-                            Id = new Guid("c91d55b2-fae9-4da6-b248-c1f6be6e439a"),
-                            BrandId = new Guid("7a0f7330-2fe2-432d-91c1-ee96a48a8ca8"),
-                            CategoryId = new Guid("2f17b91e-1f82-4720-8f32-c972ec3c8a09"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8822),
+                            Id = new Guid("6f85c21e-7562-49ec-967c-1259850f0197"),
+                            BrandId = new Guid("47d6c021-87a6-44c0-bf6d-d400ce8aeef2"),
+                            CategoryId = new Guid("9fec396e-94c7-426b-a79a-f9345ea94de4"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7752),
                             Description = "Apple iPad Pro with M1 chip.",
                             Discount = 7,
                             Image = "https://example.com/images/ipad-pro.jpg",
                             Name = "iPad Pro",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8823),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7753),
                             UrlSlug = "ipad-pro"
                         },
                         new
                         {
-                            Id = new Guid("3fd418e6-652b-45f2-9687-224b0655e437"),
-                            BrandId = new Guid("85e9a56d-fc9b-4e1f-ad68-21cca7dfb436"),
-                            CategoryId = new Guid("908d467a-84ca-4b7f-a37c-d9964bd3d788"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8830),
+                            Id = new Guid("963c9e39-a3a3-4423-864c-58d5f73c174a"),
+                            BrandId = new Guid("69d1badd-25a1-4d32-8b55-fef6f7b519ed"),
+                            CategoryId = new Guid("08316261-0d65-42da-a033-0320c202bbfa"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7759),
                             Description = "Smartwatch with advanced health tracking features.",
                             Discount = 12,
                             Image = "https://example.com/images/galaxy-watch.jpg",
                             Name = "Samsung Galaxy Watch",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8831),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7760),
                             UrlSlug = "galaxy-watch"
                         },
                         new
                         {
-                            Id = new Guid("e3589f3d-78ca-4a76-9624-caf516166ddf"),
-                            BrandId = new Guid("6153d1df-8e4c-4f10-ab8e-a60809573c05"),
-                            CategoryId = new Guid("ad295af0-70e4-4a63-8e37-eeb960e8998e"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8838),
+                            Id = new Guid("79e46632-4787-438a-b0d7-3289d4fcebb8"),
+                            BrandId = new Guid("e43f1172-920a-465f-a2ae-6f249615127d"),
+                            CategoryId = new Guid("3ed05c58-1153-40d5-8bea-4f37757eaee4"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7771),
                             Description = "4K UHD Smart TV with OLED display.",
                             Discount = 15,
                             Image = "https://example.com/images/sony-bravia.jpg",
                             Name = "Sony Bravia 55-inch",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8839),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7772),
                             UrlSlug = "sony-bravia"
                         },
                         new
                         {
-                            Id = new Guid("96f0fead-2b10-4c3e-b5d4-5d788dfc7628"),
-                            BrandId = new Guid("48720627-137e-4089-9668-f8f3b823186a"),
-                            CategoryId = new Guid("80ff6f18-ea57-43f3-9b8d-226a4b002758"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8988),
+                            Id = new Guid("81db7cf2-516c-4ea4-a622-4ab5574498bc"),
+                            BrandId = new Guid("4378e25a-b9af-4cfb-aab6-50d39d4acc7a"),
+                            CategoryId = new Guid("5e841f78-2a03-489d-84f0-68dbb3c517ca"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7777),
                             Description = "Compact and powerful ultrabook with Intel i7 processor.",
                             Discount = 10,
                             Image = "https://example.com/images/dell-xps13.jpg",
                             Name = "Dell XPS 13",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8989),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7778),
                             UrlSlug = "dell-xps13"
                         },
                         new
                         {
-                            Id = new Guid("d8941bfd-43dc-40d0-a03a-11798de391fc"),
-                            BrandId = new Guid("a0afc49f-f2c1-4c04-8916-4e05b6ac7fe0"),
-                            CategoryId = new Guid("76f25b28-3096-4a32-9a3a-5646b720015f"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8993),
+                            Id = new Guid("6a3592ed-a136-43c9-ba49-540a621fd7a6"),
+                            BrandId = new Guid("8289000d-d3c4-4f82-9a2f-8f8b2c969b22"),
+                            CategoryId = new Guid("b75fdf86-928a-4311-897d-dfdc98ffbcdf"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7783),
                             Description = "Affordable desktop with AMD Ryzen processor.",
                             Discount = 20,
                             Image = "https://example.com/images/hp-pavilion.jpg",
                             Name = "HP Pavilion Desktop",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8993),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7784),
                             UrlSlug = "hp-pavilion"
                         },
                         new
                         {
-                            Id = new Guid("a8840f4b-3d25-4737-89b1-5c359c05cb00"),
-                            BrandId = new Guid("efd5a997-0a4f-457a-9969-df088d01c82e"),
-                            CategoryId = new Guid("dbc5b522-1516-4469-a7a1-b42e2637b3cd"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8997),
+                            Id = new Guid("d59af16d-2581-49ab-b6aa-2ea2e6563ae4"),
+                            BrandId = new Guid("3756f15d-dfb0-4f59-8970-cbfba08d6a0c"),
+                            CategoryId = new Guid("9a32ac7e-b354-44a9-b9e2-ef6a2458d76f"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7791),
                             Description = "High-performance gaming laptop with NVIDIA RTX graphics.",
                             Discount = 18,
                             Image = "https://example.com/images/lenovo-legion5.jpg",
                             Name = "Lenovo Legion 5",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(8997),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7792),
                             UrlSlug = "lenovo-legion5"
                         },
                         new
                         {
-                            Id = new Guid("7466bf1b-6888-4d9c-a83b-697a76f82ee3"),
-                            BrandId = new Guid("c86a7099-dea4-46b2-9017-12bc015d23e4"),
-                            CategoryId = new Guid("dbc5b522-1516-4469-a7a1-b42e2637b3cd"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9000),
+                            Id = new Guid("fbfb9d1d-ac03-442d-8d95-43e82ffb9297"),
+                            BrandId = new Guid("e8ef4371-53f4-4a5e-a466-02314813db37"),
+                            CategoryId = new Guid("9a32ac7e-b354-44a9-b9e2-ef6a2458d76f"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7804),
                             Description = "Next-gen gaming console with 4K gaming capabilities.",
                             Discount = 5,
                             Image = "https://example.com/images/xbox-series-x.jpg",
                             Name = "Microsoft Xbox Series X",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9004),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7806),
                             UrlSlug = "xbox-series-x"
                         },
                         new
                         {
-                            Id = new Guid("76a1caa8-5d92-4dfa-83e2-09beed5af447"),
-                            BrandId = new Guid("210eb0ed-23fd-42f8-9dd7-b00cfd19715e"),
-                            CategoryId = new Guid("80ff6f18-ea57-43f3-9b8d-226a4b002758"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9010),
+                            Id = new Guid("11f1f291-763c-49ad-b4d2-2372dbaa6210"),
+                            BrandId = new Guid("9b245f1d-e6fa-4419-a832-a059f4b67fef"),
+                            CategoryId = new Guid("5e841f78-2a03-489d-84f0-68dbb3c517ca"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7812),
                             Description = "Ultra-thin gaming laptop with AMD Ryzen 9 processor.",
                             Discount = 15,
                             Image = "https://example.com/images/asus-rog.jpg",
                             Name = "Asus ROG Zephyrus",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9011),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7813),
                             UrlSlug = "asus-rog-zephyrus"
                         },
                         new
                         {
-                            Id = new Guid("2807a392-5d67-4bf8-ad60-619cbd15b389"),
-                            BrandId = new Guid("ed7da3d4-b839-4c35-ae1c-663760a9794d"),
-                            CategoryId = new Guid("76f25b28-3096-4a32-9a3a-5646b720015f"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9014),
+                            Id = new Guid("6cb3acc9-d11f-46a6-8fdb-58bc377a9f02"),
+                            BrandId = new Guid("d9bd6258-c767-4c70-8451-8327ec3b9e87"),
+                            CategoryId = new Guid("b75fdf86-928a-4311-897d-dfdc98ffbcdf"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7818),
                             Description = "Compact gaming desktop with powerful performance.",
                             Discount = 20,
                             Image = "https://example.com/images/acer-predator.jpg",
                             Name = "Acer Predator Orion 3000",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9015),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7819),
                             UrlSlug = "acer-predator-orion"
                         },
                         new
                         {
-                            Id = new Guid("787ec87d-d82d-4bb9-ba3c-517e7e60d16f"),
-                            BrandId = new Guid("fe9d1df6-9f06-4436-b52f-bc821466c09a"),
-                            CategoryId = new Guid("6d0dfc2c-f26f-4ec4-aab7-59079e5fe7c5"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9021),
+                            Id = new Guid("d37bb274-8a87-4682-9acb-f07650b04918"),
+                            BrandId = new Guid("e964ac17-9719-402c-b0a2-01951d1b31d5"),
+                            CategoryId = new Guid("1c0a8365-f773-447f-bd57-d077c0d35bfe"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7824),
                             Description = "Flagship Huawei smartphone with cutting-edge technology.",
                             Discount = 10,
                             Image = "https://example.com/images/huawei-mate40.jpg",
                             Name = "Huawei Mate 40 Pro",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9021),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7824),
                             UrlSlug = "huawei-mate40-pro"
                         },
                         new
                         {
-                            Id = new Guid("05553658-96ea-4fbe-bcdd-9bcb60714da6"),
-                            BrandId = new Guid("7a0f7330-2fe2-432d-91c1-ee96a48a8ca8"),
-                            CategoryId = new Guid("09e18647-e4e5-4eb2-8b47-cf0d8802eafd"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9025),
+                            Id = new Guid("03727abf-ffb5-4a6a-85e5-a65e6b7e8b77"),
+                            BrandId = new Guid("47d6c021-87a6-44c0-bf6d-d400ce8aeef2"),
+                            CategoryId = new Guid("dd515d07-2b68-429c-af48-5910917bbadf"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7925),
                             Description = "Wireless earbuds with active noise cancellation.",
                             Discount = 5,
                             Image = "https://example.com/images/airpods-pro.jpg",
                             Name = "Apple AirPods Pro",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9026),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7926),
                             UrlSlug = "airpods-pro"
                         },
                         new
                         {
-                            Id = new Guid("c3686570-7258-447e-8495-f776f2298ee0"),
-                            BrandId = new Guid("85e9a56d-fc9b-4e1f-ad68-21cca7dfb436"),
-                            CategoryId = new Guid("aff23a31-95a1-4f59-8d71-7d99aa9eb71a"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9029),
+                            Id = new Guid("8e92b5d8-3a67-48cb-b11b-5b781d2e85df"),
+                            BrandId = new Guid("69d1badd-25a1-4d32-8b55-fef6f7b519ed"),
+                            CategoryId = new Guid("e863a608-ba3d-4c19-88aa-ccf8fbb887cd"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7932),
                             Description = "True wireless earbuds with premium sound.",
                             Discount = 8,
                             Image = "https://example.com/images/galaxy-buds.jpg",
                             Name = "Samsung Galaxy Buds Live",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9030),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7933),
                             UrlSlug = "galaxy-buds-live"
                         },
                         new
                         {
-                            Id = new Guid("7364d009-fb9d-4ac8-904f-fb8839dd6628"),
-                            BrandId = new Guid("6153d1df-8e4c-4f10-ab8e-a60809573c05"),
-                            CategoryId = new Guid("dbc5b522-1516-4469-a7a1-b42e2637b3cd"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9034),
+                            Id = new Guid("8801342a-9f51-47df-827d-9d98f0962882"),
+                            BrandId = new Guid("e43f1172-920a-465f-a2ae-6f249615127d"),
+                            CategoryId = new Guid("9a32ac7e-b354-44a9-b9e2-ef6a2458d76f"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7939),
                             Description = "Industry-leading noise canceling headphones.",
                             Discount = 12,
                             Image = "https://example.com/images/sony-wh1000xm4.jpg",
                             Name = "Sony WH-1000XM4",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9034),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7940),
                             UrlSlug = "sony-wh1000xm4"
                         },
                         new
                         {
-                            Id = new Guid("755696b8-c634-4bcd-8382-fed5b9db3e38"),
-                            BrandId = new Guid("48720627-137e-4089-9668-f8f3b823186a"),
-                            CategoryId = new Guid("dbc5b522-1516-4469-a7a1-b42e2637b3cd"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9038),
+                            Id = new Guid("e3d0f57d-4323-4b31-92cb-d968a394a3a0"),
+                            BrandId = new Guid("4378e25a-b9af-4cfb-aab6-50d39d4acc7a"),
+                            CategoryId = new Guid("9a32ac7e-b354-44a9-b9e2-ef6a2458d76f"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7949),
                             Description = "Top-tier gaming desktop with cutting-edge hardware.",
                             Discount = 18,
                             Image = "https://example.com/images/alienware.jpg",
                             Name = "Dell Alienware",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9038),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7950),
                             UrlSlug = "dell-alienware"
                         },
                         new
                         {
-                            Id = new Guid("1c2fb759-8ee2-40eb-942b-15cfc5ffe140"),
-                            BrandId = new Guid("a0afc49f-f2c1-4c04-8916-4e05b6ac7fe0"),
-                            CategoryId = new Guid("80ff6f18-ea57-43f3-9b8d-226a4b002758"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9042),
+                            Id = new Guid("7a47207f-eed6-425b-adb4-6b764de3dc59"),
+                            BrandId = new Guid("8289000d-d3c4-4f82-9a2f-8f8b2c969b22"),
+                            CategoryId = new Guid("5e841f78-2a03-489d-84f0-68dbb3c517ca"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7959),
                             Description = "Sleek laptop with powerful Intel i7 processor.",
                             Discount = 12,
                             Image = "https://example.com/images/hp-envy15.jpg",
                             Name = "HP Envy 15",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9042),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7959),
                             UrlSlug = "hp-envy15"
                         },
                         new
                         {
-                            Id = new Guid("5f587109-15d8-4b5a-af8a-d18c50cf1073"),
-                            BrandId = new Guid("efd5a997-0a4f-457a-9969-df088d01c82e"),
-                            CategoryId = new Guid("2f17b91e-1f82-4720-8f32-c972ec3c8a09"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9046),
+                            Id = new Guid("d6efaed7-35b4-4344-b71d-6e50cea8caf4"),
+                            BrandId = new Guid("3756f15d-dfb0-4f59-8970-cbfba08d6a0c"),
+                            CategoryId = new Guid("9fec396e-94c7-426b-a79a-f9345ea94de4"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7967),
                             Description = "Versatile tablet with built-in kickstand.",
                             Discount = 7,
                             Image = "https://example.com/images/lenovo-yoga.jpg",
                             Name = "Lenovo Yoga Smart Tab",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9046),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7968),
                             UrlSlug = "lenovo-yoga-smart-tab"
                         },
                         new
                         {
-                            Id = new Guid("e8248af7-dded-446e-bcd4-de817024becf"),
-                            BrandId = new Guid("c86a7099-dea4-46b2-9017-12bc015d23e4"),
-                            CategoryId = new Guid("6d0dfc2c-f26f-4ec4-aab7-59079e5fe7c5"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9050),
+                            Id = new Guid("159ff9d4-b243-4681-a22e-39e1702f5bd0"),
+                            BrandId = new Guid("e8ef4371-53f4-4a5e-a466-02314813db37"),
+                            CategoryId = new Guid("1c0a8365-f773-447f-bd57-d077c0d35bfe"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7973),
                             Description = "Dual-screen device for productivity on the go.",
                             Discount = 10,
                             Image = "https://example.com/images/surface-duo.jpg",
                             Name = "Microsoft Surface Duo",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9050),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7974),
                             UrlSlug = "microsoft-surface-duo"
                         },
                         new
                         {
-                            Id = new Guid("826f3115-6208-4188-b05e-c23e0f095cc4"),
-                            BrandId = new Guid("210eb0ed-23fd-42f8-9dd7-b00cfd19715e"),
-                            CategoryId = new Guid("908d467a-84ca-4b7f-a37c-d9964bd3d788"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9057),
+                            Id = new Guid("60072ca9-8a74-4244-b219-973e8c65b7c8"),
+                            BrandId = new Guid("9b245f1d-e6fa-4419-a832-a059f4b67fef"),
+                            CategoryId = new Guid("08316261-0d65-42da-a033-0320c202bbfa"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7979),
                             Description = "Stylish smartwatch with customizable faces.",
                             Discount = 15,
                             Image = "https://example.com/images/asus-zenwatch3.jpg",
                             Name = "Asus ZenWatch 3",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9057),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7980),
                             UrlSlug = "asus-zenwatch3"
                         },
                         new
                         {
-                            Id = new Guid("64ca27c2-5911-45ef-85bf-3bddd4f1284b"),
-                            BrandId = new Guid("ed7da3d4-b839-4c35-ae1c-663760a9794d"),
-                            CategoryId = new Guid("aff23a31-95a1-4f59-8d71-7d99aa9eb71a"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9060),
+                            Id = new Guid("20d019d7-56f5-481e-8419-2fe708b8f50b"),
+                            BrandId = new Guid("d9bd6258-c767-4c70-8451-8327ec3b9e87"),
+                            CategoryId = new Guid("e863a608-ba3d-4c19-88aa-ccf8fbb887cd"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7985),
                             Description = "Convertible laptop with a sleek design.",
                             Discount = 20,
                             Image = "https://example.com/images/acer-spin5.jpg",
                             Name = "Acer Spin 5",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9061),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(7986),
                             UrlSlug = "acer-spin5"
                         });
                 });
@@ -1572,343 +1572,343 @@ namespace TechShop.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("a7183b5b-3fb8-4319-a450-2ef9846f0800"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9418),
+                            Id = new Guid("8aa53a8f-6358-4b16-aa7c-640f02bd26f5"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8517),
                             Price = 999.99000000000001,
-                            ProductHardwareId = new Guid("d9035c57-39a4-4c94-b35a-469899e39d62"),
+                            ProductHardwareId = new Guid("cc04a91d-1d7d-43e9-a18e-ff812355f886"),
                             Quantity = 50,
                             RGB = "#000000",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9418)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8518)
                         },
                         new
                         {
-                            Id = new Guid("55341dcd-b668-4f86-9f20-fa976e086e7d"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9424),
+                            Id = new Guid("3eb5f024-6d98-4bc5-ab11-789e5cc55139"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8536),
                             Price = 999.99000000000001,
-                            ProductHardwareId = new Guid("d9035c57-39a4-4c94-b35a-469899e39d62"),
+                            ProductHardwareId = new Guid("cc04a91d-1d7d-43e9-a18e-ff812355f886"),
                             Quantity = 40,
                             RGB = "#FFFFFF",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9425)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8537)
                         },
                         new
                         {
-                            Id = new Guid("1e414639-10d2-4acc-a8ff-f6899551cdbf"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9428),
+                            Id = new Guid("2570da2a-3417-4ddb-8495-ee1fd82f5c8e"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8541),
                             Price = 999.99000000000001,
-                            ProductHardwareId = new Guid("d9035c57-39a4-4c94-b35a-469899e39d62"),
+                            ProductHardwareId = new Guid("cc04a91d-1d7d-43e9-a18e-ff812355f886"),
                             Quantity = 30,
                             RGB = "#FF0000",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9428)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8542)
                         },
                         new
                         {
-                            Id = new Guid("d766c004-7f88-46de-95bf-32dbfb273d02"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9431),
+                            Id = new Guid("309f4640-5110-4f27-a086-7c83a355b47a"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8547),
                             Price = 799.99000000000001,
-                            ProductHardwareId = new Guid("fc23ca85-6bf4-4821-b1ca-c19478e12f17"),
+                            ProductHardwareId = new Guid("0a4b39f9-2bf6-4b2b-a4e0-65e6efd7cb10"),
                             Quantity = 60,
                             RGB = "#000000",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9432)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8548)
                         },
                         new
                         {
-                            Id = new Guid("9dd2f04b-de01-4295-9cab-6e6bf6992fbe"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9435),
+                            Id = new Guid("fe569fd5-81ec-4657-b4c1-22b3871a2124"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8552),
                             Price = 799.99000000000001,
-                            ProductHardwareId = new Guid("fc23ca85-6bf4-4821-b1ca-c19478e12f17"),
+                            ProductHardwareId = new Guid("0a4b39f9-2bf6-4b2b-a4e0-65e6efd7cb10"),
                             Quantity = 50,
                             RGB = "#FFFFFF",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9435)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8553)
                         },
                         new
                         {
-                            Id = new Guid("87fc82e9-9e05-4f88-9a49-13c590c22534"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9438),
+                            Id = new Guid("e07e09e0-631f-4a57-a653-b806d3d98c84"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8562),
                             Price = 799.99000000000001,
-                            ProductHardwareId = new Guid("fc23ca85-6bf4-4821-b1ca-c19478e12f17"),
+                            ProductHardwareId = new Guid("0a4b39f9-2bf6-4b2b-a4e0-65e6efd7cb10"),
                             Quantity = 45,
                             RGB = "#FF0000",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9439)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8563)
                         },
                         new
                         {
-                            Id = new Guid("120bb387-2412-47f3-9860-cf65f98022d3"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9441),
+                            Id = new Guid("3d38f2f6-f485-4363-9f86-b87e7f74efd5"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8566),
                             Price = 849.99000000000001,
-                            ProductHardwareId = new Guid("dc71e128-e94c-4f43-9739-bee2b9baf820"),
+                            ProductHardwareId = new Guid("b30ca3f5-0d9d-4627-8bca-c27279de4e58"),
                             Quantity = 70,
                             RGB = "#6D6E71",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9442)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8567)
                         },
                         new
                         {
-                            Id = new Guid("e13e346b-cb82-4574-a5a9-605e7fdcead6"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9444),
+                            Id = new Guid("309730d6-9b36-40d6-abf4-a57a438788d1"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8572),
                             Price = 849.99000000000001,
-                            ProductHardwareId = new Guid("dc71e128-e94c-4f43-9739-bee2b9baf820"),
+                            ProductHardwareId = new Guid("b30ca3f5-0d9d-4627-8bca-c27279de4e58"),
                             Quantity = 65,
                             RGB = "#F8F8F8",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9445)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8572)
                         },
                         new
                         {
-                            Id = new Guid("e45d640a-72e3-45e2-baa4-c23a2b89bee3"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9451),
+                            Id = new Guid("7fa46d69-e12f-46c5-b5bd-5d83ef43e2ac"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8577),
                             Price = 849.99000000000001,
-                            ProductHardwareId = new Guid("dc71e128-e94c-4f43-9739-bee2b9baf820"),
+                            ProductHardwareId = new Guid("b30ca3f5-0d9d-4627-8bca-c27279de4e58"),
                             Quantity = 60,
                             RGB = "#8C4B9A",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9452)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8578)
                         },
                         new
                         {
-                            Id = new Guid("2d54b5a0-6fa5-4432-90b8-7217fc8f22e5"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9455),
+                            Id = new Guid("e0040ac1-980c-4d1a-942a-9c4ce6eea190"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8582),
                             Price = 999.99000000000001,
-                            ProductHardwareId = new Guid("8a8baa65-294c-4e58-89e2-cf81359c2d93"),
+                            ProductHardwareId = new Guid("43139a87-9a8f-49a5-b373-d7db2d67288d"),
                             Quantity = 55,
                             RGB = "#6D6E71",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9455)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8583)
                         },
                         new
                         {
-                            Id = new Guid("0a22d2f7-ae0e-4986-9642-8dbcd8ecf98d"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9458),
+                            Id = new Guid("d34c080f-e6e8-43d3-b894-80f05d5e00fd"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8587),
                             Price = 999.99000000000001,
-                            ProductHardwareId = new Guid("8a8baa65-294c-4e58-89e2-cf81359c2d93"),
+                            ProductHardwareId = new Guid("43139a87-9a8f-49a5-b373-d7db2d67288d"),
                             Quantity = 50,
                             RGB = "#F8F8F8",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9458)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8589)
                         },
                         new
                         {
-                            Id = new Guid("7375e781-94e4-42f1-a1a2-2161e433f8eb"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9461),
+                            Id = new Guid("145570c3-63a2-405f-90d9-e6ad9d3b0ad0"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8592),
                             Price = 999.99000000000001,
-                            ProductHardwareId = new Guid("8a8baa65-294c-4e58-89e2-cf81359c2d93"),
+                            ProductHardwareId = new Guid("43139a87-9a8f-49a5-b373-d7db2d67288d"),
                             Quantity = 45,
                             RGB = "#8C4B9A",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9461)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8593)
                         },
                         new
                         {
-                            Id = new Guid("56ded32a-e2a3-4fac-b78a-91355df7f609"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9464),
+                            Id = new Guid("e680730b-e4d1-4b92-8562-c9abae6a3b04"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8597),
                             Price = 799.99000000000001,
-                            ProductHardwareId = new Guid("a241ff16-4d75-4880-b0ee-5807284ecd45"),
+                            ProductHardwareId = new Guid("70d7ffee-588c-452b-8812-398253561903"),
                             Quantity = 85,
                             RGB = "#3C3C3C",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9465)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8598)
                         },
                         new
                         {
-                            Id = new Guid("c4683db0-7530-40b1-888b-f9cfc22b08f6"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9509),
+                            Id = new Guid("8291575a-8d14-416d-9175-42c4f558aa11"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8606),
                             Price = 799.99000000000001,
-                            ProductHardwareId = new Guid("a241ff16-4d75-4880-b0ee-5807284ecd45"),
+                            ProductHardwareId = new Guid("70d7ffee-588c-452b-8812-398253561903"),
                             Quantity = 80,
                             RGB = "#C0C0C0",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9509)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8606)
                         },
                         new
                         {
-                            Id = new Guid("3de9cdf9-89cb-4772-8b66-107186ad54cb"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9512),
+                            Id = new Guid("c17b0f1d-88c4-49b6-b303-4a80530dc612"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8611),
                             Price = 999.99000000000001,
-                            ProductHardwareId = new Guid("83207d05-25da-476b-b957-1df38ce55840"),
+                            ProductHardwareId = new Guid("9fa8b71a-5926-49b4-8ca3-d2c7102a563e"),
                             Quantity = 75,
                             RGB = "#3C3C3C",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9513)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8612)
                         },
                         new
                         {
-                            Id = new Guid("c0257381-b7ac-4ead-b4e6-30fe4cd6fccd"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9516),
+                            Id = new Guid("51f944d5-d6bc-49a4-bab2-a2a0f757cc17"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8653),
                             Price = 999.99000000000001,
-                            ProductHardwareId = new Guid("83207d05-25da-476b-b957-1df38ce55840"),
+                            ProductHardwareId = new Guid("9fa8b71a-5926-49b4-8ca3-d2c7102a563e"),
                             Quantity = 70,
                             RGB = "#C0C0C0",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9516)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8654)
                         },
                         new
                         {
-                            Id = new Guid("042e6999-2285-4788-8f45-18488585cddc"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9521),
+                            Id = new Guid("3b4b280a-58c5-4e09-ad8c-6eb1b49269ad"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8658),
                             Price = 1199.99,
-                            ProductHardwareId = new Guid("4bc53e12-65a6-4699-a5ce-db60c5a29319"),
+                            ProductHardwareId = new Guid("43834ce0-7701-408a-9c77-7cd2b1e5bf88"),
                             Quantity = 30,
                             RGB = "#C0C0C0",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9522)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8659)
                         },
                         new
                         {
-                            Id = new Guid("ddcd96bf-f396-439e-8e4d-081892533308"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9525),
+                            Id = new Guid("4a3cca15-4a27-4815-8dd0-d34c59cf3d0c"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8676),
                             Price = 1199.99,
-                            ProductHardwareId = new Guid("4bc53e12-65a6-4699-a5ce-db60c5a29319"),
+                            ProductHardwareId = new Guid("43834ce0-7701-408a-9c77-7cd2b1e5bf88"),
                             Quantity = 25,
                             RGB = "#F7F7F7",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9525)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8677)
                         },
                         new
                         {
-                            Id = new Guid("ae1d719f-4cac-4e30-becd-328606470450"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9528),
+                            Id = new Guid("6304aaa8-780f-4cb6-ac3d-771be102f7e3"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8681),
                             Price = 1399.99,
-                            ProductHardwareId = new Guid("2dd54462-a38b-4435-a06b-93faa9b4c2ec"),
+                            ProductHardwareId = new Guid("98f027de-2fba-49b1-aad0-9413a4eda49c"),
                             Quantity = 35,
                             RGB = "#C0C0C0",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9529)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8682)
                         },
                         new
                         {
-                            Id = new Guid("ec6dbc2d-5fe1-4138-8fa4-659668ded781"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9531),
+                            Id = new Guid("386bcdf5-753e-49fc-9f5b-a2acc9eee252"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8686),
                             Price = 1399.99,
-                            ProductHardwareId = new Guid("2dd54462-a38b-4435-a06b-93faa9b4c2ec"),
+                            ProductHardwareId = new Guid("98f027de-2fba-49b1-aad0-9413a4eda49c"),
                             Quantity = 30,
                             RGB = "#F7F7F7",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9532)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8687)
                         },
                         new
                         {
-                            Id = new Guid("e0117e3d-4523-4a2e-90be-4133b068a255"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9534),
+                            Id = new Guid("224a51b6-6621-4583-aecf-5efad1b51ecd"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8691),
                             Price = 1299.99,
-                            ProductHardwareId = new Guid("13d20162-6371-43bd-b866-21224b0fb437"),
+                            ProductHardwareId = new Guid("f37b4ffb-0249-4d52-b503-437d35b0cd4d"),
                             Quantity = 40,
                             RGB = "#000000",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9536)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8692)
                         },
                         new
                         {
-                            Id = new Guid("52a3b2df-d5cb-4bd5-8bb9-f70a816b14c5"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9539),
+                            Id = new Guid("f9412360-4395-4656-9ac1-d99a04c540ba"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8700),
                             Price = 1299.99,
-                            ProductHardwareId = new Guid("13d20162-6371-43bd-b866-21224b0fb437"),
+                            ProductHardwareId = new Guid("f37b4ffb-0249-4d52-b503-437d35b0cd4d"),
                             Quantity = 35,
                             RGB = "#FFFFFF",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9540)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8701)
                         },
                         new
                         {
-                            Id = new Guid("1aa6ef6f-fd2d-44ba-b377-a1e218303b5e"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9542),
+                            Id = new Guid("9b35fd7d-362d-4058-849e-22a97b4cdeb6"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8745),
                             Price = 1299.99,
-                            ProductHardwareId = new Guid("13d20162-6371-43bd-b866-21224b0fb437"),
+                            ProductHardwareId = new Guid("f37b4ffb-0249-4d52-b503-437d35b0cd4d"),
                             Quantity = 30,
                             RGB = "#CCCCCC",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9543)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8745)
                         },
                         new
                         {
-                            Id = new Guid("bb4aac6b-2019-493e-98f7-abcf22369dd9"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9545),
+                            Id = new Guid("529c1927-2952-4e80-8a0b-ba9c6bf3dc7c"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8750),
                             Price = 499.99000000000001,
-                            ProductHardwareId = new Guid("4be38d4a-28fc-4a20-a4dd-af0e3bff924a"),
+                            ProductHardwareId = new Guid("21bfe7f5-b765-4b73-97c4-e00657449f02"),
                             Quantity = 50,
                             RGB = "#8B8B8B",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9546)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8751)
                         },
                         new
                         {
-                            Id = new Guid("911a4a78-9a4e-4c61-bd62-5b0bb94d53d4"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9551),
+                            Id = new Guid("81c505f7-df93-4beb-956d-2b4574a42333"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8755),
                             Price = 499.99000000000001,
-                            ProductHardwareId = new Guid("4be38d4a-28fc-4a20-a4dd-af0e3bff924a"),
+                            ProductHardwareId = new Guid("21bfe7f5-b765-4b73-97c4-e00657449f02"),
                             Quantity = 45,
                             RGB = "#FFFFFF",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9551)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8756)
                         },
                         new
                         {
-                            Id = new Guid("d000dcb8-9861-436f-ac06-ecb29a0a9f63"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9554),
+                            Id = new Guid("c4db2e52-45a0-4fb2-929f-34cd3c995bf7"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8760),
                             Price = 499.99000000000001,
-                            ProductHardwareId = new Guid("4be38d4a-28fc-4a20-a4dd-af0e3bff924a"),
+                            ProductHardwareId = new Guid("21bfe7f5-b765-4b73-97c4-e00657449f02"),
                             Quantity = 40,
                             RGB = "#000000",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9554)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8761)
                         },
                         new
                         {
-                            Id = new Guid("5dfc0fc2-0f59-4bf6-a14c-74233436ad60"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9557),
+                            Id = new Guid("7ddffeea-ca75-430d-b35b-f2530c157423"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8765),
                             Price = 1199.99,
-                            ProductHardwareId = new Guid("f3e62faf-2956-4667-9501-2e94435e0c44"),
+                            ProductHardwareId = new Guid("6c0ba97c-18d4-47bc-b682-0dad28a827c8"),
                             Quantity = 20,
                             RGB = "#000000",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9557)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8766)
                         },
                         new
                         {
-                            Id = new Guid("45f8192b-00e6-4f28-8e5e-b86fd0298cba"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9560),
+                            Id = new Guid("daff0a1c-5115-4b43-b2bc-11996ae3b1ca"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8769),
                             Price = 1199.99,
-                            ProductHardwareId = new Guid("f3e62faf-2956-4667-9501-2e94435e0c44"),
+                            ProductHardwareId = new Guid("6c0ba97c-18d4-47bc-b682-0dad28a827c8"),
                             Quantity = 18,
                             RGB = "#4B4B4B",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9560)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8770)
                         },
                         new
                         {
-                            Id = new Guid("efdc63b3-2199-431a-86ab-1edac98d6181"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9563),
+                            Id = new Guid("d77d777c-166a-42b4-af2f-621efcb08a4c"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8774),
                             Price = 499.99000000000001,
-                            ProductHardwareId = new Guid("efb9d89c-d4c1-4bd7-b82d-ceb9d57edc6a"),
+                            ProductHardwareId = new Guid("80dc6aaa-677b-4224-9ce1-8fe14a525b80"),
                             Quantity = 25,
                             RGB = "#000000",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9563)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8775)
                         },
                         new
                         {
-                            Id = new Guid("b433895b-4933-4b08-b851-5d79bbcf634d"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9567),
+                            Id = new Guid("fe7a3eda-d031-4b8c-8411-3787c79ba11b"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8782),
                             Price = 499.99000000000001,
-                            ProductHardwareId = new Guid("efb9d89c-d4c1-4bd7-b82d-ceb9d57edc6a"),
+                            ProductHardwareId = new Guid("80dc6aaa-677b-4224-9ce1-8fe14a525b80"),
                             Quantity = 20,
                             RGB = "#4F4F4F",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9568)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8782)
                         },
                         new
                         {
-                            Id = new Guid("5e886cf9-7111-4f2a-a77a-916d0c3038e7"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9570),
+                            Id = new Guid("dea51443-517c-4ab4-962f-49d496d95d93"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8786),
                             Price = 1499.99,
-                            ProductHardwareId = new Guid("b9528a02-76f2-4314-9f78-bba0ea096e51"),
+                            ProductHardwareId = new Guid("7c1c6736-b949-4331-97c2-322bad4eb3a5"),
                             Quantity = 15,
                             RGB = "#000000",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9571)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8787)
                         },
                         new
                         {
-                            Id = new Guid("dfaa0de7-9e21-4d7d-aae9-6d4886aa4c3e"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9573),
+                            Id = new Guid("43490e1c-34ab-47b5-9e2f-8938e3f6fc86"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8791),
                             Price = 1499.99,
-                            ProductHardwareId = new Guid("b9528a02-76f2-4314-9f78-bba0ea096e51"),
+                            ProductHardwareId = new Guid("7c1c6736-b949-4331-97c2-322bad4eb3a5"),
                             Quantity = 12,
                             RGB = "#343434",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9574)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8792)
                         },
                         new
                         {
-                            Id = new Guid("b5dbe8fb-ef82-421a-856e-8dff2bd284f2"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9578),
+                            Id = new Guid("6f9a64ff-6d8d-479a-b987-b8b8b7605c0b"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8797),
                             Price = 1199.99,
-                            ProductHardwareId = new Guid("b0018fde-172d-412e-bfd4-e7497e18f848"),
+                            ProductHardwareId = new Guid("4b94c97b-313f-44d7-adb7-3ddf464729e1"),
                             Quantity = 10,
                             RGB = "#FFFFFF",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9579)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8798)
                         },
                         new
                         {
-                            Id = new Guid("1a70e5ae-71f8-42ca-9518-b5e6998ce8b3"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9582),
+                            Id = new Guid("80e8e6a1-66c6-430f-87c5-9414f8e3bf56"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8809),
                             Price = 1199.99,
-                            ProductHardwareId = new Guid("b0018fde-172d-412e-bfd4-e7497e18f848"),
+                            ProductHardwareId = new Guid("4b94c97b-313f-44d7-adb7-3ddf464729e1"),
                             Quantity = 8,
                             RGB = "#7B7B7B",
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9583)
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8810)
                         });
                 });
 
@@ -1929,93 +1929,93 @@ namespace TechShop.Core.Migrations
                     b.HasData(
                         new
                         {
-                            FilterId = new Guid("67507f8c-2351-48b7-b07e-6b50b69fb7db"),
-                            ProductId = new Guid("99144d35-20d1-45bb-9301-d7275b874d94")
+                            FilterId = new Guid("eb1a7e41-fe30-4fad-80ac-310243d276f7"),
+                            ProductId = new Guid("97622d2b-8ce7-4c41-ba15-7443e5c6e48f")
                         },
                         new
                         {
-                            FilterId = new Guid("894f8507-cf37-4d63-9c16-993b543654a6"),
-                            ProductId = new Guid("495a42be-85fd-452c-abfc-55edead730af")
+                            FilterId = new Guid("5f657eb3-0e5a-4d92-9e62-511eb5eca44e"),
+                            ProductId = new Guid("838697de-b0d3-41b1-b147-cb650b0799ae")
                         },
                         new
                         {
-                            FilterId = new Guid("90abdddb-d6a9-414f-b40d-70e1756a0b83"),
-                            ProductId = new Guid("c91d55b2-fae9-4da6-b248-c1f6be6e439a")
+                            FilterId = new Guid("e2f32831-c697-42f3-aeec-de4088d64477"),
+                            ProductId = new Guid("6f85c21e-7562-49ec-967c-1259850f0197")
                         },
                         new
                         {
-                            FilterId = new Guid("fa45c0be-014d-4e41-bbd4-4fc7bec97358"),
-                            ProductId = new Guid("3fd418e6-652b-45f2-9687-224b0655e437")
+                            FilterId = new Guid("7925a857-398f-4b7f-a7d0-a01904e05e6e"),
+                            ProductId = new Guid("963c9e39-a3a3-4423-864c-58d5f73c174a")
                         },
                         new
                         {
-                            FilterId = new Guid("54794ede-52fb-46fb-b35f-9285d51338eb"),
-                            ProductId = new Guid("e3589f3d-78ca-4a76-9624-caf516166ddf")
+                            FilterId = new Guid("7b15e343-ae04-40d1-9950-0d2e0e23c343"),
+                            ProductId = new Guid("79e46632-4787-438a-b0d7-3289d4fcebb8")
                         },
                         new
                         {
-                            FilterId = new Guid("a94775da-e452-4270-9a05-537f103cd70b"),
-                            ProductId = new Guid("96f0fead-2b10-4c3e-b5d4-5d788dfc7628")
+                            FilterId = new Guid("9790b22f-453f-4374-8d34-951b2be08d0e"),
+                            ProductId = new Guid("81db7cf2-516c-4ea4-a622-4ab5574498bc")
                         },
                         new
                         {
-                            FilterId = new Guid("3c4265fb-955d-4e2d-9d7f-2f40ca0164ff"),
-                            ProductId = new Guid("d8941bfd-43dc-40d0-a03a-11798de391fc")
+                            FilterId = new Guid("e70d04c4-c1c7-45d4-aa33-a7906a492742"),
+                            ProductId = new Guid("6a3592ed-a136-43c9-ba49-540a621fd7a6")
                         },
                         new
                         {
-                            FilterId = new Guid("5a6e4e4e-f8ce-46f7-b5e2-7e8968ce43ed"),
-                            ProductId = new Guid("a8840f4b-3d25-4737-89b1-5c359c05cb00")
+                            FilterId = new Guid("7da27815-7ec1-4747-b42d-a04ac778c62c"),
+                            ProductId = new Guid("d59af16d-2581-49ab-b6aa-2ea2e6563ae4")
                         },
                         new
                         {
-                            FilterId = new Guid("37d35afd-167d-4be2-915d-80074b52c4b8"),
-                            ProductId = new Guid("7466bf1b-6888-4d9c-a83b-697a76f82ee3")
+                            FilterId = new Guid("bde49d4d-4693-4315-b7f3-4441e690c411"),
+                            ProductId = new Guid("fbfb9d1d-ac03-442d-8d95-43e82ffb9297")
                         },
                         new
                         {
-                            FilterId = new Guid("67507f8c-2351-48b7-b07e-6b50b69fb7db"),
-                            ProductId = new Guid("2807a392-5d67-4bf8-ad60-619cbd15b389")
+                            FilterId = new Guid("eb1a7e41-fe30-4fad-80ac-310243d276f7"),
+                            ProductId = new Guid("6cb3acc9-d11f-46a6-8fdb-58bc377a9f02")
                         },
                         new
                         {
-                            FilterId = new Guid("894f8507-cf37-4d63-9c16-993b543654a6"),
-                            ProductId = new Guid("787ec87d-d82d-4bb9-ba3c-517e7e60d16f")
+                            FilterId = new Guid("5f657eb3-0e5a-4d92-9e62-511eb5eca44e"),
+                            ProductId = new Guid("d37bb274-8a87-4682-9acb-f07650b04918")
                         },
                         new
                         {
-                            FilterId = new Guid("90abdddb-d6a9-414f-b40d-70e1756a0b83"),
-                            ProductId = new Guid("05553658-96ea-4fbe-bcdd-9bcb60714da6")
+                            FilterId = new Guid("e2f32831-c697-42f3-aeec-de4088d64477"),
+                            ProductId = new Guid("03727abf-ffb5-4a6a-85e5-a65e6b7e8b77")
                         },
                         new
                         {
-                            FilterId = new Guid("fa45c0be-014d-4e41-bbd4-4fc7bec97358"),
-                            ProductId = new Guid("c3686570-7258-447e-8495-f776f2298ee0")
+                            FilterId = new Guid("7925a857-398f-4b7f-a7d0-a01904e05e6e"),
+                            ProductId = new Guid("8e92b5d8-3a67-48cb-b11b-5b781d2e85df")
                         },
                         new
                         {
-                            FilterId = new Guid("54794ede-52fb-46fb-b35f-9285d51338eb"),
-                            ProductId = new Guid("7364d009-fb9d-4ac8-904f-fb8839dd6628")
+                            FilterId = new Guid("7b15e343-ae04-40d1-9950-0d2e0e23c343"),
+                            ProductId = new Guid("8801342a-9f51-47df-827d-9d98f0962882")
                         },
                         new
                         {
-                            FilterId = new Guid("a94775da-e452-4270-9a05-537f103cd70b"),
-                            ProductId = new Guid("755696b8-c634-4bcd-8382-fed5b9db3e38")
+                            FilterId = new Guid("9790b22f-453f-4374-8d34-951b2be08d0e"),
+                            ProductId = new Guid("e3d0f57d-4323-4b31-92cb-d968a394a3a0")
                         },
                         new
                         {
-                            FilterId = new Guid("3c4265fb-955d-4e2d-9d7f-2f40ca0164ff"),
-                            ProductId = new Guid("1c2fb759-8ee2-40eb-942b-15cfc5ffe140")
+                            FilterId = new Guid("e70d04c4-c1c7-45d4-aa33-a7906a492742"),
+                            ProductId = new Guid("7a47207f-eed6-425b-adb4-6b764de3dc59")
                         },
                         new
                         {
-                            FilterId = new Guid("5a6e4e4e-f8ce-46f7-b5e2-7e8968ce43ed"),
-                            ProductId = new Guid("5f587109-15d8-4b5a-af8a-d18c50cf1073")
+                            FilterId = new Guid("7da27815-7ec1-4747-b42d-a04ac778c62c"),
+                            ProductId = new Guid("d6efaed7-35b4-4344-b71d-6e50cea8caf4")
                         },
                         new
                         {
-                            FilterId = new Guid("37d35afd-167d-4be2-915d-80074b52c4b8"),
-                            ProductId = new Guid("e8248af7-dded-446e-bcd4-de817024becf")
+                            FilterId = new Guid("bde49d4d-4693-4315-b7f3-4441e690c411"),
+                            ProductId = new Guid("159ff9d4-b243-4681-a22e-39e1702f5bd0")
                         });
                 });
 
@@ -2047,243 +2047,243 @@ namespace TechShop.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("d9035c57-39a4-4c94-b35a-469899e39d62"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9072),
+                            Id = new Guid("cc04a91d-1d7d-43e9-a18e-ff812355f886"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8006),
                             Name = "256GB Storage",
-                            ProductId = new Guid("99144d35-20d1-45bb-9301-d7275b874d94"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9073)
+                            ProductId = new Guid("97622d2b-8ce7-4c41-ba15-7443e5c6e48f"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8007)
                         },
                         new
                         {
-                            Id = new Guid("fc23ca85-6bf4-4821-b1ca-c19478e12f17"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9077),
+                            Id = new Guid("0a4b39f9-2bf6-4b2b-a4e0-65e6efd7cb10"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8019),
                             Name = "64GB Storage",
-                            ProductId = new Guid("99144d35-20d1-45bb-9301-d7275b874d94"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9078)
+                            ProductId = new Guid("97622d2b-8ce7-4c41-ba15-7443e5c6e48f"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8020)
                         },
                         new
                         {
-                            Id = new Guid("dc71e128-e94c-4f43-9739-bee2b9baf820"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9080),
+                            Id = new Guid("b30ca3f5-0d9d-4627-8bca-c27279de4e58"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8025),
                             Name = "128GB Storage",
-                            ProductId = new Guid("495a42be-85fd-452c-abfc-55edead730af"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9081)
+                            ProductId = new Guid("838697de-b0d3-41b1-b147-cb650b0799ae"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8026)
                         },
                         new
                         {
-                            Id = new Guid("8a8baa65-294c-4e58-89e2-cf81359c2d93"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9084),
+                            Id = new Guid("43139a87-9a8f-49a5-b373-d7db2d67288d"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8033),
                             Name = "256GB Storage",
-                            ProductId = new Guid("495a42be-85fd-452c-abfc-55edead730af"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9084)
+                            ProductId = new Guid("838697de-b0d3-41b1-b147-cb650b0799ae"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8034)
                         },
                         new
                         {
-                            Id = new Guid("a241ff16-4d75-4880-b0ee-5807284ecd45"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9087),
+                            Id = new Guid("70d7ffee-588c-452b-8812-398253561903"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8038),
                             Name = "128GB Storage",
-                            ProductId = new Guid("c91d55b2-fae9-4da6-b248-c1f6be6e439a"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9087)
+                            ProductId = new Guid("6f85c21e-7562-49ec-967c-1259850f0197"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8039)
                         },
                         new
                         {
-                            Id = new Guid("83207d05-25da-476b-b957-1df38ce55840"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9091),
+                            Id = new Guid("9fa8b71a-5926-49b4-8ca3-d2c7102a563e"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8044),
                             Name = "256GB Storage",
-                            ProductId = new Guid("c91d55b2-fae9-4da6-b248-c1f6be6e439a"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9092)
+                            ProductId = new Guid("6f85c21e-7562-49ec-967c-1259850f0197"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8045)
                         },
                         new
                         {
-                            Id = new Guid("4bc53e12-65a6-4699-a5ce-db60c5a29319"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9096),
+                            Id = new Guid("43834ce0-7701-408a-9c77-7cd2b1e5bf88"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8050),
                             Name = "Bluetooth Version",
-                            ProductId = new Guid("3fd418e6-652b-45f2-9687-224b0655e437"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9097)
+                            ProductId = new Guid("963c9e39-a3a3-4423-864c-58d5f73c174a"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8050)
                         },
                         new
                         {
-                            Id = new Guid("2dd54462-a38b-4435-a06b-93faa9b4c2ec"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9100),
+                            Id = new Guid("98f027de-2fba-49b1-aad0-9413a4eda49c"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8056),
                             Name = "LTE Version",
-                            ProductId = new Guid("3fd418e6-652b-45f2-9687-224b0655e437"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9100)
+                            ProductId = new Guid("963c9e39-a3a3-4423-864c-58d5f73c174a"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8057)
                         },
                         new
                         {
-                            Id = new Guid("13d20162-6371-43bd-b866-21224b0fb437"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9103),
+                            Id = new Guid("f37b4ffb-0249-4d52-b503-437d35b0cd4d"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8061),
                             Name = "4K UHD",
-                            ProductId = new Guid("e3589f3d-78ca-4a76-9624-caf516166ddf"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9103)
+                            ProductId = new Guid("79e46632-4787-438a-b0d7-3289d4fcebb8"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8062)
                         },
                         new
                         {
-                            Id = new Guid("4be38d4a-28fc-4a20-a4dd-af0e3bff924a"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9106),
+                            Id = new Guid("21bfe7f5-b765-4b73-97c4-e00657449f02"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8070),
                             Name = "Intel i7 Processor",
-                            ProductId = new Guid("96f0fead-2b10-4c3e-b5d4-5d788dfc7628"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9107)
+                            ProductId = new Guid("81db7cf2-516c-4ea4-a622-4ab5574498bc"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8071)
                         },
                         new
                         {
-                            Id = new Guid("f3e62faf-2956-4667-9501-2e94435e0c44"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9110),
+                            Id = new Guid("6c0ba97c-18d4-47bc-b682-0dad28a827c8"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8074),
                             Name = "16GB RAM",
-                            ProductId = new Guid("96f0fead-2b10-4c3e-b5d4-5d788dfc7628"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9110)
+                            ProductId = new Guid("81db7cf2-516c-4ea4-a622-4ab5574498bc"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8075)
                         },
                         new
                         {
-                            Id = new Guid("efb9d89c-d4c1-4bd7-b82d-ceb9d57edc6a"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9113),
+                            Id = new Guid("80dc6aaa-677b-4224-9ce1-8fe14a525b80"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8083),
                             Name = "AMD Ryzen 5 Processor",
-                            ProductId = new Guid("d8941bfd-43dc-40d0-a03a-11798de391fc"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9113)
+                            ProductId = new Guid("6a3592ed-a136-43c9-ba49-540a621fd7a6"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8084)
                         },
                         new
                         {
-                            Id = new Guid("b9528a02-76f2-4314-9f78-bba0ea096e51"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9116),
+                            Id = new Guid("7c1c6736-b949-4331-97c2-322bad4eb3a5"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8088),
                             Name = "8GB RAM",
-                            ProductId = new Guid("d8941bfd-43dc-40d0-a03a-11798de391fc"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9117)
+                            ProductId = new Guid("6a3592ed-a136-43c9-ba49-540a621fd7a6"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8089)
                         },
                         new
                         {
-                            Id = new Guid("b0018fde-172d-412e-bfd4-e7497e18f848"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9120),
+                            Id = new Guid("4b94c97b-313f-44d7-adb7-3ddf464729e1"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8093),
                             Name = "NVIDIA RTX 3060",
-                            ProductId = new Guid("a8840f4b-3d25-4737-89b1-5c359c05cb00"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9121)
+                            ProductId = new Guid("d59af16d-2581-49ab-b6aa-2ea2e6563ae4"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8094)
                         },
                         new
                         {
-                            Id = new Guid("b5de408d-358f-423a-9078-db785a9a41ac"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9130),
+                            Id = new Guid("4ca99e42-7ab3-4058-bb34-a956e1bbb603"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8098),
                             Name = "16GB RAM",
-                            ProductId = new Guid("a8840f4b-3d25-4737-89b1-5c359c05cb00"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9131)
+                            ProductId = new Guid("d59af16d-2581-49ab-b6aa-2ea2e6563ae4"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8098)
                         },
                         new
                         {
-                            Id = new Guid("65354317-24ef-4f8a-b16c-7290837603da"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9138),
+                            Id = new Guid("5918720d-0f65-490b-91a7-10b1e8ab0d32"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8103),
                             Name = "1TB Storage",
-                            ProductId = new Guid("7466bf1b-6888-4d9c-a83b-697a76f82ee3"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9139)
+                            ProductId = new Guid("fbfb9d1d-ac03-442d-8d95-43e82ffb9297"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8104)
                         },
                         new
                         {
-                            Id = new Guid("8808db8a-325a-4710-bb8f-95f5cb9a2891"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9142),
+                            Id = new Guid("aca15a45-4cc6-41cd-b5fa-64ede86dd966"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8108),
                             Name = "AMD Ryzen 9 Processor",
-                            ProductId = new Guid("76a1caa8-5d92-4dfa-83e2-09beed5af447"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9143)
+                            ProductId = new Guid("11f1f291-763c-49ad-b4d2-2372dbaa6210"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8109)
                         },
                         new
                         {
-                            Id = new Guid("506f96f7-044e-4eae-844f-cd7e9be27c7a"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9146),
+                            Id = new Guid("4e1ed938-1dc9-49c5-9c22-d28e71ebbd05"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8115),
                             Name = "32GB RAM",
-                            ProductId = new Guid("76a1caa8-5d92-4dfa-83e2-09beed5af447"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9147)
+                            ProductId = new Guid("11f1f291-763c-49ad-b4d2-2372dbaa6210"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8116)
                         },
                         new
                         {
-                            Id = new Guid("0b7a6fa1-7b24-410a-92ae-5fdd31f811e9"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9149),
+                            Id = new Guid("b2b72430-5dde-405c-a4f6-6e0a35e55022"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8121),
                             Name = "Intel i9 Processor",
-                            ProductId = new Guid("2807a392-5d67-4bf8-ad60-619cbd15b389"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9149)
+                            ProductId = new Guid("6cb3acc9-d11f-46a6-8fdb-58bc377a9f02"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8122)
                         },
                         new
                         {
-                            Id = new Guid("efb16b2d-65f4-4827-a8aa-fda6219240d4"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9152),
+                            Id = new Guid("c2cd7446-c5cd-4b13-9d59-e43ab64d2c38"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8129),
                             Name = "256GB Storage",
-                            ProductId = new Guid("787ec87d-d82d-4bb9-ba3c-517e7e60d16f"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9152)
+                            ProductId = new Guid("d37bb274-8a87-4682-9acb-f07650b04918"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8130)
                         },
                         new
                         {
-                            Id = new Guid("6f00ed86-5402-4cab-8cca-678a9df06ea1"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9162),
+                            Id = new Guid("41e9d353-dbf2-4338-a373-397c3c1936ee"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8134),
                             Name = "Wireless Charging Case",
-                            ProductId = new Guid("05553658-96ea-4fbe-bcdd-9bcb60714da6"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9162)
+                            ProductId = new Guid("03727abf-ffb5-4a6a-85e5-a65e6b7e8b77"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8135)
                         },
                         new
                         {
-                            Id = new Guid("08631063-36cb-4f23-b023-667083f58472"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9165),
+                            Id = new Guid("785ed81d-a45c-4b24-9479-1303c25a3c23"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8138),
                             Name = "Active Noise Cancellation",
-                            ProductId = new Guid("c3686570-7258-447e-8495-f776f2298ee0"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9166)
+                            ProductId = new Guid("8e92b5d8-3a67-48cb-b11b-5b781d2e85df"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8139)
                         },
                         new
                         {
-                            Id = new Guid("adbb661f-a09e-4646-be50-bbb6423168b4"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9171),
+                            Id = new Guid("c93e5f6b-c112-49dc-ae34-9c12caf54b31"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8143),
                             Name = "Industry-leading Noise Cancellation",
-                            ProductId = new Guid("7364d009-fb9d-4ac8-904f-fb8839dd6628"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9171)
+                            ProductId = new Guid("8801342a-9f51-47df-827d-9d98f0962882"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8144)
                         },
                         new
                         {
-                            Id = new Guid("947abebf-e343-4d27-b46f-81471b5d204b"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9174),
+                            Id = new Guid("f0802d8e-c8c4-47e0-95d7-89eb1e92e5ff"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8147),
                             Name = "Intel i9 Processor",
-                            ProductId = new Guid("755696b8-c634-4bcd-8382-fed5b9db3e38"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9174)
+                            ProductId = new Guid("e3d0f57d-4323-4b31-92cb-d968a394a3a0"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8148)
                         },
                         new
                         {
-                            Id = new Guid("45d20a4c-862d-4824-bf96-51040aed1538"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9177),
+                            Id = new Guid("7f50a22b-4604-45f5-bd91-b0532572b9b4"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8152),
                             Name = "32GB RAM",
-                            ProductId = new Guid("755696b8-c634-4bcd-8382-fed5b9db3e38"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9177)
+                            ProductId = new Guid("e3d0f57d-4323-4b31-92cb-d968a394a3a0"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8153)
                         },
                         new
                         {
-                            Id = new Guid("034b5ec2-bb45-4a90-a33c-7e67405ba90e"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9180),
+                            Id = new Guid("390c57fb-093e-45ab-9e65-49034378c995"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8156),
                             Name = "Intel i7 Processor",
-                            ProductId = new Guid("1c2fb759-8ee2-40eb-942b-15cfc5ffe140"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9180)
+                            ProductId = new Guid("7a47207f-eed6-425b-adb4-6b764de3dc59"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8157)
                         },
                         new
                         {
-                            Id = new Guid("73938925-bf83-49d8-a08d-9abb037ab75a"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9183),
+                            Id = new Guid("8a0a019f-8bda-4673-a0a4-c633b82526ac"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8161),
                             Name = "128GB Storage",
-                            ProductId = new Guid("5f587109-15d8-4b5a-af8a-d18c50cf1073"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9183)
+                            ProductId = new Guid("d6efaed7-35b4-4344-b71d-6e50cea8caf4"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8162)
                         },
                         new
                         {
-                            Id = new Guid("19cab37f-64da-43a3-8fc2-1f9df6e7b56a"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9186),
+                            Id = new Guid("2c4e78e8-ab49-417d-8df2-29ce4f0a94b0"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8169),
                             Name = "128GB Storage",
-                            ProductId = new Guid("e8248af7-dded-446e-bcd4-de817024becf"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9186)
+                            ProductId = new Guid("159ff9d4-b243-4681-a22e-39e1702f5bd0"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8170)
                         },
                         new
                         {
-                            Id = new Guid("d748131c-d6b3-46c9-971f-ac84564a9c7b"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9188),
+                            Id = new Guid("0cc8afed-461d-45bb-a6a8-9ea6d5ff5ab3"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8174),
                             Name = "Customizable Watch Faces",
-                            ProductId = new Guid("826f3115-6208-4188-b05e-c23e0f095cc4"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9189)
+                            ProductId = new Guid("60072ca9-8a74-4244-b219-973e8c65b7c8"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8175)
                         },
                         new
                         {
-                            Id = new Guid("584ff42a-80f8-4d4d-b1d5-6dd59d7fff54"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9192),
+                            Id = new Guid("0d7e5182-9274-4240-a7c5-fd638b5e2c77"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8182),
                             Name = "Convertible Design",
-                            ProductId = new Guid("64ca27c2-5911-45ef-85bf-3bddd4f1284b"),
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9193)
+                            ProductId = new Guid("20d019d7-56f5-481e-8419-2fe708b8f50b"),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8183)
                         });
                 });
 
@@ -2324,362 +2324,362 @@ namespace TechShop.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("6760223f-44cd-4725-9c13-e9d7f3c84371"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9204),
-                            ProductId = new Guid("99144d35-20d1-45bb-9301-d7275b874d94"),
+                            Id = new Guid("1055ea4f-dd5a-416e-8ed3-c8d495f2353c"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8205),
+                            ProductId = new Guid("97622d2b-8ce7-4c41-ba15-7443e5c6e48f"),
                             Type = 1,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9205),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8206),
                             UrlImage = "https://example.com/images/iphone13-slide1.jpg"
                         },
                         new
                         {
-                            Id = new Guid("a6efd2e3-48e0-4c37-9e95-944f0bafbe8a"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9208),
-                            ProductId = new Guid("99144d35-20d1-45bb-9301-d7275b874d94"),
+                            Id = new Guid("11321afc-c531-4dd8-9a7d-b6fe8132ec9e"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8217),
+                            ProductId = new Guid("97622d2b-8ce7-4c41-ba15-7443e5c6e48f"),
                             Type = 2,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9209),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8218),
                             UrlImage = "https://example.com/images/iphone13-content.jpg"
                         },
                         new
                         {
-                            Id = new Guid("fb1de928-d799-400b-8808-5736e1f43217"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9212),
-                            ProductId = new Guid("495a42be-85fd-452c-abfc-55edead730af"),
+                            Id = new Guid("4fefa797-ab7b-4f8e-bdc8-18ad2d7a1bb9"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8223),
+                            ProductId = new Guid("838697de-b0d3-41b1-b147-cb650b0799ae"),
                             Type = 1,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9212),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8224),
                             UrlImage = "https://example.com/images/galaxy-s21-slide1.jpg"
                         },
                         new
                         {
-                            Id = new Guid("86d36325-712f-41fd-ab1f-518857922602"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9260),
-                            ProductId = new Guid("495a42be-85fd-452c-abfc-55edead730af"),
+                            Id = new Guid("e7621f0b-58a9-490a-8a98-5faf2b6876bc"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8228),
+                            ProductId = new Guid("838697de-b0d3-41b1-b147-cb650b0799ae"),
                             Type = 2,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9261),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8229),
                             UrlImage = "https://example.com/images/galaxy-s21-content.jpg"
                         },
                         new
                         {
-                            Id = new Guid("f37d3ef3-411b-4f6b-8cff-29dc48e86626"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9268),
-                            ProductId = new Guid("c91d55b2-fae9-4da6-b248-c1f6be6e439a"),
+                            Id = new Guid("a8729ee5-f46c-43d4-a0f9-a92b6683ca0f"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8239),
+                            ProductId = new Guid("6f85c21e-7562-49ec-967c-1259850f0197"),
                             Type = 1,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9268),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8240),
                             UrlImage = "https://example.com/images/ipad-pro-slide1.jpg"
                         },
                         new
                         {
-                            Id = new Guid("a9b3ba8d-5e70-40ee-a230-aab7d2f4e8ac"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9272),
-                            ProductId = new Guid("c91d55b2-fae9-4da6-b248-c1f6be6e439a"),
+                            Id = new Guid("c7432ebb-c14f-4a26-a5a5-3a95d5736be6"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8249),
+                            ProductId = new Guid("6f85c21e-7562-49ec-967c-1259850f0197"),
                             Type = 2,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9272),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8250),
                             UrlImage = "https://example.com/images/ipad-pro-content.jpg"
                         },
                         new
                         {
-                            Id = new Guid("8ce31a07-79e3-4768-9e49-ddc3df28d149"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9276),
-                            ProductId = new Guid("3fd418e6-652b-45f2-9687-224b0655e437"),
+                            Id = new Guid("b6d46850-eb8b-41d7-aaab-5dccf0eaf833"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8258),
+                            ProductId = new Guid("963c9e39-a3a3-4423-864c-58d5f73c174a"),
                             Type = 1,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9276),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8259),
                             UrlImage = "https://example.com/images/galaxy-watch-slide1.jpg"
                         },
                         new
                         {
-                            Id = new Guid("e53eab1b-3221-44e3-9889-abee6be5310e"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9279),
-                            ProductId = new Guid("3fd418e6-652b-45f2-9687-224b0655e437"),
+                            Id = new Guid("3798e0aa-bfb3-44fd-823e-70c4e7b535a2"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8263),
+                            ProductId = new Guid("963c9e39-a3a3-4423-864c-58d5f73c174a"),
                             Type = 2,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9280),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8264),
                             UrlImage = "https://example.com/images/galaxy-watch-content.jpg"
                         },
                         new
                         {
-                            Id = new Guid("e01b75a2-fc03-46ef-9540-ad3c72f977b5"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9285),
-                            ProductId = new Guid("e3589f3d-78ca-4a76-9624-caf516166ddf"),
+                            Id = new Guid("9f344ec9-ea50-42d7-b5e2-c4e71b771b20"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8269),
+                            ProductId = new Guid("79e46632-4787-438a-b0d7-3289d4fcebb8"),
                             Type = 1,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9286),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8270),
                             UrlImage = "https://example.com/images/sony-bravia-slide1.jpg"
                         },
                         new
                         {
-                            Id = new Guid("372aafa5-11c2-4818-9d26-4d85065027cd"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9290),
-                            ProductId = new Guid("e3589f3d-78ca-4a76-9624-caf516166ddf"),
+                            Id = new Guid("c192720c-962c-4d51-ba36-c766e5638121"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8278),
+                            ProductId = new Guid("79e46632-4787-438a-b0d7-3289d4fcebb8"),
                             Type = 2,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9290),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8279),
                             UrlImage = "https://example.com/images/sony-bravia-content.jpg"
                         },
                         new
                         {
-                            Id = new Guid("e839b60e-a18a-47ef-801f-877b33960a20"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9293),
-                            ProductId = new Guid("96f0fead-2b10-4c3e-b5d4-5d788dfc7628"),
+                            Id = new Guid("525940cf-89b1-49d2-b5dd-bf1bc20240d1"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8283),
+                            ProductId = new Guid("81db7cf2-516c-4ea4-a622-4ab5574498bc"),
                             Type = 1,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9294),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8286),
                             UrlImage = "https://example.com/images/dell-xps13-slide1.jpg"
                         },
                         new
                         {
-                            Id = new Guid("34b7889e-a16d-486e-b174-732d00faac6b"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9296),
-                            ProductId = new Guid("96f0fead-2b10-4c3e-b5d4-5d788dfc7628"),
+                            Id = new Guid("8f834b35-00d0-4250-9d85-3f67afd9e717"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8291),
+                            ProductId = new Guid("81db7cf2-516c-4ea4-a622-4ab5574498bc"),
                             Type = 2,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9297),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8292),
                             UrlImage = "https://example.com/images/dell-xps13-content.jpg"
                         },
                         new
                         {
-                            Id = new Guid("4bdb3a37-ac57-421e-b2c8-8d6b672a7237"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9300),
-                            ProductId = new Guid("d8941bfd-43dc-40d0-a03a-11798de391fc"),
+                            Id = new Guid("9539818b-1eca-4753-98e5-3cbfdca9a8e8"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8296),
+                            ProductId = new Guid("6a3592ed-a136-43c9-ba49-540a621fd7a6"),
                             Type = 1,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9301),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8297),
                             UrlImage = "https://example.com/images/hp-pavilion-slide1.jpg"
                         },
                         new
                         {
-                            Id = new Guid("60729a74-580a-448e-b32d-08e8e904ffea"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9305),
-                            ProductId = new Guid("d8941bfd-43dc-40d0-a03a-11798de391fc"),
+                            Id = new Guid("e9076cf2-ac48-4db8-85c8-2e59c13d814c"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8349),
+                            ProductId = new Guid("6a3592ed-a136-43c9-ba49-540a621fd7a6"),
                             Type = 2,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9305),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8350),
                             UrlImage = "https://example.com/images/hp-pavilion-content.jpg"
                         },
                         new
                         {
-                            Id = new Guid("d8f6f1d0-4572-40be-b668-56765ae09a75"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9308),
-                            ProductId = new Guid("a8840f4b-3d25-4737-89b1-5c359c05cb00"),
+                            Id = new Guid("779aa884-8e8e-4f66-9bef-dda45b2fe8b4"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8354),
+                            ProductId = new Guid("d59af16d-2581-49ab-b6aa-2ea2e6563ae4"),
                             Type = 1,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9309),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8355),
                             UrlImage = "https://example.com/images/lenovo-legion5-slide1.jpg"
                         },
                         new
                         {
-                            Id = new Guid("46521dca-5860-4bdc-b160-4eb1bd3b5196"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9311),
-                            ProductId = new Guid("a8840f4b-3d25-4737-89b1-5c359c05cb00"),
+                            Id = new Guid("c713debe-bcca-4c44-971c-391c46a115a2"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8359),
+                            ProductId = new Guid("d59af16d-2581-49ab-b6aa-2ea2e6563ae4"),
                             Type = 2,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9312),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8360),
                             UrlImage = "https://example.com/images/lenovo-legion5-content.jpg"
                         },
                         new
                         {
-                            Id = new Guid("fac94261-a3dd-4e59-b99b-c796b2a4a50f"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9317),
-                            ProductId = new Guid("7466bf1b-6888-4d9c-a83b-697a76f82ee3"),
+                            Id = new Guid("a63f3357-c5d2-4d63-b324-f229d057eb67"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8364),
+                            ProductId = new Guid("fbfb9d1d-ac03-442d-8d95-43e82ffb9297"),
                             Type = 1,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9318),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8365),
                             UrlImage = "https://example.com/images/xbox-series-x-slide1.jpg"
                         },
                         new
                         {
-                            Id = new Guid("0ada76f0-1873-4cdc-9337-3ee59a1bc961"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9321),
-                            ProductId = new Guid("7466bf1b-6888-4d9c-a83b-697a76f82ee3"),
+                            Id = new Guid("5530eea7-398b-4333-845e-fa7f46187821"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8370),
+                            ProductId = new Guid("fbfb9d1d-ac03-442d-8d95-43e82ffb9297"),
                             Type = 2,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9322),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8371),
                             UrlImage = "https://example.com/images/xbox-series-x-content.jpg"
                         },
                         new
                         {
-                            Id = new Guid("7004cae8-62c1-46f7-8778-2776ac1b8a44"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9324),
-                            ProductId = new Guid("76a1caa8-5d92-4dfa-83e2-09beed5af447"),
+                            Id = new Guid("9eec9a44-1aac-4442-bd16-723c9dc21bdc"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8375),
+                            ProductId = new Guid("11f1f291-763c-49ad-b4d2-2372dbaa6210"),
                             Type = 1,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9325),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8376),
                             UrlImage = "https://example.com/images/asus-rog-slide1.jpg"
                         },
                         new
                         {
-                            Id = new Guid("faa92ebd-2aef-4fc0-a23f-c66062c8524e"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9328),
-                            ProductId = new Guid("76a1caa8-5d92-4dfa-83e2-09beed5af447"),
+                            Id = new Guid("5097edf0-2714-4dd5-980c-d03cdb1ab9d5"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8380),
+                            ProductId = new Guid("11f1f291-763c-49ad-b4d2-2372dbaa6210"),
                             Type = 2,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9328),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8381),
                             UrlImage = "https://example.com/images/asus-rog-content.jpg"
                         },
                         new
                         {
-                            Id = new Guid("8b3c5253-2360-44ed-9fb3-1769d82f480f"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9332),
-                            ProductId = new Guid("2807a392-5d67-4bf8-ad60-619cbd15b389"),
+                            Id = new Guid("0061acfe-3c7c-4a33-9d75-ed03830f99be"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8385),
+                            ProductId = new Guid("6cb3acc9-d11f-46a6-8fdb-58bc377a9f02"),
                             Type = 1,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9332),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8386),
                             UrlImage = "https://example.com/images/acer-predator-slide1.jpg"
                         },
                         new
                         {
-                            Id = new Guid("5a67f631-c73e-44d1-bc16-224c63a7cf68"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9335),
-                            ProductId = new Guid("2807a392-5d67-4bf8-ad60-619cbd15b389"),
+                            Id = new Guid("05f971e9-8548-4fac-bf09-90bfba4dbbca"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8393),
+                            ProductId = new Guid("6cb3acc9-d11f-46a6-8fdb-58bc377a9f02"),
                             Type = 2,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9335),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8394),
                             UrlImage = "https://example.com/images/acer-predator-content.jpg"
                         },
                         new
                         {
-                            Id = new Guid("aa3c9dd1-f18a-4332-a52f-1d5a144488aa"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9338),
-                            ProductId = new Guid("787ec87d-d82d-4bb9-ba3c-517e7e60d16f"),
+                            Id = new Guid("7b50af32-9a76-494b-b26e-2f330e30cd48"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8398),
+                            ProductId = new Guid("d37bb274-8a87-4682-9acb-f07650b04918"),
                             Type = 1,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9339),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8399),
                             UrlImage = "https://example.com/images/huawei-mate40-slide1.jpg"
                         },
                         new
                         {
-                            Id = new Guid("43bd5d87-0a37-43c3-a4a0-da0802f24d65"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9342),
-                            ProductId = new Guid("787ec87d-d82d-4bb9-ba3c-517e7e60d16f"),
+                            Id = new Guid("05ffbb86-7e1b-42d8-afb3-5a7b024320c1"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8403),
+                            ProductId = new Guid("d37bb274-8a87-4682-9acb-f07650b04918"),
                             Type = 2,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9343),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8404),
                             UrlImage = "https://example.com/images/huawei-mate40-content.jpg"
                         },
                         new
                         {
-                            Id = new Guid("7fc3d2ce-2eaa-4b89-a611-7cb8482ff05e"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9348),
-                            ProductId = new Guid("05553658-96ea-4fbe-bcdd-9bcb60714da6"),
+                            Id = new Guid("fc83d275-f09f-4857-b9fb-d5a17c7bb48e"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8408),
+                            ProductId = new Guid("03727abf-ffb5-4a6a-85e5-a65e6b7e8b77"),
                             Type = 1,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9348),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8409),
                             UrlImage = "https://example.com/images/airpods-pro-slide1.jpg"
                         },
                         new
                         {
-                            Id = new Guid("bcf3ddac-480b-41f2-8388-c3a077b38f1a"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9351),
-                            ProductId = new Guid("05553658-96ea-4fbe-bcdd-9bcb60714da6"),
+                            Id = new Guid("fd0b5495-418a-4c9c-977a-08fbaf3aa258"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8414),
+                            ProductId = new Guid("03727abf-ffb5-4a6a-85e5-a65e6b7e8b77"),
                             Type = 2,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9352),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8415),
                             UrlImage = "https://example.com/images/airpods-pro-content.jpg"
                         },
                         new
                         {
-                            Id = new Guid("23eb2151-fd71-4ea5-830a-03e193c2efa9"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9354),
-                            ProductId = new Guid("c3686570-7258-447e-8495-f776f2298ee0"),
+                            Id = new Guid("0e0f01e0-0fcd-4d49-976a-cd5b757f5bc8"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8418),
+                            ProductId = new Guid("8e92b5d8-3a67-48cb-b11b-5b781d2e85df"),
                             Type = 1,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9355),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8419),
                             UrlImage = "https://example.com/images/galaxy-buds-slide1.jpg"
                         },
                         new
                         {
-                            Id = new Guid("367ecfe6-5083-4faf-a18f-298b683a25c3"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9358),
-                            ProductId = new Guid("c3686570-7258-447e-8495-f776f2298ee0"),
+                            Id = new Guid("fb21a2bf-b0d9-4c80-a5a9-2a07563b02ce"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8424),
+                            ProductId = new Guid("8e92b5d8-3a67-48cb-b11b-5b781d2e85df"),
                             Type = 2,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9359),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8424),
                             UrlImage = "https://example.com/images/galaxy-buds-content.jpg"
                         },
                         new
                         {
-                            Id = new Guid("aa9c05dc-7ee0-44d0-8a98-c1acd1270d23"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9362),
-                            ProductId = new Guid("7364d009-fb9d-4ac8-904f-fb8839dd6628"),
+                            Id = new Guid("68f9d27a-39b1-42ce-8dd1-abd22c116b81"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8428),
+                            ProductId = new Guid("8801342a-9f51-47df-827d-9d98f0962882"),
                             Type = 1,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9362),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8430),
                             UrlImage = "https://example.com/images/sony-wh1000xm4-slide1.jpg"
                         },
                         new
                         {
-                            Id = new Guid("c846d653-0014-4381-b4d1-f80d8e88945a"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9365),
-                            ProductId = new Guid("7364d009-fb9d-4ac8-904f-fb8839dd6628"),
+                            Id = new Guid("b67cfc4a-7f15-40af-a853-51372840e336"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8437),
+                            ProductId = new Guid("8801342a-9f51-47df-827d-9d98f0962882"),
                             Type = 2,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9365),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8438),
                             UrlImage = "https://example.com/images/sony-wh1000xm4-content.jpg"
                         },
                         new
                         {
-                            Id = new Guid("d9dd3797-4370-4677-8ca4-1765288aca31"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9368),
-                            ProductId = new Guid("755696b8-c634-4bcd-8382-fed5b9db3e38"),
+                            Id = new Guid("1cb5619d-6afe-4fc2-8662-4e2cd3e98d11"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8442),
+                            ProductId = new Guid("e3d0f57d-4323-4b31-92cb-d968a394a3a0"),
                             Type = 1,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9369),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8443),
                             UrlImage = "https://example.com/images/alienware-slide1.jpg"
                         },
                         new
                         {
-                            Id = new Guid("2e444beb-0df4-414d-9414-02e21ecd4b12"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9372),
-                            ProductId = new Guid("755696b8-c634-4bcd-8382-fed5b9db3e38"),
+                            Id = new Guid("4596fb80-35c9-4b43-b2f9-8b63f09fa50b"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8448),
+                            ProductId = new Guid("e3d0f57d-4323-4b31-92cb-d968a394a3a0"),
                             Type = 2,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9372),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8449),
                             UrlImage = "https://example.com/images/alienware-content.jpg"
                         },
                         new
                         {
-                            Id = new Guid("d5ae3de8-74fb-4c84-b5cd-fdf3f3953666"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9377),
-                            ProductId = new Guid("1c2fb759-8ee2-40eb-942b-15cfc5ffe140"),
+                            Id = new Guid("584bbadc-af2a-45f1-854e-80a3b9db737f"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8453),
+                            ProductId = new Guid("7a47207f-eed6-425b-adb4-6b764de3dc59"),
                             Type = 1,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9378),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8454),
                             UrlImage = "https://example.com/images/hp-envy15-slide1.jpg"
                         },
                         new
                         {
-                            Id = new Guid("0d59b700-1f34-4dd0-be92-52f03c36fbde"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9382),
-                            ProductId = new Guid("1c2fb759-8ee2-40eb-942b-15cfc5ffe140"),
+                            Id = new Guid("10b2179e-16cc-421c-9674-6a9744826c2a"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8459),
+                            ProductId = new Guid("7a47207f-eed6-425b-adb4-6b764de3dc59"),
                             Type = 2,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9382),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8460),
                             UrlImage = "https://example.com/images/hp-envy15-content.jpg"
                         },
                         new
                         {
-                            Id = new Guid("967831b7-b251-4704-a884-74e56a1039e8"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9387),
-                            ProductId = new Guid("5f587109-15d8-4b5a-af8a-d18c50cf1073"),
+                            Id = new Guid("60ff31eb-f376-435a-9f88-465c2de37f5f"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8465),
+                            ProductId = new Guid("d6efaed7-35b4-4344-b71d-6e50cea8caf4"),
                             Type = 1,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9388),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8466),
                             UrlImage = "https://example.com/images/razer-blade15-slide1.jpg"
                         },
                         new
                         {
-                            Id = new Guid("b5cc2da6-bbe6-4bd6-a84a-c44edbecaf61"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9391),
-                            ProductId = new Guid("5f587109-15d8-4b5a-af8a-d18c50cf1073"),
+                            Id = new Guid("9a521634-a63c-4431-9614-0ddc3a2bc8c5"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8470),
+                            ProductId = new Guid("d6efaed7-35b4-4344-b71d-6e50cea8caf4"),
                             Type = 2,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9391),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8471),
                             UrlImage = "https://example.com/images/razer-blade15-content.jpg"
                         },
                         new
                         {
-                            Id = new Guid("4e0cc3ec-09ff-41a8-915f-16d0aecf0817"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9394),
-                            ProductId = new Guid("e8248af7-dded-446e-bcd4-de817024becf"),
+                            Id = new Guid("de49dcb1-5f3a-464b-9613-b86f3303d057"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8475),
+                            ProductId = new Guid("159ff9d4-b243-4681-a22e-39e1702f5bd0"),
                             Type = 1,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9395),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8476),
                             UrlImage = "https://example.com/images/apple-tv4k-slide1.jpg"
                         },
                         new
                         {
-                            Id = new Guid("a1be6f15-392e-40c2-9f21-ab4d973d7232"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9397),
-                            ProductId = new Guid("e8248af7-dded-446e-bcd4-de817024becf"),
+                            Id = new Guid("54fdb79c-a80d-4f89-86c9-8d1379016af4"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8484),
+                            ProductId = new Guid("159ff9d4-b243-4681-a22e-39e1702f5bd0"),
                             Type = 2,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9398),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8485),
                             UrlImage = "https://example.com/images/apple-tv4k-content.jpg"
                         },
                         new
                         {
-                            Id = new Guid("9faf7ae4-ff2e-4bc7-ad08-4a5f3161c354"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9400),
-                            ProductId = new Guid("826f3115-6208-4188-b05e-c23e0f095cc4"),
+                            Id = new Guid("9614a04b-97a6-49d4-8936-271e188ef251"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8488),
+                            ProductId = new Guid("60072ca9-8a74-4244-b219-973e8c65b7c8"),
                             Type = 1,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9401),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8489),
                             UrlImage = "https://example.com/images/xbox-series-s-slide1.jpg"
                         },
                         new
                         {
-                            Id = new Guid("734f3cd6-548b-41aa-9f2a-44939a008de0"),
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9404),
-                            ProductId = new Guid("826f3115-6208-4188-b05e-c23e0f095cc4"),
+                            Id = new Guid("afe2ca34-7a43-46e7-94f9-502369afcd0a"),
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8496),
+                            ProductId = new Guid("60072ca9-8a74-4244-b219-973e8c65b7c8"),
                             Type = 2,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(9405),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(8497),
                             UrlImage = "https://example.com/images/xbox-series-s-content.jpg"
                         });
                 });
@@ -2706,50 +2706,50 @@ namespace TechShop.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("140cb12c-ba27-4e99-8d60-319711f1ecf1"),
-                            CategoryId = new Guid("6d0dfc2c-f26f-4ec4-aab7-59079e5fe7c5"),
+                            Id = new Guid("948251d0-8263-4e6e-979f-c870aac3076f"),
+                            CategoryId = new Guid("1c0a8365-f773-447f-bd57-d077c0d35bfe"),
                             Name = "RAM"
                         },
                         new
                         {
-                            Id = new Guid("15e46894-51de-4a26-a7db-346c8c4e8ecd"),
-                            CategoryId = new Guid("6d0dfc2c-f26f-4ec4-aab7-59079e5fe7c5"),
+                            Id = new Guid("63782ae9-4332-42e1-b945-d0293368477e"),
+                            CategoryId = new Guid("1c0a8365-f773-447f-bd57-d077c0d35bfe"),
                             Name = "Chip"
                         },
                         new
                         {
-                            Id = new Guid("da651453-9c68-45c0-9d8b-010c045c8c4e"),
-                            CategoryId = new Guid("80ff6f18-ea57-43f3-9b8d-226a4b002758"),
+                            Id = new Guid("1adadffa-554d-4558-8ca6-c7fc8891e9d5"),
+                            CategoryId = new Guid("5e841f78-2a03-489d-84f0-68dbb3c517ca"),
                             Name = "RAM"
                         },
                         new
                         {
-                            Id = new Guid("2c2f27b1-6414-42f0-88ec-368551753894"),
-                            CategoryId = new Guid("80ff6f18-ea57-43f3-9b8d-226a4b002758"),
+                            Id = new Guid("14b6611e-5ff7-40d0-bea4-43f4237f58c1"),
+                            CategoryId = new Guid("5e841f78-2a03-489d-84f0-68dbb3c517ca"),
                             Name = "Storage"
                         },
                         new
                         {
-                            Id = new Guid("74b3b3a3-c8f1-4282-8e7e-7982269e1c18"),
-                            CategoryId = new Guid("ad295af0-70e4-4a63-8e37-eeb960e8998e"),
+                            Id = new Guid("a5e69a73-4866-45bd-9058-0ca84c512724"),
+                            CategoryId = new Guid("3ed05c58-1153-40d5-8bea-4f37757eaee4"),
                             Name = "Screen Size"
                         },
                         new
                         {
-                            Id = new Guid("efce27b0-1d81-4cd6-b856-e0a283a6196a"),
-                            CategoryId = new Guid("ad295af0-70e4-4a63-8e37-eeb960e8998e"),
+                            Id = new Guid("7108c6ce-ab0c-4de8-adc1-6c2658f06838"),
+                            CategoryId = new Guid("3ed05c58-1153-40d5-8bea-4f37757eaee4"),
                             Name = "Resolution"
                         },
                         new
                         {
-                            Id = new Guid("763e8516-381a-4f94-91d2-77f40daa6758"),
-                            CategoryId = new Guid("76f25b28-3096-4a32-9a3a-5646b720015f"),
+                            Id = new Guid("eddc8d1b-ff6c-4303-a959-0ef8c48f1019"),
+                            CategoryId = new Guid("b75fdf86-928a-4311-897d-dfdc98ffbcdf"),
                             Name = "Graphic Card"
                         },
                         new
                         {
-                            Id = new Guid("4a692d63-5a1a-45fe-98f9-684cbbb627b1"),
-                            CategoryId = new Guid("76f25b28-3096-4a32-9a3a-5646b720015f"),
+                            Id = new Guid("8ad58586-7727-419c-8bf2-80eb908d462e"),
+                            CategoryId = new Guid("b75fdf86-928a-4311-897d-dfdc98ffbcdf"),
                             Name = "Processor"
                         });
                 });
@@ -2838,122 +2838,122 @@ namespace TechShop.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "bdf2f396-543a-4d69-ad81-e346218aec1e",
+                            Id = "8d264581-742d-41be-bd07-78c0453e875e",
                             AccessFailedCount = 0,
                             Address = "123 Main St, New York, NY",
                             BirthDay = new DateTime(2001, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "f565f0da-1fba-45e3-bc5d-8c6f3f27806f",
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 556, DateTimeKind.Local).AddTicks(6881),
+                            ConcurrencyStamp = "deee555d-14c8-4f1c-8ece-c23677d14a01",
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 35, 841, DateTimeKind.Local).AddTicks(9327),
                             Email = "phucnd20@fpt.com",
                             EmailConfirmed = false,
                             FullName = "Nguyen Duy Phuc",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEJoxephNHqTUVBCmL4WoFY/7eJIRjZx23ilIJiRbvOXZZ/Y57KMTot+QvBZMqTSfRg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHXEtLomoMvLo3sMPnHeTjhq8nVK0QTHnSCTTgFc45ltR3d6Y2e3F7I1F6AxqZDtZg==",
                             PhoneNumber = "1234567890",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6bdcc829-06c9-4340-bacd-100ccfbbd1b6",
+                            SecurityStamp = "6971ee70-c565-423c-9a05-852d81c321ab",
                             TwoFactorEnabled = false,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 556, DateTimeKind.Local).AddTicks(6890),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 35, 841, DateTimeKind.Local).AddTicks(9336),
                             UserName = "phucnd20"
                         },
                         new
                         {
-                            Id = "e1c5db55-de77-41c1-ab45-c022d32a2034",
+                            Id = "415a79a3-ea4f-4bb7-a6dc-9abf82cba517",
                             AccessFailedCount = 0,
                             Address = "456 Elm St, Los Angeles, CA",
                             BirthDay = new DateTime(2003, 9, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "74a1e39c-3d36-4ff4-beec-4bc56b519849",
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 667, DateTimeKind.Local).AddTicks(604),
+                            ConcurrencyStamp = "f9a1789d-f276-4ade-bcda-845c88d4715e",
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 35, 944, DateTimeKind.Local).AddTicks(9915),
                             Email = "khanhtmq2@fpt.com",
                             EmailConfirmed = false,
                             FullName = "Tran Minh Quoc Khanh",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEBBwhUyD9JMwUGvdm8Gfw1AaLxtgn5wZoCaajCY8vEfoEP0JkY6mxqAoocU5TjmLJw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELpW/ud/bTvuJ+IynsxGqDRV8U88bnGcW/LRW/bYY7AVcb6m96KpLETs83TujMWw6g==",
                             PhoneNumber = "9876543210",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a7e55e9d-7178-4231-8897-245dd7909550",
+                            SecurityStamp = "2d47629a-aee2-4db4-b2ac-91f6edb9d26f",
                             TwoFactorEnabled = false,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 667, DateTimeKind.Local).AddTicks(609),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 35, 944, DateTimeKind.Local).AddTicks(9923),
                             UserName = "khanhtmq2"
                         },
                         new
                         {
-                            Id = "dfda172b-27f8-44d5-aef4-d029719eeab7",
+                            Id = "821ea039-ebbf-4105-a966-065738232bbf",
                             AccessFailedCount = 0,
                             Address = "789 Pine St, Chicago, IL",
                             BirthDay = new DateTime(2003, 3, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "4eece4b4-79a3-4b86-b5f3-e9da05259f56",
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 755, DateTimeKind.Local).AddTicks(2207),
+                            ConcurrencyStamp = "afa3c55c-780f-4c9b-a075-513e0028a934",
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 30, DateTimeKind.Local).AddTicks(1447),
                             Email = "dattv20@fpt.com",
                             EmailConfirmed = false,
                             FullName = "Tran Van Dat",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAENAcMywUzVdU2xVMkv+pJZl24vDOWbvdOBHFjsGjJpnL1j3HPgfQy6aQ62eIa5CA9w==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIkAxMqT3jsU+w4XFw8iXakAu1ziiSyoQxNe3jZNB0fYgPMXLU5rfqE5TApJyRH+HQ==",
                             PhoneNumber = "5551234567",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "30e6e46d-ab7f-47d7-93ce-484935c2d014",
+                            SecurityStamp = "e424eba0-a5b6-4642-adab-118afded2667",
                             TwoFactorEnabled = false,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 755, DateTimeKind.Local).AddTicks(2214),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 30, DateTimeKind.Local).AddTicks(1460),
                             UserName = "dattv20"
                         },
                         new
                         {
-                            Id = "dfd365b0-ed6c-4627-8d91-6f6488d301b1",
+                            Id = "c28a969e-7d9d-4375-935c-94fd7a32447b",
                             AccessFailedCount = 0,
                             Address = "101 Maple St, San Francisco, CA",
                             BirthDay = new DateTime(2002, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "dbb00183-195f-4d8a-a9bf-d9cab6ef1be2",
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 830, DateTimeKind.Local).AddTicks(4092),
+                            ConcurrencyStamp = "640c2e70-7224-4958-b1c0-c196fd0783cb",
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 106, DateTimeKind.Local).AddTicks(9737),
                             Email = "nhannt96@fpt.com",
                             EmailConfirmed = false,
                             FullName = "Nguyen Tri Nhan",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEGWgQ+WzO73fDEevdsJtBgcp/3iGEy7f/B6z2L/3LTlHCifDgWDryedBKF15uJ8IBA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGFD+GTsyVC7F+feME5Ks7qwfKieHgpdKgbaO/ZjFULbCP9tje8+8s8VkZL5dd/sOw==",
                             PhoneNumber = "4449876543",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5e8160fc-de5a-42db-aacc-3f5dca9881ae",
+                            SecurityStamp = "615fd266-4e47-4a84-9763-aa56547aa482",
                             TwoFactorEnabled = false,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 830, DateTimeKind.Local).AddTicks(4100),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 106, DateTimeKind.Local).AddTicks(9743),
                             UserName = "nhannt96"
                         },
                         new
                         {
-                            Id = "7954dd0b-fc37-488f-9f9b-cf64179fa2d9",
+                            Id = "8fd53c73-9883-4d1c-b084-3e35853e15cf",
                             AccessFailedCount = 0,
                             Address = "202 Oak St, Miami, FL",
                             BirthDay = new DateTime(2003, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "90e3aa2a-8269-4e81-888b-935d51c77c3b",
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 904, DateTimeKind.Local).AddTicks(3977),
+                            ConcurrencyStamp = "7bd56a2e-7ef2-48c1-ac12-a7e6f3e68e03",
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 206, DateTimeKind.Local).AddTicks(6847),
                             Email = "duclt24@fpt.com",
                             EmailConfirmed = false,
                             FullName = "Le Toan Duc",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEC5MU6wKTX3m98sXSxIxFnzfDYGiQoDASllYspCBrSPcBSmJmhVjN5Vl0OBKnI2tfA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDveWm/XsT0AQUdAo5x38y4w+o4hgFQwffIbCDTR13ZE+vvdHhqjB3/0S4wb0DFarg==",
                             PhoneNumber = "3335678901",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "52e9bc06-f580-4d9c-85dc-e60cb9db39d9",
+                            SecurityStamp = "455186ea-22df-4c12-b8f5-c94302a35fff",
                             TwoFactorEnabled = false,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 904, DateTimeKind.Local).AddTicks(3987),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 206, DateTimeKind.Local).AddTicks(6853),
                             UserName = "duclt24"
                         },
                         new
                         {
-                            Id = "f7ab9962-24e9-43fa-b81d-af09531b6048",
+                            Id = "7b22ab2c-9296-459e-84f2-2adb73ae5eb2",
                             AccessFailedCount = 0,
                             Address = "707 Cherry St, Phoenix, AZ",
                             BirthDay = new DateTime(2002, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "dd28d1c2-5682-4687-96c1-058ddab94d59",
-                            CreatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(7795),
+                            ConcurrencyStamp = "287c263a-1683-4006-9ff9-3c1ec7e1dd5b",
+                            CreatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(6578),
                             Email = "anhbhn@fpt.com",
                             EmailConfirmed = false,
                             FullName = "Bui Huynh Ngoc Anh",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEBHMpwm80JxgWKVBJ+Ua1zM5q7kV5XiWnYktSlPwau3smXhDMPSegMxgRlUOkBeWLA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELvw/uPjxPxY8xPH5YGKtvh1iL8Nn5vcTrBVlDm9c+AIKU8C80nHmD83KhXYmlH2vw==",
                             PhoneNumber = "8886785432",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ad60eae5-e262-4d26-be93-62351f3801ec",
+                            SecurityStamp = "b9061f9f-cd2a-4120-a428-903a00ca0519",
                             TwoFactorEnabled = false,
-                            UpdatedAt = new DateTime(2024, 9, 26, 9, 41, 52, 978, DateTimeKind.Local).AddTicks(7805),
+                            UpdatedAt = new DateTime(2024, 9, 30, 10, 22, 36, 315, DateTimeKind.Local).AddTicks(6584),
                             UserName = "anhbhn"
                         });
                 });

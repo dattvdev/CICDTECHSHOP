@@ -152,7 +152,8 @@
                             </div>
                         </div>
                     </div>
-                    
+                    @if (User.Identity.IsAuthenticated)
+                    {
 
                         <div class="add-to-cart">
                             <div class="qty-label">
@@ -165,7 +166,7 @@
                             </div>
                             <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                         </div>
-                    
+                    }
 
                     @* 	<ul class="product-links">
                     <li>Share:</li>
@@ -405,44 +406,28 @@
                     return false;
                 }
                 //write ajax to action  AddToCart form CheckoutController
-               
-                // Check if the user is authenticated before making the AJAX request
-                var isAuthenticated = '@User.Identity.IsAuthenticated' === 'True'; // Convert Razor bool to JS boolean
-
-                if (isAuthenticated) {
-                    // AJAX request for logged-in users
-                    $.ajax({
-                        url: '/Checkout/AddToCart',
-                        type: 'POST',
-                        data: {
-                            colorId: colorId,
-                            quantity: $('.input-number input').val()
-                        },
-                        success: function (response) {
-                            if (response.success) {
-                                showAlertSuccess('Product added to cart successfully.');
+                $.ajax({
+                    url: '/Checkout/AddToCart',
+                    type: 'POST',
+                    data: {
+                        colorId: colorId,
+                        quantity: $('.input-number input').val()
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            showAlertSuccess('Product added to cart successfully.');
+                        } else {
+                            if (response.message != null) {
+                                showAlertError(response.message);
                             } else {
                                 showAlertError('Failed to add product to cart.');
                             }
-                        },
-                        error: function () {
-                            showAlertError('Failed to add product to cart.');
                         }
-                    });
-                } else {
-                    // Save to localStorage for guest users
-                    let order = JSON.parse(localStorage.getItem("Order")) || [];
-
-                    let obj = order.find(c => c.colorId === colorId)
-                    if (obj == undefined || obj == null) {
-                        order.push({ colorId: colorId, quantity: $('.input-number input').val() });
-                    }else{
-                        obj.quantity = Number(obj.quantity) + Number($('.input-number input').val())
+                    },
+                    error: function () {
+                        showAlertError('Failed to add product to cart.');
                     }
-                    localStorage.setItem("Order", JSON.stringify(order));
-                    showAlertSuccess('Product added to cart (Guest).');
-                    $('#totalqty').html(order.length);
-                }
+                });
             });
         });
 
