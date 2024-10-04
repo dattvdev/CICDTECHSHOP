@@ -1,0 +1,36 @@
+﻿@model IList<TechShop.Core.Models.Product>
+
+<table id="productTable" class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Brand</th>
+            <th>Url Slug</th>
+            <th>Created At</th>
+            <th>Updated At</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td><a href="@Url.Action("Details", "Product", new { area = "Admin", id = product.Id })">@product.Name</a></td>
+                <td>@product?.Category?.Name</td>
+                <td>@product?.Brand?.Name</td>
+                <td>@product.UrlSlug</td>
+                <td>@product?.CreatedAt?.ToString("dd-MM-yyyy")</td>
+                <td>@product?.UpdatedAt?.ToString("dd-MM-yyyy")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    $('#productTable').DataTable({
+        responsive: true,
+        rowReorder: {
+            selector: 'td:nth-child(2)'
+        }
+    });
+</script>

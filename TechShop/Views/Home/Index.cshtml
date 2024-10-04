@@ -1,0 +1,262 @@
+﻿<style>
+	.product-carousel {
+		overflow: hidden;
+	}
+
+		.product-carousel .product {
+			padding: 10px;
+			margin: 0;
+		}
+
+	.slick-slide {
+		display: flex;
+		justify-content: center;
+	}
+
+	.slick-track {
+		display: flex;
+		align-items: center;
+	}
+
+</style>
+
+
+<div class="container">
+	@Html.Partial("_ProductCollection")
+</div>
+@if (TempData["CheckoutError"] != null)
+{
+	<div id="customAlert" style="background-color: #dc3545; color: white; padding: 15px; position: fixed; top: 20px; left: 50%; transform: translateX(-50%);transition: opacity 0.4s ease, transform 0.4s ease; z-index: 1000; border-radius: 5px;">
+		@TempData["CheckoutError"]
+	</div>
+
+	<script>
+		// Tự động ẩn thông báo sau 3 giây
+		setTimeout(function () {
+			var alertElement = document.getElementById('customAlert');
+			if (alertElement) {
+				alertElement.style.display = 'none';
+			}
+		}, 3000); // 3000ms = 3 giây
+	</script>
+}
+
+<div class="section">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-12">
+				<div class="section-title">
+					<h3 class="title">New Products</h3>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="row">
+					<div class="products-tabs">
+						<div id="tab1" class="tab-pane active">
+							<div class="products-slick" id="productContainer" data-nav="#slick-nav-1">
+							</div>
+							<div id="slick-nav-1" class="products-slick-nav"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+<div class="container">
+	<div class="section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="section-title">
+						<h3 class="title">Laptops</h3>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="row">
+						<div class="products-tabs">
+							<div id="tab2" class="tab-pane fade in active">
+								<div class="products-slick" data-nav="#slick-nav-2" id="productTopContainer">
+								</div>
+								<div id="slick-nav-2" class="products-slick-nav"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-md-4 col-xs-6">
+					<div class="section-title">
+						<h4 class="title">Phones</h4>
+						<div class="section-nav">
+							<div id="slick-nav-3" class="products-slick-nav"></div>
+						</div>
+					</div>
+
+					<div class="products-widget-slick" data-nav="#slick-nav-3">
+						<div id="productTopPhoneContainer"></div>
+					</div>
+				</div>
+				<div class="col-md-4 col-xs-6">
+					<div class="section-title">
+						<h4 class="title">PC</h4>
+						<div class="section-nav">
+							<div id="slick-nav-3" class="products-slick-nav"></div>
+						</div>
+					</div>
+
+					<div class="products-widget-slick" data-nav="#slick-nav-3">
+						<div id="productTopPCContainer"></div>
+					</div>
+				</div>
+
+				<div class="clearfix visible-sm visible-xs"></div>
+
+				<div class="col-md-4 col-xs-6">
+					<div class="section-title">
+						<h4 class="title">Watches</h4>
+						<div class="section-nav">
+							<div id="slick-nav-3" class="products-slick-nav"></div>
+						</div>
+					</div>
+
+					<div class="products-widget-slick" data-nav="#slick-nav-3">
+						<div id="productTopWatchesContainer"></div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+	<script>
+		loadProducts('@Url.Action("ListLaptopProducts")', 'productTopContainer');
+
+		function loadProducts(url, containerId) {
+			$.ajax({
+				url: url,
+				type: 'GET',
+				async: false,
+				success: function (data) {
+					console.log("Success");
+					$('#' + containerId).html(data);
+					$('.product-carousel').slick({
+						infinite: true,
+						slidesToShow: 4,
+						slidesToScroll: 1,
+						autoplay: true,
+						autoplaySpeed: 3000,
+						dots: true,
+						arrows: true,
+						responsive: [
+							{
+								breakpoint: 1024,
+								settings: {
+									slidesToShow: 3
+								}
+							},
+							{
+								breakpoint: 768,
+								settings: {
+									slidesToShow: 2
+								}
+							},
+							{
+								breakpoint: 480,
+								settings: {
+									slidesToShow: 1
+								}
+							}
+						]
+					});
+				},
+				error: function () {
+					console.log("Error");
+					alert('Error loading products.');
+				}
+			});
+		}
+	</script>
+	<script>
+		$(document).ready(function () {
+			loadProducts('@Url.Action("ListProducts")', 'productContainer');
+
+			function loadProducts(url, containerId) {
+				$.ajax({
+					url: url,
+					type: 'GET',
+					success: function (data) {
+						console.log("Success");
+						$('#' + containerId).html(data);
+						$('.product-carousel').slick({
+							infinite: true,
+							slidesToShow: 4,
+							slidesToScroll: 1,
+							autoplay: true,
+							autoplaySpeed: 3000,
+							dots: true,
+							arrows: true,
+							responsive: [
+								{
+									breakpoint: 1024,
+									settings: {
+										slidesToShow: 3
+									}
+								},
+								{
+									breakpoint: 768,
+									settings: {
+										slidesToShow: 2
+									}
+								},
+								{
+									breakpoint: 480,
+									settings: {
+										slidesToShow: 1
+									}
+								}
+							]
+						});
+					},
+					error: function () {
+						console.log("Error");
+						alert('Error loading products.');
+					}
+				});
+			}
+		});
+	</script>
+	<script>
+		loadProducts('@Url.Action("ListPhoneProducts")', 'productTopPhoneContainer');
+		loadProducts('@Url.Action("ListPCProducts")', 'productTopPCContainer');
+		loadProducts('@Url.Action("ListWatchesProducts")', 'productTopWatchesContainer');
+		function loadProducts(url, containerId) {
+			$.ajax({
+				url: url,
+				type: 'GET',
+				success: function (data) {
+					console.log("Success");
+					$('#' + containerId).html(data);
+				},
+				error: function () {
+					console.log("Error");
+					alert('Error loading products.');
+				}
+			});
+		}
+	</script>
+
+}

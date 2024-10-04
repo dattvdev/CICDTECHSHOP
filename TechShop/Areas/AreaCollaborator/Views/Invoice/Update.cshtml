@@ -1,0 +1,94 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+@model TechShop.Core.Models.Invoice
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<link href="~/css/customUpdateInvoice.css" rel="stylesheet" />
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<div class="container-fluid text-center">
+    <div style="top: 50%; left: 50%; transform: translate(-50%, -50%);" class="position-absolute">
+        <h1>Information invoice</h1>
+        <h4>@Model.Name</h4>
+        <h4>Method payment @Model.MethodPaymment</h4>
+        <h4>Total Price: @(Model.Total)$</h4>
+        <h4>Note: @Model.Note</h4>
+        <h3>@(Model.Status == 1 ? "Prepare" : Model.Status == 2 ? "Delivering" : Model.Status == 3 ? "Complete" : Model.Status == 0 ? "Cancel" : "Undefine")</h3>
+        <h4 onclick="redirectToGoogleMaps('@Model.Address')">Address: @Model.Address</h4>
+        <button type="button" @(Model.Status == 3 ? "disabled" : "") id="btn-update-invoice" class="btn btn-primary btn-circle shiny-button">
+            Update
+        </button>
+    </div>
+</div>
+
+<div id="alert-container" class="alert-container"></div>
+<script>
+    function showAlert(message, type, duration = 3000) {
+        const alert = document.createElement('div');
+        alert.className = `alert-message ${type}`;
+        alert.textContent = message;
+
+        const container = document.getElementById('alert-container');
+        container.appendChild(alert);
+
+        setTimeout(() => {
+            alert.classList.add('show');
+        }, 50);
+
+        setTimeout(() => {
+            alert.classList.remove('show');
+            setTimeout(() => {
+                container.removeChild(alert);
+                window.location.reload()
+            }, 100);
+        }, duration);
+    }
+
+    function showAlertSuccess(message, duration) {
+        showAlert(message, 'success', duration);
+    }
+
+    function showAlertError(message, duration) {
+        showAlert(message, 'error', duration);
+    }
+
+    function redirectToGoogleMaps(address) {
+        const encodedAddress = encodeURIComponent(address);
+        const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+        window.open(googleMapsUrl, '_blank'); 
+    }
+</script>
+
+<script>
+    $(document).ready(function(){
+        
+        $("#btn-update-invoice").off('click').on('click', function(){
+            methodGet(`/AreaCollaborator/Invoice/UpdateStatusForCollar?id=@Model.Id`, (response) => {
+                if (response.isSuccess) {
+                    showAlertSuccess(response.message)
+                }
+                else {
+                    showAlertError(response.message)
+                }
+            })
+        })
+        
+        function methodGet(url, callBack) {
+            $.ajax({
+                url: url,
+                type: 'GET',
+                dataType: 'json',
+                success: function (res) {
+                    callBack(res)
+                }
+            });
+        }
+    })
+</script>

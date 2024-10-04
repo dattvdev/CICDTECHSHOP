@@ -1,0 +1,116 @@
+﻿@model IEnumerable<TechShop.Core.Models.Product>
+<div class="container mt-5">
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="product-carousel row" style="width:100%;">
+            @foreach (var product in Model)
+            {
+                <div class="col-md-4">
+                    <a class="product" href="https://localhost:7061/Product/Detail/@product.UrlSlug">
+                        <!-- Product Image -->
+                        <div class="product-img">
+                            <img src="@product.Image" alt="@product.Name" onerror="this.onerror=null;this.src='/lib/electro-template/img/product01.png';">
+                            <div class="product-label">
+                                @if (product.Discount > 0)
+                                {
+                                    <span class="sale">-@product.Discount%</span>
+                                }
+                                <span class="new">NEW</span>
+                            </div>
+                        </div>
+
+                        <!-- Product Body -->
+                        <div class="product-body">
+                            <p class="product-category">Category</p>
+                            <h3 class="product-name">@product.Name</h3>
+                            <div class="product-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="product-btns">
+                                <button class="add-to-wishlist">
+                                    <i class="fa fa-heart-o"></i>
+                                    <span class="tooltipp">add to wishlist</span>
+                                </button>
+                                <button class="add-to-compare">
+                                    <i class="fa fa-exchange"></i>
+                                    <span class="tooltipp">add to compare</span>
+                                </button>
+                                <button class="quick-view">
+                                    <i class="fa fa-eye"></i>
+                                    <span class="tooltipp">quick view</span>
+                                </button>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+
+
+        <div class="pagination">
+            @if (ViewBag.CurrentPage > 1)
+            {
+                <a href="@Url.Action("Index", new { searchstring = ViewBag.SearchString, page = ViewBag.CurrentPage - 1 })">
+                    &laquo;
+                </a>
+            }
+
+            <!-- Page Numbers -->
+            @for (int i = 1; i <= ViewBag.TotalPages; i++)
+            {
+                <a href="@Url.Action("Index", new { searchstring = ViewBag.SearchString, page = i })" class="@(ViewBag.CurrentPage == i ? "active" : "")">
+                    @i
+                </a>
+            }
+
+            <!-- Next Arrow -->
+            @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+            {
+                <a href="@Url.Action("Index", new { searchstring = ViewBag.SearchString, page = ViewBag.CurrentPage + 1 })">
+                    &raquo;
+                </a>
+            }
+        </div>
+    }
+    else
+    {
+        <p>No products available.</p>
+    }
+</div>
+
+<style>
+    .pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+        .pagination a {
+            color: black;
+            padding: 8px 16px;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            margin: 0 4px;
+        }
+
+            .pagination a.active {
+                background-color: red;
+                color: white;
+                border: 1px solid red;
+            }
+
+            .pagination a:hover:not(.active) {
+                background-color: #ddd;
+            }
+
+            .pagination a.disabled {
+                color: #ccc;
+                pointer-events: none;
+                cursor: not-allowed;
+            }
+</style>

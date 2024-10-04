@@ -1,0 +1,20 @@
+﻿@model TechShop.Core.Models.Product
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-title p-2">
+            <h5 class="mb-0">Product Image</h5>
+        </div>
+        <div class="card-body text-left">
+            @if (string.IsNullOrEmpty(Model.Image))
+            {
+                <img id="imagePreview" src="@Url.Content("~/images/select_image_icon.png")" alt="Selected Image" class="img-fluid w-100 h-100" style="object-fit: cover; cursor: pointer;" />
+            }
+            else
+            {
+                <img id="imagePreview" src="@Model.Image" alt="Selected Image" class="img-fluid w-100 h-100" style="object-fit: cover; cursor: pointer;" />
+            }
+            <input type="file" id="imageInput" accept="image/*" class="form-control d-none">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+
+<link href="~/css/customUpdateInvoice.css" rel="stylesheet" />
+<link href="~/lib/adminmart-master/dist/css/style.min.css" rel="stylesheet">
+<link href="~/lib/Datatables/dataTables.bootstrap5.min.css" rel="stylesheet">
+<link href="~/lib/Datatables/colReorder.bootstrap5.min.css" rel="stylesheet">
+<link href="~/lib/Datatables/responsive.bootstrap5.min.css" rel="stylesheet">
+<link href="~/lib/Datatables/rowReorder.bootstrap5.min.css" rel="stylesheet">
+
+<div class="container p-3">
+    <h3>Invoices</h3>
+    <table id="myTable" class="table table-striped">
+        <thead></thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<div id="alert-container" class="alert-container"></div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="~/lib/Datatables/dataTables.min.js"></script>
+<script src="~/lib/Datatables/dataTables.bootstrap5.min.js"></script>
+<script src="~/lib/Datatables/dataTables.colReorder.min.js"></script>
+<script src="~/lib/Datatables/dataTables.responsive.min.js"></script>
+<script src="~/lib/Datatables/responsive.bootstrap5.js"></script>
+<script src="~/lib/Datatables/dataTables.rowReorder.min.js"></script>
+
+<script>
+    function showAlert(message, type, duration = 3000) {
+        const alert = document.createElement('div');
+        alert.className = `alert-message ${type}`;
+        alert.textContent = message;
+
+        const container = document.getElementById('alert-container');
+        container.appendChild(alert);
+
+        setTimeout(() => {
+            alert.classList.add('show');
+        }, 100);
+
+        setTimeout(() => {
+            alert.classList.remove('show');
+            setTimeout(() => {
+                container.removeChild(alert);
+            }, 400);
+        }, duration);
+    }
+
+    function showAlertSuccess(message, duration) {
+        showAlert(message, 'success', duration);
+    }
+
+    function showAlertError(message, duration) {
+        showAlert(message, 'error', duration);
+    }
+</script>
+
+<script type="module" src="~/js/pageEvents/Invoices/invoiceEvents_Collaborator.js"></script>
+

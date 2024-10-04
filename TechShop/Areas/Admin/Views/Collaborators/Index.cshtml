@@ -1,0 +1,657 @@
+﻿@model IEnumerable<TechShop.Core.Models.Collaborator>
+
+@{
+    ViewData["Title"] = "Index";
+    var date = DateTime.Now;
+}
+
+<style>
+    .modal{
+        margin-top: 30px;
+    }
+
+    .modal-backdrop{
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    
+    .action{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    #editCollaboratorModal{
+        margin-top: 170px;
+    }
+
+    #confirmDeleteModal{
+        margin-top: 200px;
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb" style="padding: 0px; margin-bottom: 0px; background: none">
+                            <li class="breadcrumb-item" aria-current="page"><a href="Dashboard">Dashboard</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Collaborators</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row justify-content-center">
+        <div class="col-md-12 m-3">
+           
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-end mb-4">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createCollaboratorModal">
+                            Create New
+                        </button>
+                    </div>
+
+                    
+
+                    <table id="collaboratorTable" class="table table-striped table-bordered no-wrap">
+                        <thead></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@* CREATE COLLABORATOR *@
+<div class="modal fade" id="createCollaboratorModal" tabindex="-1" role="dialog" aria-labelledby="createCollaboratorModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createCollaboratorModalLabel">Create Collaborator</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="Create" id="createCollaboratorForm">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label for="UserName" class="form-label">UserName</label>
+                        <input type="text" class="form-control" id="UserName" name="UserName" required>
+                        <span validation-for="UserName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="Email" class="form-label">Email</label>
+                        <input type="text" class="form-control" id="Email" name="Email" required>
+                        <span validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="PasswordHash" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="PasswordHash" name="PasswordHash" required>
+                        <span validation-for="PasswordHash" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="FullName" class="form-label">FullName</label>
+                        <input type="text" class="form-control" id="FullName" name="FullName" required>
+                        <span validation-for="FullName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="Address" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="Address" name="Address" required>
+                        <span validation-for="Address" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="BirthDay" class="form-label">BirthDay</label>
+                        <input type="date" max="@DateTime.Now.ToString("yyyy-MM-dd")" class="form-control" id="BirthDay" name="BirthDay" required>
+                        <span validation-for="BirthDay" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="PhoneNumber" class="form-label">PhoneNumber</label>
+                        <input type="text" class="form-control" id="PhoneNumber" name="PhoneNumber" required>
+                        <span validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="StartDate" class="form-label">StartDate</label>
+                        <input type="date" class="form-control" id="StartDate" name="StartDate" required>
+                        <span validation-for="startDateError" id="startError" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="EndDate" class="form-label">EndDate</label>
+                        <input type="date" class="form-control" id="EndDate" name="EndDate" required>
+                        <span validation-for="endDateError" id="endError" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@* EDIT COLLABORATOR *@
+<div class="modal fade" id="editCollaboratorModal" tabindex="-1" role="dialog" aria-labelledby="createCollaboratorModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createCollaboratorModalLabel">Update Collaborator</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form  asp-action="Edit" id="editCollaboratorForm" asp-area"="Admin" method="post" asp-controller="Collaborators">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" id="editCollaboratorID" name="CollaboratorID" />
+                    <div class="form-group">
+                        <label for="UserID" class="form-label">User ID</label>
+                        <input type="text" class="form-control" id="UserID" name="UserID" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="StartDate" class="form-label">StartDate</label>
+                        <input type="date" class="form-control" id="collabStartDate" name="StartDate" required>
+                        <span validation-for="StartDate" id="startDateError" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="EndDate" class="form-label">EndDate</label>
+                        <input type="date" class="form-control" id="collabEndDate" name="EndDate" required>
+                        <span validation-for="EndDate" id="endDateError" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <button id="confirmEditButton" type="submit" class="btn btn-primary">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* DELETE COLLABORATOR *@
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteModalLabel">Confirm Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete this item?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <form asp-action="Delete" id="deleteCollaboratorForm" asp-area"="Admin" method="post" asp-controller="Collaborators">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-danger" id="confirmDeleteButton">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<script>
+    $(document).ready(function () 
+    {
+        const dataTable = $('#collaboratorTable');
+        let dt = null;
+        let url = '@Url.Action("GetAllCollaborator", "Collaborators", new { area = "Admin" })'
+
+        showDataTable(url)
+
+        $('#createCollaboratorForm').on('submit', function (event) {
+            event.preventDefault(); // Ngăn chặn việc gửi form mặc định
+
+            $.ajax({
+                url: $(this).attr('action'),
+                type: 'POST',
+                data: $(this).serialize(),
+                success: function (response) {
+                    if (response.success) {
+                        $('#createCollaboratorModal').modal('hide');
+                        $('.modal-backdrop').remove();
+                        dt.destroy();
+                        showDataTable(url)
+                        setTimeout(function () {
+                            showAlertSuccess("Create Successfully!");
+                        }, 500);
+                    } else {
+                        if (response.errors.UserName) {
+                            $('span[validation-for="UserName"]').text(response.errors.UserName);
+                        } else {
+                            $('span[validation-for="UserName"]').text('');
+                        }
+                        if (response.errors.Email) {
+                            $('span[validation-for="Email"]').text(response.errors.Email);
+                        } else {
+                            $('span[validation-for="Email"]').text('');
+                        }
+                        if (response.errors.PasswordHash) {
+                            $('span[validation-for="PasswordHash"]').text(response.errors.PasswordHash);
+                        } else {
+                            $('span[validation-for="PasswordHash"]').text('');
+                        }
+                        if (response.errors.FullName) {
+                            $('span[validation-for="FullName"]').text(response.errors.FullName);
+                        } else {
+                            $('span[validation-for="FullName"]').text('');
+                        }
+                        if (response.errors.Address) {
+                            $('span[validation-for="Address"]').text(response.errors.Address);
+                        } else {
+                            $('span[validation-for="Address"]').text('');
+                        }
+                        if (response.errors.BirthDay) {
+                            $('span[validation-for="BirthDay"]').text(response.errors.BirthDay);
+                        } else {
+                            $('span[validation-for="BirthDay"]').text('');
+                        }
+                        if (response.errors.PhoneNumber) {
+                            $('span[validation-for="PhoneNumber"]').text(response.errors.PhoneNumber);
+                        } else {
+                            $('span[validation-for="PhoneNumber"]').text('');
+                        }
+                        if (response.errors.StartDate) {
+                            $('#startError').text(response.errors.StartDate);
+                        } else {
+                            $('#startError').text('');
+                        }
+                        if (response.errors.EndDate) {
+                            $('#endError').text(response.errors.EndDate);
+                        } else {
+                            $('#endError').text('');
+                        }
+                    }
+                },
+                error: function () {
+                    alert('Failed to update data.');
+                }
+            });
+        });
+
+        function showDataTable(url) {
+            showDataTableServerSide(url , dataTable, [
+                { data: "id", visible: false },
+                { data: "user", title: "FullName" },
+                { data: "startDate", title: "Start Date" },
+                { data: "endDate", title: "End Date" }
+            ], false, true, true, (dataTableInstance, dataTable) => {
+                dt = dataTableInstance
+                dataTableInstance.on('click', '.delete-btn', function () {
+                    const _id = $(this).data('id');
+                    console.log(_id);
+                    $('#deleteCollaboratorForm').attr('action', '@Url.Action("Delete", "Collaborators", new { area = "Admin" })' + '/' + _id);
+                });
+
+                $('#deleteCollaboratorForm').on('submit', function (event) {
+                    event.preventDefault();
+                    $.ajax({
+                        url: $(this).attr('action'),
+                        type: 'POST',
+                        data: $(this).serialize(),
+                        success: function (response) {
+                            if (response) {
+                                $('#confirmDeleteModal').modal('hide');
+                                $('.modal-backdrop').remove();
+                                setTimeout(function () {
+                                    showAlertSuccess("Delete Successfully!");
+                                }, 500);
+                                dt.destroy();
+                                showDataTable(url)
+                            }
+                        },
+                        error: function () {
+                            alert('Failed to update data.');
+                        }
+                    });
+                });
+
+                dataTableInstance.on('click', '.edit-btn', function () {
+                    const _id = $(this).data('id');
+                    console.log(_id);
+
+                    $.ajax({
+                        url: '@Url.Action("GetCollaborator", "Collaborators", new { area = "Admin" })',
+                        type: 'GET',
+                        data: { id: _id },
+                        success: function (data) {
+                            console.log('Data from server:', data);
+                            if (data) {
+                                var startDate = data.startDate.split('T')[0]; // Lấy phần yyyy-mm-dd
+                                var endDate = data.endDate.split('T')[0];
+
+                                $('#collaboratorId').val(data.id);
+                                $('#UserID').val(data.userID);
+                                $('#collabStartDate').val(startDate);
+                                $('#collabEndDate').val(endDate);
+                                $('#editCollaboratorModal form').attr('action', '@Url.Action("Edit", "Collaborators", new { area = "Admin" })' + '/' + _id);
+                            } else {
+                                console.error('Data is null or undefined');
+                            }
+                        },
+                        error: function () {
+                            alert('Failed to load data.');
+                        }
+                    });
+
+                    $('#editCollaboratorForm').on('submit', function (event) {
+                        event.preventDefault(); // Ngăn chặn việc gửi form mặc định
+
+                        $.ajax({
+                            url: $(this).attr('action'),
+                            type: 'POST',
+                            data: $(this).serialize(),
+                            success: function (response) {
+                                if (response.success) {
+                                    $('.modal-backdrop').remove();
+                                    $('#editCollaboratorModal').modal('hide');
+                                    dt.destroy();
+                                    showDataTable(url)
+                                    setTimeout(function () {
+                                        showAlertSuccess("Update Successfully!");
+                                    }, 500);
+                                } else {
+                                    $('#startDateError').text(response.errors['StartDate'] ? response.errors['StartDate'][0] : '');
+                                    $('#endDateError').text(response.errors['EndDate'] ? response.errors['EndDate'][0] : '');
+                                }
+                            },
+                            error: function () {
+                                alert('Failed to update data.');
+                            }
+                        });
+                    });
+
+                });
+            })
+        }
+        
+        function showDataTableServerSide(url, dataTable, columnOptions, isAddBtnDetail = true, isAddBtnEdit = true, isAddBtnDelete = true, callBack) {
+            console.log(url)
+            if (isAddBtnDetail == true || isAddBtnEdit == true || isAddBtnDelete == true) {
+                columnOptions.push({
+                    data: null,
+                    orderable: false,
+                    className: "text-center",
+                    render: function (data, type, row) {
+                        let buttons = '';
+                        if (isAddBtnDetail) {
+                            buttons += `<button class="btn btn-info detail-btn" data-id="${row.id}">Detail</button> `;
+                        }
+                        if (isAddBtnEdit) {
+                            buttons += `<button class="btn btn-primary edit-btn" data-id="${row.id}" data-bs-toggle="modal" data-bs-target="#editCollaboratorModal">Edit</button> `;
+                        }
+                        if (isAddBtnDelete) {
+                            buttons += `<button class="btn btn-danger delete-btn" data-id="${row.id}" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">Delete</button>`;
+                        }
+                        return buttons.trim();
+                    }
+                });
+            }
+
+            const dataTableInstance = dataTable.DataTable({
+                responsive: true,
+                rowReorder: {
+                    selector: 'td:nth-child(2)'
+                },
+                processing: true,
+                serverSide: true,
+                destroy: true,
+                select: true,
+                ajax: {
+                    url: url,
+                    type: 'POST'
+                },
+                language: {
+                    search: "",
+                    searchPlaceholder: "Search...",
+                    infoFiltered: ""
+                },
+                columns: columnOptions,
+                lengthMenu: [5, 10, 25, 50, 100]
+            });
+
+            callBack(dataTableInstance, dataTable)
+        }
+    })
+</script>
+
+
+@* <script>
+    $(document).ready(function () {
+        $('#collaboratorTable').DataTable({
+
+            responsive: true,
+
+            rowReorder: {
+
+                selector: 'td:nth-child(2)'
+
+            }
+
+        });
+
+
+        $(document).on('click', '.delete-btn', function () {
+            var collaboratorId = $(this).data('id');
+            $('#deleteCollaboratorForm').attr('action', '@Url.Action("Delete", "Collaborators", new { area = "Admin" })' + '/' + collaboratorId);
+            $.ajax({
+                url: '@Url.Action("GetCollaborator", "Collaborators", new { area = "Admin" })',
+                type: 'GET',
+                data: { id: collaboratorId },
+                success: function (data) {
+                    console.log('Data from server:', data);
+                }
+            });
+        });
+
+        $('#deleteCollaboratorForm').on('submit', function (event) {
+            event.preventDefault();
+            $.ajax({
+                url: $(this).attr('action'),
+                type: 'POST',
+                data: $(this).serialize(),
+                success: function (response) {
+                    if (response) {
+                        $('#confirmDeleteModal').modal('hide');
+                        $('.modal-backdrop').remove();
+                        loadData();
+                        setTimeout(function () {
+                            showAlertSuccess("Delete Successfully!");
+                        }, 500);
+                    }
+                },
+                error: function () {
+                    alert('Failed to update data.');
+                }
+            });
+        });
+
+
+
+        $(document).on('click', '.edit-btn', function () {
+            var collaboratorId = $(this).data('id');
+
+            $.ajax({
+                url: '@Url.Action("GetCollaborator", "Collaborators", new { area = "Admin" })',
+                type: 'GET',
+                data: { id: collaboratorId },
+                success: function (data) {
+                    console.log('Data from server:', data);
+                    if (data) {
+                        var startDate = data.startDate.split('T')[0]; // Lấy phần yyyy-mm-dd
+                        var endDate = data.endDate.split('T')[0];
+
+                        $('#collaboratorId').val(data.id);
+                        $('#UserID').val(data.userID);
+                        $('#collabStartDate').val(startDate);
+                        $('#collabEndDate').val(endDate);
+                        $('#editCollaboratorModal form').attr('action', '@Url.Action("Edit", "Collaborators", new { area = "Admin" })' + '/' + collaboratorId);
+                    } else {
+                        console.error('Data is null or undefined');
+                    }
+                },
+                error: function () {
+                    alert('Failed to load data.');
+                }
+            });
+        });
+
+        function formatDate(dateString) {
+            var options = { month: 'numeric', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
+            var date = new Date(dateString);
+            return date.toLocaleString('en-US', options);
+        }
+
+       
+        function loadData() {
+            $.ajax({
+                url: '/Admin/Collaborators/GetAllCollaborator', // Địa chỉ endpoint để lấy dữ liệu mới
+                type: 'GET',
+                success: function (response) {
+                    if (response.success) {
+                        var tableBody = $('#collaboratorTable tbody');
+                        tableBody.empty();
+                        console.log(response);
+                        $.each(response.data, function (index, collaborator) {
+                            var startDateFormatted = formatDate(collaborator.startDate);
+                            var endDateFormatted = formatDate(collaborator.endDate);
+                            var row = '<tr id="collabRow_' + collaborator.id + '" data-id="' + collaborator.id + '">' +
+                                '<td>' + collaborator.user.fullName + '</td>'+
+                                '<td>' + collaborator.userID + '</td>' +
+                                '<td class="start">' + startDateFormatted + '</td>' +
+                                '<td class="end">' + endDateFormatted + '</td>' +
+                                '<td class="action">' +
+                                    '<button type="button" class="btn btn-warning edit-btn" data-id="' + collaborator.id + '" data-bs-toggle="modal" data-bs-target="#editCollaboratorModal">Edit</button>' +
+                                    '<button type="button" class="btn btn-danger delete-btn" data-id="' + collaborator.id + '" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">Delete</button>' +
+                                '</td>'+
+                                '</tr>';
+                            tableBody.append(row); // Thêm hàng mới vào bảng
+                        });
+                    } else {
+                        alert('Failed to load data.');
+                    }
+                },
+                error: function () {
+                    alert('Failed to load data.');
+                }
+            });
+        }
+
+
+        $('#editCollaboratorForm').on('submit', function (event) {
+            event.preventDefault(); // Ngăn chặn việc gửi form mặc định
+
+            $.ajax({
+                url: $(this).attr('action'),
+                type: 'POST',
+                data: $(this).serialize(),
+                success: function (response) {
+                    if (response.success) {
+                        $('#startDateError').text('');
+                        $('#endDateError').text('');
+
+                        $('#editCollaboratorModal').modal('hide');
+                        $('.modal-backdrop').remove();
+                        var row = $('.collabRow_' + + response.data.CollaboratorID);
+                        console.log(row);
+                        row.find('.start').text(response.data.StartDate);
+                        row.find('end').text(response.data.EndDate);
+                        loadData();
+                        setTimeout(function () {
+                            showAlertSuccess("Update Successfully!");  
+                        }, 500);
+                    } else {
+                        $('#startDateError').text(response.errors['StartDate'] ? response.errors['StartDate'][0] : '');
+                        $('#endDateError').text(response.errors['EndDate'] ? response.errors['EndDate'][0] : '');
+                    }
+                },
+                error: function () {
+                    alert('Failed to update data.');
+                }
+            });
+        });
+
+        $('#createCollaboratorForm').on('submit', function (event) {
+            event.preventDefault(); // Ngăn chặn việc gửi form mặc định
+
+            $.ajax({
+                url: $(this).attr('action'),
+                type: 'POST',
+                data: $(this).serialize(),
+                success: function (response) {
+                    if (response.success) {
+                        $('#createCollaboratorModal').modal('hide');
+                        $('.modal-backdrop').remove();
+                        loadData();
+                        setTimeout(function () {
+                            showAlertSuccess("Create Successfully!");
+                        }, 500);
+                    } else {
+                        if (response.errors.UserName) {
+                            $('span[validation-for="UserName"]').text(response.errors.UserName);
+                        } else {
+                            $('span[validation-for="UserName"]').text('');
+                        }
+                        if (response.errors.Email) {
+                            $('span[validation-for="Email"]').text(response.errors.Email);
+                        } else {
+                            $('span[validation-for="Email"]').text('');
+                        }
+                        if (response.errors.PasswordHash) {
+                            $('span[validation-for="PasswordHash"]').text(response.errors.PasswordHash);
+                        } else {
+                            $('span[validation-for="PasswordHash"]').text('');
+                        }
+                        if (response.errors.FullName) {
+                            $('span[validation-for="FullName"]').text(response.errors.FullName);
+                        } else {
+                            $('span[validation-for="FullName"]').text('');
+                        }
+                        if (response.errors.Address) {
+                            $('span[validation-for="Address"]').text(response.errors.Address);
+                        } else {
+                            $('span[validation-for="Address"]').text('');
+                        }
+                        if (response.errors.BirthDay) {
+                            $('span[validation-for="BirthDay"]').text(response.errors.BirthDay);
+                        } else {
+                            $('span[validation-for="BirthDay"]').text('');
+                        }
+                        if (response.errors.PhoneNumber) {
+                            $('span[validation-for="PhoneNumber"]').text(response.errors.PhoneNumber);
+                        } else {
+                            $('span[validation-for="PhoneNumber"]').text('');
+                        }
+                        if (response.errors.StartDate) {
+                            $('#startError').text(response.errors.StartDate);
+                        } else {
+                            $('#startError').text('');
+                        }
+                        if (response.errors.EndDate) {
+                            $('#endError').text(response.errors.EndDate);
+                        } else {
+                            $('#endError').text('');
+                        }
+                    }
+                },
+                error: function () {
+                    alert('Failed to update data.');
+                }
+            });
+        });
+    });
+</script>
+
+
+
+
+ *@

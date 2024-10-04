@@ -1,0 +1,187 @@
+﻿@section Styles {
+    <link rel="stylesheet" href="~/lib/animatecss/animate.min.css">
+    <style>
+        #container-item-selected::before {
+            content: "";
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0, #fff 75%, #fff);
+            position: absolute;
+            width: 24px;
+            right: 17px;
+            height: 37px;
+            z-index: 999;
+            top: 36px;
+        }
+        .container-search::before {
+            content: "";
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0, #fff 75%, #fff);
+            position: absolute;
+            width: 24px;
+            right: 39px;
+            height: 24px;
+            z-index: 999;
+            top: 7px;
+        }
+        h4{
+            white-space: nowrap;
+        }
+
+        #container-item .item.ui-draggable-dragging {
+            -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+            -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+            box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+        }
+
+        .highlight {
+            background-color: #aaaa;
+        }
+
+        .highlight .item-selected {
+            visibility: hidden;
+        }
+
+
+        .highlight::after{
+            content: 'Drop here';
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%); 
+        }
+    </style>
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card m-0">
+                <div class="card-body">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb" style="padding: 0px; margin-bottom: 0px; background: none">
+                            <li class="breadcrumb-item" aria-current="page"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Dashboard</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Tracking data</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex">
+                        <div style="flex: 3" class="card m-0">
+                            <div class="card-body pe-3 pt-1 pb-1">
+                                <h4>Container items</h4>
+                                <div class="border border-dark rounded-2" id="container-item-selected" style="width: 100%; overflow-x: scroll;white-space: nowrap; height: 63px"></div>
+                            </div>
+                        </div>
+                        <div style="flex: 1" class="card m-0">
+                            <div class="card-body pe-3 pt-1 pb-1">
+                                <h4>Chart type</h4>
+                                <select class="form-select" id="option-chart-type">
+                                    <option value="bar" selected>Bar Charts</option>
+                                    @* <option value="area">Area Charts</option> *@
+                                    @* <option value="bubble">Bubble Charts</option> *@
+                                    @* <option value="dounghnut">Dounghnut Charts</option> *@
+                                    <option value="pie">Pie Charts</option>
+                                    <option value="line">Line Charts</option>
+                                    @* <option value="polar">Polar Charts</option> *@
+                                    <option value="radar">Radar Charts</option>
+                                    @* <option value="scatter">Scatter Charts</option> *@
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div style="flex: 3" class="card m-0">
+                            <div class="card-body pe-3 pt-1 pb-1">
+                                <div class="d-flex gap-2">
+                                    <div style="flex: 2">
+                                        <h4>Select dates</h4>
+                                        <input class="form-control" autocomplete="off" id="select-date" placeholder="@DateTime.Now.ToString("MM/dd/yyyy") - @DateTime.Now.ToString("MM/dd/yyyy")" name="daterange">
+                                    </div>
+                                    <div style="flex: 1">
+                                        <h4>Show size</h4>
+                                        <select class="form-select" id="option-chart-size">
+                                            <option value="0" selected>All</option>
+                                            <option value="5">5</option>
+                                            <option value="10">10</option>
+                                            <option value="15">15</option>
+                                        </select>
+                                    </div>
+                                    <div style="flex: 1">
+                                        <h4>Hot recommends <i style="color: red" class="fa-solid fa-fire"></i></h4>
+                                        <select class="form-select" id="option-hot-recommends">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="flex: 1" class="card m-0">
+                            <div class="card-body pe-3 pt-1 pb-1">
+                                <h4>Options</h4>
+                                <select class="form-select" id="option-item-type">
+                                    <option value="oVotes" selected>Best product vote</option>
+                                    <option value="oSells">Best product sell</option>
+                                    <option value="oCustomerLoyal">Best loyal Customer</option>
+                                    <option value="oInvoiceDates">Invoice Dates</option>
+                                    <option value="oInvoice">Invoices</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div style="flex: 3" class="card m-0">
+                            <div class="card-body pe-3 pt-1 pb-1">
+                                <div class="container" style="position: relative; height:100%; width:100%">
+                                    <canvas id="main-Chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="flex: 1" class="card m-0">
+                            <div class="card-body pe-3 pt-1 pb-1">
+                                <div class="d-flex flex-row justify-content-between align-items-center mb-2">
+                                    <div class="input-group m-0 container-search">
+                                        <input type="text" autocomplete="off" style="padding-right: 46px;" id="search" class="form-control" placeholder="Search">
+                                    </div>
+                                    <div style="right: 32px;z-index: 9999" class="spinner-border text-primary m-0 position-absolute loading" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+                                <ul id="container-item" style="height: 300px; overflow-y: scroll" class="p-0">
+                                </ul>
+                                <div class="d-flex justify-content-between w-100">
+                                    <div style="flex: 1">
+                                        <button id="btn-prev-container-item" class="btn btn-outline-dark"><</button>
+                                    </div>
+                                    <div style="flex: 1; align-self: center" class="text-center">
+                                        <select class="form-select" id="option-page-size-item-type">
+                                            <option value="5" selected>5</option>
+                                            <option value="10">10</option>
+                                            <option value="15">15</option>
+                                        </select>
+                                    </div>
+                                    <div style="flex: 1" class="text-end">
+                                        <button id="btn-next-container-item" class="btn btn-outline-dark">></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="https://kit.fontawesome.com/234dbdcb6e.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="~/lib/daterangepicker/moment.min.js"></script>
+    <script type="text/javascript" src="~/lib/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/lib/daterangepicker/daterangepicker.css" />
+    <script src="~/lib/jquery/dist/jquery-ui.js"></script>
+    <script src="~/lib/chart.js/dist/chart.umd.js"></script>
+    <script type="module" src="~/js/pageEvents/Trackings/trackingEvents.js"></script>
+}

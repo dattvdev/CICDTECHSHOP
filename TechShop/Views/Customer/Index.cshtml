@@ -1,0 +1,109 @@
+﻿@model TechShop.Core.Models.User;
+@{
+    ViewBag.Title = "Profile Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container p-0">
+    <div class="row">
+        <div class="col-md-5 col-xl-4">
+            @Html.Partial("_menuOptionCustomer")
+        </div>
+        <div class="col-md-7 col-xl-8">
+            <div class="tab-content">
+                <div class="tab-pane show active" id="account" role="tabpanel">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">ACCOUNT INFO</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="customerForm" method="post">
+                                <input type ="hidden" class="form-control" asp-for="@Model.Id" id="userId" value="@Model.Id" />
+                                <div class="form-group">
+                                    <label for="userName">Username</label>
+                                    <input type="text" class="form-control" asp-for="UserName" id="userName" />
+                                    <span asp-validation-for="UserName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="fullName">Full name</label>
+                                    <input type="text" class="form-control" asp-for="FullName" id="fullName" placeholder="Enter your full name..." />
+                                    <span asp-validation-for="FullName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    @{
+                                        var subEmail = Model.Email.Substring(0, 3) + "****@" + Model.Email.Split('@',StringSplitOptions.RemoveEmptyEntries|StringSplitOptions.TrimEntries)[^1];
+                                    }
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" asp-for="Email" id="email" hidden />
+                                    <input type="email" class="form-control" value="@subEmail" placeholder="Email" readonly/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phoneNumber">Phone number</label>
+                                    <input type="text" class="form-control" asp-for="PhoneNumber" id="phoneNumber" placeholder="Enter your phone number..." />
+                                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Address</label>
+                                    <input type="text" class="form-control" asp-for="Address" id="address" placeholder="Enter your address..." />
+                                    <span asp-validation-for="Address" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="birthday">Birthday</label>
+                                    <input type="date" class="form-control" asp-for="BirthDay" id="birthday" value="@Model.BirthDay?.ToString("yyyy-MM-dd")" />
+                                </div>
+
+                                <button type="submit" class="btn btn-danger" onclick="submitForm(event)">Update</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const birthdayInput = document.getElementById('birthday');
+
+    // Set the max attribute to today's date
+    const today = new Date().toISOString().split('T')[0];
+    birthdayInput.setAttribute('max', today);
+
+    function submitForm(event) {
+        event.preventDefault(); // Ngăn hành động submit mặc định của form
+
+        var formData = $('#customerForm').serialize(); // Lấy tất cả dữ liệu form
+
+        $.ajax({
+            type: "POST",
+            url: '/Customer/Edit', // Đường dẫn đến action của controller
+            data: formData,
+            success: function (response) {
+                // Kiểm tra nếu yêu cầu trả về là thành công (ví dụ server trả về success == true)
+                if (response.success) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Cập nhật thông tin thành công!",
+                        showConfirmButton: false,
+                        timer: 2500
+                    }).then(() => {
+                        window.location.reload();
+                    });
+                } else {
+                    displayValidationErrors(response.errors);
+                }
+            }
+        });
+    }
+
+    function displayValidationErrors(errors) {
+        $('span.text-danger').text('');
+
+        $.each(errors, function (key, messages) {
+            var validationSpan = $('span[data-valmsg-for="' + key + '"]');
+            if (validationSpan.length) {
+                validationSpan.text(messages.join(', ')); 
+            }
+        });
+    }
+</script>
+

@@ -1,0 +1,108 @@
+﻿
+<script src="https://kit.fontawesome.com/5facc2dc34.js" crossorigin="anonymous"></script>
+<style type="text/css">
+    body {
+        background: #F0F8FF;
+    }
+
+    .card {
+        margin-bottom: 1.5rem;
+        box-shadow: 0 1px 15px 1px rgba(52, 40, 104, .08);
+    }
+
+    .card-header {
+        padding: .75rem 1.25rem;
+        margin-bottom: 0;
+        background-color: #fff;
+        border-bottom: 1px solid #e5e9f2;
+    }
+
+    .list-group-item.active {
+        color: white !important; /* Thay đổi màu chữ */
+        background-color: #D10024 !important; /* Thay đổi màu nền */
+        border-color: #D10024 !important; /* Thay đổi màu viền */
+    }
+
+        .list-group-item.active svg path {
+            stroke: white !important; /* Thay đổi màu icon */
+        }
+</style>
+<script src="~/lib/electro-template/js/jquery.min.js"></script>
+<div class="card">
+    <div class="list-group list-group-flush" id="allTab" role="tablist">
+        <a class="list-group-item list-group-item-action " data-toggle="list" role="tab" asp-action="InfoPage" asp-controller="Customer">
+            <i class="fas fa-user fa-xl" style="color: #4b4b4b;"></i>
+            YOUR ACCOUNT
+        </a>
+        <a class="list-group-item list-group-item-action" data-toggle="list" role="tab" id="shophistory"asp-action="ShoppingHistoryPage" asp-controller="Customer" >
+            <i class="fas fa-receipt fa-xl" style="color: #4b4b4b;"></i>
+            SHOPPING HISTORY
+        </a>
+        <a class="list-group-item list-group-item-action" data-toggle="list" role="tab" asp-action="SupportPage" asp-controller="Customer">
+            <i class="fas fa-headset fa-xl" style="color: #4b4b4b;"></i>
+            SUPPORT
+        </a>
+        <a class="list-group-item list-group-item-action" data-toggle="list" role="tab" asp-action="ChangePasswordPage" asp-controller="Customer">
+            <i class="fa-solid fa-key fa-xl" style="color: #4b4b4b;"></i>
+            CHANGE PASSWORD
+        </a>
+        <a class="list-group-item list-group-item-action" data-toggle="list" role="tab" onclick="confirmLogout()" style="cursor:pointer;">
+            <i class="fas fa-sign-out-alt fa-xl" style="color: #4b4b4b;"></i>
+            LOG OUT
+        </a>
+    </div>
+</div>
+<div id="viewbag" data="@ViewBag.Active" hidden></div>
+
+<script>
+
+    function confirmLogout() {
+        Swal.fire({
+            title: "Do you want to log out?",
+            showDenyButton: true,
+            confirmButtonText: "Yes",
+            denyButtonText: "No"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Gọi AJAX để thực hiện đăng xuất
+                $.ajax({
+                    url: '/UserAuthentication/Logout',  // Đường dẫn tới phương thức Logout
+                    type: 'POST',
+                    data: {
+                        __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val() // Bảo vệ CSRF
+                    },
+                    success: function () {
+                        // Sau khi đăng xuất thành công, chuyển hướng về trang chủ
+                        window.location.href = '/Home/Index';
+                    },
+                    error: function () {
+                        // Xử lý khi có lỗi xảy ra
+                        Swal.fire("Error", "There was an issue logging out", "error");
+                    }
+                });
+            }
+        });
+    }
+</script>
+
+<script>
+
+    function getMenu() {
+
+        var currentUrl ="/Customer/" + $("#viewbag").attr("data")
+        $('document').ready(function () {
+            $('.list-group-item').each(function () {
+
+                var href = $(this).attr('href');
+       
+                if (href === currentUrl) {
+                    $(this).addClass('active');
+                } else {
+                    $(this).removeClass('active');
+                }
+            });
+        })
+    }
+
+    getMenu();
+</script>

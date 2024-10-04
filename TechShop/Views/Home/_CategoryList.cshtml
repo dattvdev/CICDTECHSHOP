@@ -1,0 +1,9 @@
+﻿@model IEnumerable<TechShop.Core.Models.Category>
+<ul class="main-nav nav navbar-nav" style="display: contents">
+    <li class="active"><a asp-action="HomePage" asp-controller="Home">Home</a></li>
+    @foreach (var category in Model)
+    {
+        <li><a href="@Url.Action("Index", "Category", new { category = category.UrlSlug })">@category.Name</a></li>
+    }
+
+</ul>

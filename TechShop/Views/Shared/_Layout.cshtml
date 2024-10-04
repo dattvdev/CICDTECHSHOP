@@ -1,0 +1,909 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using TechShop.Core.Models
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Electro - HTML Ecommerce Template</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/TechShop.styles.css" asp-append-version="true" />
+
+    @* HEADER ELECTRO INDEX TEMPLATE *@
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="~/lib/electro-template/css/bootstrap.min.css" />
+
+    <!-- Slick -->
+    <link type="text/css" rel="stylesheet" href="~/lib/electro-template/css/slick.css" />
+    <link type="text/css" rel="stylesheet" href="~/lib/electro-template/css/slick-theme.css" />
+
+    <!-- nouislider -->
+    <link type="text/css" rel="stylesheet" href="~/lib/electro-template/css/nouislider.min.css" />
+
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="~/lib/electro-template/css/font-awesome.min.css">
+
+    <!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="~/lib/electro-template/css/style.css" />
+	<link rel="stylesheet" href="~/lib/slick-carousel/css/slick.css">
+	<link rel="stylesheet" href="~/lib/slick-carousel/css/slick-theme.css">
+	<link rel="stylesheet" href="~/css/product.css" />
+
+	<style>
+		.main-nav li a{
+			color: black;
+		}
+
+        .login {
+            z-index: 1000;
+        }
+
+		.login-btn{
+			background-color: transparent;
+			border: none;
+		}
+
+        #open-chat-btn {
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            z-index: 1000;
+        }
+
+        /* Chat Box */
+        .chat-box {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 320px;
+            height: 500px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+        }
+
+        /* Chat Header */
+        .chat-header {
+            padding: 10px;
+            background-color: #d32f2f;
+            color: white;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /* Close Button */
+        #close-chat-btn {
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Start Conversation Section */
+        .start-conversation {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+        }
+
+        /* Start Conversation button */
+        #start-chat-btn {
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+            #start-chat-btn:hover {
+                background-color: #b71c1c;
+            }
+
+        .chat-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            height: 400px;
+            display: none;
+        }
+
+        .chat-messages {
+            flex-grow: 1;
+            padding: 10px;
+            overflow-y: auto;
+            background-color: #f5f5f5;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .message {
+            padding: 8px 12px;
+            margin: 5px 0;
+            border-radius: 8px;
+            max-width: 70%;
+            word-wrap: break-word;
+        }
+
+            .message.receiver {
+                background-color: #e1ffc7;
+                align-self: flex-start;
+                text-align: left;
+                margin-right: auto;
+            }
+
+            .message.sender {
+                background-color: #c7d7ff;
+                align-self: flex-end;
+                text-align: right;
+                margin-left: auto;
+            }
+
+
+        .chat-input {
+            display: flex;
+            border-top: 1px solid #ccc;
+            padding: 10px;
+            background-color: #fff;
+        }
+
+            .chat-input input {
+                flex-grow: 1;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                outline: none;
+            }
+
+            .chat-input button {
+                padding: 8px 16px;
+                margin-left: 10px;
+                background-color: #4caf50;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+                .chat-input button:hover {
+                    background-color: #45a049;
+                }
+
+        #loading {
+            top: 50%;
+            left: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+        }
+
+            #loading p {
+                margin-top: 50%;
+                font-size: 14px;
+                color: #333;
+                text-align: center;
+            }
+
+        .alert-container {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1050;
+        }
+
+        .alert-message {
+            color: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            min-width: 200px;
+            text-align: center;
+        }
+
+            .alert-message.success {
+                background-color: #28a745; /* Success color */
+            }
+
+            .alert-message.error {
+                background-color: #dc3545; /* Error color */
+            }
+
+            .alert-message.show {
+                opacity: 1;
+                transform: translateY(0);
+            }
+	</style>
+	@await RenderSectionAsync("Styles", required: false)
+</head>
+<body>
+
+    <header>
+        <!-- TOP HEADER -->
+        <div id="top-header">
+            <div class="container">
+                <ul class="header-links pull-left">
+                    <li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
+                    <li><a href="#"><i class="fa fa-envelope-o"></i> TechShop@gmail.com</a></li>
+                    <li><a href="#"><i class="fa fa-map-marker"></i> FPT Software, Da Nang, Viet Nam</a></li>
+                </ul>
+                <ul class="header-links pull-right">
+					@if (SignInManager.IsSignedIn(User))
+					{
+						<li>
+							<form asp-action="InfoPage" asp-controller="Customer">
+								<button type="submit" class="btn text-white">
+									<span class="text-white">Welcome, @UserManager.GetUserName(this.User)</span>
+								</button>
+							</form>
+						</li>
+						<li>
+							<a onclick="confirmLogout()">
+								<button type="submit" class="login-btn text-white">
+									<i class="fa fa-user-o"></i> Logout
+								</button>
+							</a>
+						</li>
+					}
+					else
+					{
+						<li>
+							<a href="@Url.Action("Register", "UserAuthentication")">
+								<i class="fa fa-user-o"></i>Register
+							</a>
+						</li>
+						<li>
+							<a href="@Url.Action("Login", "UserAuthentication")">
+								<i class="fa fa-user-o"></i>Login
+							</a>
+						</li>
+					}
+                </ul>
+            </div>
+        </div>
+        <!-- /TOP HEADER -->
+
+		<div id="header">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<!-- LOGO -->
+					<div class="col-md-3">
+						<div class="header-logo">
+							<a href="#" class="logo">
+								<img src="./img/logo.png" alt="">
+							</a>
+						</div>
+					</div>
+					<!-- /LOGO -->
+					<!-- SEARCH BAR -->
+					<div class="col-md-6">
+						<div class="header-search">
+                            <form action="/Search" method="GET">
+                                <input class="input" name="searchstring" placeholder="Search here">
+                                <button type="submit" class="search-btn">Search</button>
+                            </form>
+
+						</div>
+					</div>
+					<!-- /SEARCH BAR -->
+					<!-- ACCOUNT -->
+					<div class="col-md-3 clearfix">
+						<div class="header-ctn">
+							
+								<!-- /Wishlist -->
+								<!-- Cart -->
+								<div class="dropdown">
+									<a id="cart-icon" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+										<i class="fa fa-shopping-cart"></i>
+										<span>Your Cart</span>
+										<div class="qty" id="totalqty"></div>
+									</a>
+
+									<div class="cart-dropdown" style="width: 450px;overflow-y: hidden;overflow-x: hidden;">
+										<div id="cart-list" class="cart-list" style="overflow-x: hidden;">
+										</div>
+										<div class="cart-summary">
+                                            <h5 id="totalPrice"></h5>
+										</div>
+										<div class="cart-btns">
+
+											<a id="checkout-btn" href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+										</div>
+									</div>
+								</div>
+							
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <nav id="navigation">
+        <div class="container">
+            <div id="responsive-nav">
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="body">
+        <main role="main" class="my-5">
+            @RenderBody()
+        </main>
+    </div>
+
+
+
+    <!-- NEWSLETTER -->
+    <div id="newsletter" class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="newsletter">
+                        <p>Sign Up for the <strong>NEWSLETTER</strong></p>
+                        <form>
+                            <input class="input" type="email" placeholder="Enter Your Email">
+                            <button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
+                        </form>
+                        <ul class="newsletter-follow">
+                            <li>
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /NEWSLETTER -->
+
+
+    <footer id="footer" style="padding-top: 480px">
+        <!-- top footer -->
+        <div class="section">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer" style="margin-bottom: 177px">
+                            <h3 class="footer-title">About Us</h3>
+                            <ul class="footer-links">
+                                <li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
+                                <li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
+                                <li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Categories</h3>
+                            <ul class="footer-links">
+                                <li><a href="#">Hot deals</a></li>
+                                <li><a href="#">Laptops</a></li>
+                                <li><a href="#">Smartphones</a></li>
+                                <li><a href="#">Cameras</a></li>
+                                <li><a href="#">Accessories</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="clearfix visible-xs"></div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Information</h3>
+                            <ul class="footer-links">
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Orders and Returns</a></li>
+                                <li><a href="#">Terms & Conditions</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Service</h3>
+                            <ul class="footer-links">
+                                <li><a href="#">My Account</a></li>
+                                <li><a href="#">View Cart</a></li>
+                                <li><a href="#">Wishlist</a></li>
+                                <li><a href="#">Track My Order</a></li>
+                                <li><a href="#">Help</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /top footer -->
+        <!-- bottom footer -->
+        <div id="bottom-footer" class="section">
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <ul class="footer-payments">
+                            <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+                            <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+                        </ul>
+                        <span class="copyright">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </span>
+                    </div>
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /bottom footer -->
+    </footer>
+    @if (User.Identity.IsAuthenticated)
+    { 
+        <div id="open-chat">
+            <button id="open-chat-btn">Chat with customer service</button>
+        </div>
+
+        <div class="chat-box" id="chat-box" style="display: none;">
+            <div class="chat-header">
+                <button id="close-chat-btn">X</button>
+            </div>
+
+            <div class="start-conversation" id="start-conversation">
+                <button id="start-chat-btn">Start Conversation</button>
+            </div>
+
+            <div id="loading" style="display: none;">
+                <p>Waiting for a response...</p>
+            </div>
+
+            <div class="chat-container">
+                <div class="chat-messages">
+                    <div class="message receiver">Hello! How can I help you?</div>
+                    <div class="message sender">I need some assistance.</div>
+                    <div class="message receiver">Sure! What do you need help with?</div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="messageInput" placeholder="Type a message...">
+                    <button id="sendButton">Send</button>
+                </div>
+            </div>
+        </div>
+    }
+    <div id="alert-container" class="alert-container"></div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/electro-template/js/jquery.min.js"></script>
+    <script src="~/lib/electro-template/js/bootstrap.min.js"></script>
+    <script src="~/lib/electro-template/js/slick.min.js"></script>
+    <script src="~/lib/electro-template/js/nouislider.min.js"></script>
+    <script src="~/lib/electro-template/js/jquery.zoom.min.js"></script>
+    <script src="~/lib/electro-template/js/main.js"></script>
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    @await RenderSectionAsync("Scriptss", required: false)
+    <script>
+        $(document).ready(function () {
+            var selectedProducts = 0;
+            $('.itemPrice').each(function () {
+                var price = parseFloat($(this).val());
+                if (!isNaN(price)) {
+                    selectedProducts += price;
+                }
+            });
+            $.ajax({
+                url: '/Home/Cart',
+                type: 'GET',
+                success: function (data) {
+                    $('#cart-list').html(data);
+                    var productWidgets = document.getElementsByClassName('product-widget-count');
+                    $('#totalqty').html(productWidgets.length);
+                    $('#totalPrice').html('TOTAL: ' +selectedProducts.toFixed(2) + '$');
+            $('#totalqty').html(0);
+            var isAuthenticated = '@User.Identity.IsAuthenticated' === 'True';
+            if (isAuthenticated) {
+                $.ajax({
+                    url: '/Home/Cart',
+                    type: 'GET',
+                    success: function (data) {
+                        $('#cart-list').html(data);
+                        var productWidgets = document.getElementsByClassName('product-widget-count');
+                        $('#totalqty').html(productWidgets.length);
+                    }
+                });
+            } else {
+                let localCart = JSON.parse(localStorage.getItem("Order")) || [];
+                if (localCart.length === 0) {
+                    //showAlertError('No items in the cart.');
+                    return;
+                }
+                $.ajax({
+                    url: '/Home/CartWithLocal',
+                    type: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    data: JSON.stringify(localCart),
+                    success: function (data) {
+                        $('#cart-list').html(data);
+                        var productWidgets = document.getElementsByClassName('product-widget-count');
+                        $('#totalqty').html(productWidgets.length);
+                    },
+                    error: function () {
+                        console.log('Failed to add product to cart.');
+                    }
+                });
+            }
+           
+
+        });
+
+        const username = '@UserManager.GetUserName(User)';
+        const userId = '@UserManager.GetUserId(User)';
+        const chatContainer = $('.chat-container');
+        const loading = $('#loading');
+        var cusRoomId = "";
+        if (userId && username) {
+            const connection = new signalR.HubConnectionBuilder()
+                .withUrl("/chatHub")
+                .build();
+
+            connection.start().then(() => {
+                console.log("Connected to SignalR");
+                console.log(userId, username)
+                // Then add the user to the group
+                connection.invoke("AddCustomerToGroup", username).catch(function (err) {
+                    return console.error(err.toString());
+                });
+
+                // Set up event listeners after starting the connection
+                document.getElementById("open-chat-btn").addEventListener("click", function () {
+                    document.getElementById("chat-box").style.display = "flex";
+                    document.getElementById("open-chat").style.display = "none";
+                });
+
+                document.getElementById("close-chat-btn").addEventListener("click", function () {
+                    document.getElementById("chat-box").style.display = "none";
+                    document.getElementById("open-chat").style.display = "block";
+                });
+
+                document.getElementById("start-chat-btn").addEventListener("click", function () {
+                    document.getElementById("start-conversation").style.display = "none";
+                    document.getElementById("loading").style.display = "block";
+
+                    connection.invoke("StartConversation", username).catch(function (err) {
+                        return console.error(err.toString());
+                    });
+                });
+
+                connection.on("ChatAccepted", function (message, roomId) {
+                    console.log("Received ChatAccepted:", message);
+                    $(".chat-messages").empty();
+                    chatContainer.css('display', 'flex');
+                    const newMessage = `<div class="message receiver">${message}</div>`
+                    $(".chat-messages").append(newMessage);
+                    loading.css('display', 'none');
+                    cusRoomId = roomId;
+                    connection.invoke("JoinRoomChat", cusRoomId).catch(function (err) {
+                        return console.error(err.toString());
+                    });
+                });
+
+                connection.on("ReceiveMessage", function (message) {
+                    console.log("Received ChatAccepted:", message);
+                    const newMessage = `<div class="message receiver">${message}</div>`;
+                    $(".chat-messages").append(newMessage);
+                });
+
+                $('#sendButton').on('click', function () {
+                    const message = $('#messageInput').val();
+
+                    if (message.trim() !== "" && cusRoomId !== "") {
+                        console.log("Message sent:", message);
+                        console.log("Room ID:", cusRoomId);
+                        const newMessage = `<div class="message sender">${message}</div>`;
+                        $(".chat-messages").append(newMessage);
+                        $('#messageInput').val('');
+                        connection.invoke("SendMessage", cusRoomId, message, true).catch(function (err) {
+                            return console.error(err.toString());
+                        });
+                    }
+                });
+
+            }).catch(function (err) {
+                console.error("Failed to connect: " + err);
+            });
+        }
+
+        $('#cart-icon').click(function () {
+            var isAuthenticated = '@User.Identity.IsAuthenticated' === 'True';
+            if (isAuthenticated) {
+                $.ajax({
+                    url: '/Home/Cart',
+                    type: 'GET',
+                    success: function (data) {
+                        $('#cart-list').html(data);
+                    var productWidgets = document.getElementsByClassName('product-widget-count');
+                    $('#totalqty').html(productWidgets.length);
+                    var selectedProducts = 0;
+                    $('.itemPrice').each(function () {
+                        var price = parseFloat($(this).val());
+                        if (!isNaN(price)) {
+                            selectedProducts += price;
+                        }
+                    });
+                    $('#totalPrice').html('TOTAL: ' + selectedProducts.toFixed(2) + '$');
+                    }
+                });
+            } else {
+                let localCart = JSON.parse(localStorage.getItem("Order")) || [];
+                if (localCart.length === 0) {
+                    //showAlertError('No items in the cart.');
+                    return;
+                }
+                $.ajax({
+                    url: '/Home/CartWithLocal',
+                    type: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    data: JSON.stringify(localCart),
+                    success: function (data) {
+                        $('#cart-list').html(data);
+                        var productWidgets = document.getElementsByClassName('product-widget-count');
+                        $('#totalqty').html(productWidgets.length);
+                    },
+                    error: function () {
+                        console.log('Failed to add product to cart.');
+                    }
+                });
+            }
+
+        });
+
+		$('#checkout-btn').click(function (e) {
+			e.preventDefault();
+			var selectedProducts = [];
+			$('.orderCheck').each(function () {
+				selectedProducts.push($(this).val());
+			});
+			// Kiểm tra nếu có sản phẩm được chọn
+			if (selectedProducts.length === 0) {
+                showAlertError('No product to checkout.');
+				return;
+			}
+			console.log(selectedProducts)
+			var formData = new FormData();
+			formData.append('productstring', selectedProducts);
+			// Gửi danh sách sản phẩm qua trang checkout bằng AJAX
+			$.ajax({
+				url: '/Home/Checkout', // Trang Checkout
+				type: 'POST',
+				data: formData ,
+				processData: false, 
+				contentType: false,
+				success: function (response) {
+					if (response.success) {
+						window.location.href = response.redirectUrl; // Chuyển hướng đến trang checkout
+					} else {
+						alert("Fail"); // Hiển thị thông báo lỗi nếu có
+					}
+				},
+				error: function (xhr, status, error) {
+					console.log("Error during checkout:", xhr, status, error);
+					// Thay đổi cách hiển thị lỗi để kiểm tra
+					var errorMessage = xhr.responseJSON ? xhr.responseJSON.message : "An unexpected error occurred.";
+					alert("Error during checkout: " + errorMessage);
+				}
+			});
+		});
+		//write function deleteOrder call ajax
+		function deleteOrder(id) {
+             var isAuthenticated = '@User.Identity.IsAuthenticated' === 'True';
+            let orders = JSON.parse(localStorage.getItem("Order"))
+            if (!isAuthenticated) {
+                let obj = orders.filter(c => c.colorId !== id)
+                localStorage.setItem("Order", JSON.stringify(obj))
+                $('#totalqty').html(obj.length);
+                $.ajax({
+                    url: '/Home/CartWithLocal',
+                    type: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    data: JSON.stringify(obj),
+                    success: function (data) {
+                        $('#cart-list').html(data);
+                        var productWidgets = document.getElementsByClassName('product-widget-count');
+                        $('#totalqty').html(productWidgets.length);
+                    },
+                    error: function () {
+                        $('#cart-list').html('');
+                    }
+                });
+            } else {
+
+            $.ajax({
+                url: '/Home/DeleteOrder',
+                type: 'POST',
+                data: {
+                    productColorId: id
+                },
+                success: function (data) {
+                    $('#cart-list').html(data);
+                    var productWidgets = document.getElementsByClassName('product-widget-count');
+                    $('#totalqty').html(productWidgets.length);
+                    var selectedProducts = 0;
+                    $('.itemPrice').each(function () {
+                        var price = parseFloat($(this).val());
+                        if (!isNaN(price)) {
+                            selectedProducts += price;
+                        }
+                    });
+                    $('#totalPrice').html('TOTAL: ' + selectedProducts.toFixed(2) + '$');
+                }
+            });
+            }
+        }
+		function confirmLogout() {
+			Swal.fire({
+				title: "Do you want to log out?",
+				showDenyButton: true,
+				confirmButtonText: "Yes",
+				denyButtonText: "No"
+			}).then((result) => {
+				if (result.isConfirmed) {
+					// Gọi AJAX để thực hiện đăng xuất
+					$.ajax({
+						url: '/UserAuthentication/Logout',  // Đường dẫn tới phương thức Logout
+						type: 'POST',
+						data: {
+							__RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val() // Bảo vệ CSRF
+						},
+						success: function () {
+							// Sau khi đăng xuất thành công, chuyển hướng về trang chủ
+							window.location.href = '/Home/Index';
+						},
+						error: function () {
+							// Xử lý khi có lỗi xảy ra
+							Swal.fire("Error", "There was an issue logging out", "error");
+						}
+					});
+				}
+			});
+		}
+		
+		function getCategory() {
+			$.ajax({
+				url: '/Home/CategoryBar',
+				type: 'GET',
+				success: function (data) {
+					$('#responsive-nav').html(data);
+					var currentUrl = window.location.href;
+					var url = new URL(currentUrl);
+					var currentCategory = url.searchParams.get('category');
+					$('.main-nav li').each(function () {
+						var $link = $(this).find('a');
+
+						var href = $link.attr('href');
+
+						var linkUrl = new URL(href, window.location.origin);
+						var linkCategory = linkUrl.searchParams.get('category');
+
+						if (linkCategory === currentCategory) {
+							$(this).addClass('active');
+						} else {
+							$(this).removeClass('active');
+						}
+					});
+				}
+			});
+		}
+		
+		getCategory();
+
+	
+	</script>
+    <script>
+        function showAlert(message, type, duration = 3000) {
+            const alert = document.createElement('div');
+            alert.className = `alert-message ${type}`;
+            alert.textContent = message;
+
+            const container = document.getElementById('alert-container');
+            container.appendChild(alert);
+
+            setTimeout(() => {
+                alert.classList.add('show');
+            }, 100);
+
+            setTimeout(() => {
+                alert.classList.remove('show');
+                setTimeout(() => {
+                    container.removeChild(alert);
+                }, 400);
+            }, duration);
+        }
+
+        function showAlertSuccess(message, duration) {
+            showAlert(message, 'success', duration);
+        }
+
+        function showAlertError(message, duration) {
+            showAlert(message, 'error', duration);
+        }
+
+    </script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.0/dist/sweetalert2.all.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.0/dist/sweetalert2.min.css" rel="stylesheet">
+    <script src="~/lib/ntc/ntc.js"></script>
+  
+
+</body>
+</html>

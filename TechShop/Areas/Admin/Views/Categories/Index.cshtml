@@ -1,0 +1,167 @@
+﻿@model IEnumerable<TechShop.Core.Models.Category>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    .modal-backdrop {
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+</style>
+
+<div class="p-4">
+    <!-- The Modal -->
+    
+  
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb" style="padding: 0px; margin-bottom: 0px; background: none">
+                                <li class="breadcrumb-item" aria-current="page"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Dashboard</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Category</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-12 m-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-end mb-4">
+                            <button type="button" class="create-button btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">
+                                New Category
+                            </button>
+                        </div>
+                        <div id="categoryTableContainer">
+
+                        @Html.Partial("_TableCategoryView")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div id="createModalContent"></div>
+<div id="editModalContent"></div>
+<div id="deleteModalContent"></div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        const datatableCate = $("#categoriesTable");
+        const url = "/Admin/Categories/GetDataCategory";
+        console.log(datatableCate)
+        handelShowTable(url);
+        function handelShowTable(url) { 
+        
+        showDataTableServerSide(url, datatableCate, [
+            { data: "id", visible: false },
+            { data: "name", title: "Category Name" },
+            { data: "description", title: "Description" },
+            { data: "urlSlug", title: "UrlSlug" },
+            { data: "createAt", title: "CreateAt" }
+        ], false, true, true, (dataTableInstance) => {
+            dt = dataTableInstance
+            dataTableInstance.on('click', '.delete-btn', function () {
+
+                const _id = $(this).data('id');
+                    var url = '@Url.Action("Delete", "Categories")/' + _id.toUpperCase();
+                console.log(url,_id);
+                
+                $('#deleteModalContent').load(url, function () {
+                    $(document).on('hidden.bs.modal', '.modal', function () {
+                        $(this).remove();
+                    });
+                    $('#centeredModalDelete').modal('show');
+                });
+                    console.log(dt, _id.toUpperCase());
+            });
+            dataTableInstance.on('click', '.edit-btn', function () {
+
+                const _id = $(this).data('id');
+                var url = '@Url.Action("Edit", "Categories")/' + _id;
+                $(document).on('hidden.bs.modal', '.modal', function () {
+                    $(this).remove();
+                });
+                $('#editModalContent').load(url, function () {
+                    $('#editModal').modal('show');
+                });
+                console.log(dt, _id);
+            })
+        });
+        }
+        function showDataTableServerSide(url, dataTable, columnOptions, isAddBtnDetail = true, isAddBtnEdit = true, isAddBtnDelete = true, callBack) {
+
+            if (isAddBtnDetail == true || isAddBtnEdit == true || isAddBtnDelete == true) {
+                columnOptions.push({
+                    data: null,
+                    orderable: false,
+                    className: "text-center",
+                    render: function (data, type, row) {
+                        let buttons = '';
+                        if (isAddBtnDetail) {
+                            buttons += `<button class="btn btn-info detail-btn" data-id="${row.id}">Detail</button> `;
+                        }
+                        if (isAddBtnEdit) {
+                            buttons += `<button class="btn btn-primary edit-btn" data-id="${row.id}">Edit</button> `;
+                        }
+                        if (isAddBtnDelete) {
+                            buttons += `<button class="btn btn-danger delete-btn" data-id="${row.id}">Delete</button>`;
+                        }
+                        return buttons.trim();
+                    }
+                });
+            }
+
+            const dataTableInstance = dataTable.DataTable({
+                processing: true,
+                serverSide: true,
+                destroy: true,
+                select: true,
+                responsive: true,
+                rowReorder: {
+                    selector: 'td:nth-child(2)'
+                },
+                ajax: {
+                    url: url,
+                    type: 'POST'
+                },
+                language: {
+                    search: "",
+                    searchPlaceholder: "Search...",
+                    infoFiltered: ""
+                },
+                columns: columnOptions,
+                lengthMenu: [5, 10, 25, 50, 100]
+            });
+
+            callBack(dataTableInstance, dataTable)
+        }
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(document).on('click', '.create-button', function () {
+                var url = '@Url.Action("Create", "Categories")';ư
+
+                $('#createModalContent').load(url, function () {
+
+                    $(document).on('hidden.bs.modal', '.modal', function () {
+                        $(this).remove();
+                    });
+
+                    $('#createModal').modal('show');
+                });
+            });
+        });
+    </script>
+
+}

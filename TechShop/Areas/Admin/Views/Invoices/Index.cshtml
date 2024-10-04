@@ -1,0 +1,55 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    var currentDate = DateTime.Now;
+    var maxDate = currentDate.ToString("yyyy-MM");
+}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb" style="padding: 0px; margin-bottom: 0px; background: none">
+                            <li class="breadcrumb-item" aria-current="page"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Dashboard</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Invoices</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-12 m-3">
+            <div class="card">
+                <div class="card-body">
+                    <input autocomplete="off" style="top: 32px; right: 470px;z-index: 999; width: 230px" class="form-control position-absolute" id="select_InvoiceMonth" placeholder="@DateTime.Now.ToString("MM/dd/yyyy") - @DateTime.Now.ToString("MM/dd/yyyy")" name="daterange">
+                    <button style="top: 32px; right: 234px;z-index: 999;" class="btn btn-success position-absolute d-flex justify-content-center align-items-center gap-2" id="exportAll">
+                        Excel
+                        <i class="fa-solid fa-file-excel"></i>
+                    </button>
+                    <select style="top: 35px; right: 345px;z-index: 999;" class="form-select form-select-sm w-auto position-absolute z-index-5" id="select_invoiceStatus">
+                        <option selected value=4>All</option>
+                        <option value=1>Prepare</option>
+                        <option value=2>Delivering</option>
+                        <option value=3>Complete</option>
+                        <option value=0>Cancel</option>
+                    </select>
+                    <table id="myTable" class="table table-striped">
+                        <thead></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+     </div>
+</div>
+
+@section Scripts {
+    <script src="https://kit.fontawesome.com/234dbdcb6e.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="~/lib/daterangepicker/moment.min.js"></script>
+    <script type="text/javascript" src="~/lib/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/lib/daterangepicker/daterangepicker.css" />
+    <script type="module" src="~/js/pageEvents/Invoices/invoiceEvents.js"></script>
+}

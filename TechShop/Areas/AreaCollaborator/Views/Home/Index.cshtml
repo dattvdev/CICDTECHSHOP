@@ -1,0 +1,323 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using TechShop.Core.Models
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+@{
+	Layout = null;
+}
+
+@model IEnumerable<TechShop.Core.Models.Chat>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Screen</title>
+
+    <link href="~/lib/adminmart-master/extra-libs/c3/c3.min.css" rel="stylesheet">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/adminmart-master/dist/css/style.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            background: #f9fbfd
+        }
+
+        .container-fluid {
+            height: 100vh; /* Full height */
+        }
+
+        .scrollable {
+            max-height: 85%; /* Set this to your desired height */
+            overflow-y: auto; /* Enables vertical scrolling */
+        }
+
+        .chat-container {
+            display: flex;
+            height: 100%;
+        }
+
+        .sidebar {
+            width: 25%; /* Adjust width as needed */
+            border-right: 1px solid #ddd;
+        }
+
+        .chat-area {
+            flex: 1; /* Takes the remaining space */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-box {
+            flex: 1; /* Allows chat box to grow */
+            overflow-y: auto; /* Enables scrolling */
+        }
+
+        .input-area {
+            border-top: 1px solid #ddd;
+        }
+
+        .message-item {
+            transform: translateX(-100%); 
+            opacity: 0; 
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            cursor: pointer
+        }
+
+            .message-item.show {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            .message-item.fade-out {
+                transform: translateX(-100%);
+                opacity: 0;
+                transition: transform 0.5s ease, opacity 0.5s ease;
+            }
+
+        .action-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .highlight {
+            background-color: #e0f7fa; 
+            transition: background-color 0.3s ease, border 0.3s ease;
+        }
+    </style>
+</head>
+
+<div class="container-fluid">
+    <div class="chat-container">
+        <div class="sidebar">
+            <div class="card-body border-bottom">
+               
+            </div>
+            <div class="scrollable">
+                <ul class="mailbox list-style-none">
+                    <li>
+                        <div class="message-center">
+                            @foreach(var chat in Model)
+                            {
+                            <div id="@chat.Id" data-name="@chat?.Customer?.User?.UserName" class="message-item d-flex align-items-center border-bottom px-3 py-2 show">
+                                <div class="user-img">
+                                    <span class="profile-status online float-right"></span>
+                                </div>
+                                <div class="w-75 d-inline-block v-middle pl-2">
+                                    <h6 class="message-title mb-0 mt-1">@chat?.Customer?.User?.UserName</h6>
+                                    <span class="font-12 text-nowrap d-block text-muted text-truncate">@chat?.Messages?.First().Text_message</span>
+                                    <span class="font-12 text-nowrap d-block text-muted">@chat?.CreatedAt?.ToString("dd/MM/yyyy HH:mm")</span>
+                                </div>
+                            </div>
+                            }
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="chat-area">
+            <div class="user-info-bar p-3 border-bottom">
+                <div class="d-flex align-items-center">
+                    <div class="user-img">
+                        
+                    </div>
+                    <div class="pl-3" id="show-name">
+                        <h6 class="mb-0">James Anderson</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-box">
+                <ul class="chat-list list-style-none px-3 pt-3">
+                    <li class="chat-item list-style-none mt-3">
+                        <div class="chat-img d-inline-block">
+                            <img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="45">
+                        </div>
+                        <div class="chat-content d-inline-block pl-3">
+                            <h6 class="font-weight-medium">James Anderson</h6>
+                            <div class="msg p-2 d-inline-block mb-1">Lorem Ipsum is simply dummy text of the printing &amp; type setting industry.</div>
+                        </div>
+                        <div class="chat-time d-block font-10 mt-1 mr-0 mb-3">10:56 am</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="input-area p-3">
+                <div class="row">
+                    <div class="col-9">
+                        <input id="textarea1" placeholder="Type and enter" class="form-control border-0" type="text">
+                    </div>
+                    <div class="col-3">
+                        <a id="sendBtn" class="btn-circle btn-lg btn-cyan float-right text-white" href="javascript:void(0)">
+                            <i class="fas fa-paper-plane"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const messageCenter = $(".message-center");
+        var chatId = "";
+        var collabName = '@UserManager.GetUserName(User)';
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/chatHub")
+            .build();
+        var chatBox = $('.chat-box .chat-list');
+
+        connection.start().then(() => {
+            connection.invoke("AddCollaboratorToGroup");
+        });
+
+        connection.on("NewCustomer", function (username, text, time, guid) {
+            const newMessage = $(`
+                <div id="${guid}" data-name="${username}" class="message-item d-flex align-items-center border-bottom px-3 py-2">
+                    <div class="user-img">
+                        <span class="profile-status online float-right"></span>
+                    </div>
+                    <div class="w-75 d-inline-block v-middle pl-2">
+                            <h6 class="message-title mb-0 mt-1">${username}</h6>
+                            <span class="font-12 text-nowrap d-block text-muted text-truncate">${text}</span>
+                        <span class="font-12 text-nowrap d-block text-muted">${time}</span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-success btn-sm mx-1 accept-btn"><i class="fas fa-check"></i></button>
+                        <button class="btn btn-danger btn-sm mx-1 remove-btn"><i class="fas fa-times"></i></button>
+                    </div>
+                </div>
+            `);
+            messageCenter.prepend(newMessage);
+            setTimeout(() => {
+                messageCenter.children().first().addClass('show');
+            }, 100);
+        });
+
+        connection.on("ChatAccepted", function (roomId) {
+            $("#" + roomId).addClass('fade-out');
+            setTimeout(() => {
+                $("#" + roomId).remove();
+            }, 500);
+        });
+
+        connection.on("ReceiveMessage", function (message) {
+            console.log("Received ChatAccepted:", message);
+            const newMessage = ` <li class="chat-item list-style-none mt-3 odd">
+                        <div class="chat-content d-inline-block pl-3">
+                            <div class="msg p-2 d-inline-block mb-1">${message}</div>
+                        </div>
+                    </li>`;
+            chatBox.append(newMessage);
+        });
+
+        $('#sendBtn').on('click', function () {
+            var message = $('#textarea1').val().trim();
+
+            if (message) {
+                console.log("Message sent: " + message);
+                connection.invoke("SendMessage", chatId, message, false).then(() => {
+                    const newMessage = ` <li class="chat-item list-style-none mt-3">
+                                <div class="chat-content d-inline-block pl-3 text-right">
+                                    <div class="msg p-2 d-inline-block mb-1">${message}</div>
+                                </div>
+                            </li>`;
+                    chatBox.append(newMessage);
+                }).catch(function (err) {
+                    return console.error(err.toString());
+                });
+                $('#textarea1').val('');
+            }
+        });
+
+        messageCenter.on('click', '.accept-btn', function () {
+            outGroup();
+            const messageItem = $(this).closest('.message-item');
+            const username = messageItem.find('.message-title').text();
+            const messageId = messageItem.attr('id');
+            chatId = messageId;
+            $('#show-name h6').text(username);
+            const text = `Hi ${username}, I'm ${collabName}. I'm here to support you.`;
+            chatBox.empty();
+            messageItem.find('.action-buttons').remove();
+            messageItem.addClass('highlight');
+            connection.invoke("Accepted", username, text, collabName, messageId).then(() => {
+                getMessages();
+            }).catch(function (err) {
+                return console.error(err.toString());
+            });
+            connection.invoke("JoinRoomChat", messageId).catch(function (err) {
+                return console.error(err.toString());
+            });
+        });
+
+        messageCenter.on('click', '.remove-btn', function () {
+            const messageItem = $(this).closest('.message-item');
+            messageItem.addClass('fade-out');
+            setTimeout(() => {
+                messageItem.remove();
+            }, 500);
+        });
+
+        messageCenter.on("click", ".message-item", function () {
+            outGroup();
+            chatId = $(this).attr("id");
+            $(".message-item").removeClass("highlight");
+            $(this).addClass("highlight");
+            var username = $(this).data('name');
+            $('#show-name h6').text(username);
+            getMessages();
+            connection.invoke("JoinRoomChat", chatId).catch(function (err) {
+                return console.error(err.toString());
+            });
+        });
+
+        function outGroup() {
+            if(chatId != "") {
+                connection.invoke("RemoveUserFromGroup", chatId).catch(function (err) {
+                    return console.error(err.toString());
+                });
+            }
+        }
+
+        function getMessages() {
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("MessageInRooms", "Home")',
+                data: { roomId: chatId },
+                success: function (response) {
+                    renderMessages(response);
+                    console.log(response);
+                },
+                error: function (xhr, status, error) {
+                    console.log("Error: " + error);
+                }
+            });
+        }
+
+        function renderMessages(messages) {
+            chatBox.empty(); 
+            messages.forEach((message, index) => {
+                const odd = message.isCustomer ? 'odd' : '';
+                const right = message.isCustomer ? '' : 'text-right';
+                const messageHtml = `
+                <li class="chat-item list-style-none mt-3 ${odd}">
+                    <div class="chat-content d-inline-block pl-3 ${right}">
+                        <div class="msg p-2 d-inline-block mb-1">${message.text_message}</div>
+                    </div>
+                </li>
+            `;
+                chatBox.append(messageHtml);
+            });
+        }
+    });
+</script>

@@ -1,0 +1,38 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var currentDate = DateTime.Now;
+    var maxDate = currentDate.ToString("yyyy-MM");
+}
+
+
+<div class="container p-0">
+    <div class="row">
+        <div class="col-md-5 col-xl-4">
+            @Html.Partial("_menuOptionCustomer")
+        </div>
+        <div class="col-md-7 col-xl-8">
+            <div class="row justify-content-center">
+                <div class="col-md-12 m-3">
+                    <div class="card">
+                        <div class="card-body">
+  
+                            <table id="myTable" class="table table-striped">
+                                <thead></thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/Datatables/dataTables.min.js"></script>
+    <script src="https://kit.fontawesome.com/234dbdcb6e.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="~/lib/daterangepicker/moment.min.js"></script>
+    <script type="text/javascript" src="~/lib/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/lib/daterangepicker/daterangepicker.css" />
+    <script type="module" src="~/js/pageEvents/Invoices/invoiceEvents_Client.js"></script>
+}

@@ -1,0 +1,93 @@
+﻿@model IEnumerable<TechShop.Core.Models.Filter>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb" style="padding: 0px; margin-bottom: 0px; background: none">
+                            <li class="breadcrumb-item" aria-current="page"><a href="#">Dashboard</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Filters</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="p-4">
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 m-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-end mb-4">
+                            <button type="button" class="create-button btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">
+                                Create New
+                            </button>
+                        </div>
+                        <div id="filtersTableContainer">
+                            @Html.Partial("_TableView")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="createModalContent"></div>
+<div id="editModalContent"></div>
+<div id="deleteModalContent"></div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $(document).ready(function () {
+            $('#filtersTable').DataTable();
+
+            $(document).on('click', '.create-button', function () {
+                var url = '@Url.Action("Create", "Filters")';
+
+                $('#createModalContent').load(url, function () {
+                    
+                    $(document).on('hidden.bs.modal', '.modal', function () {
+                        $(this).remove(); 
+                    });
+
+                    $('#createModal').modal('show');
+                });
+            });
+            $(document).on('click', '.edit-button', function () {
+                var id = $(this).data('id');
+                var url = '@Url.Action("Edit", "Filters")/' + id;
+                $(document).on('hidden.bs.modal', '.modal', function () {
+                    $(this).remove(); 
+                });
+                $('#editModalContent').load(url, function () {
+                    $('#editModal').modal('show');
+                });
+            });
+            $(document).on('click', '.delete-button', function () {
+                var id = $(this).data('id');
+                var url = '@Url.Action("Delete", "Filters")/' + id;
+                $('#deleteModalContent').load(url, function () {
+                    $(document).on('hidden.bs.modal', '.modal', function () {
+                        $(this).remove();
+                    });
+                    $('#centeredModalDelete').modal('show');
+                });
+            });
+
+
+        });
+    </script>
+
+}

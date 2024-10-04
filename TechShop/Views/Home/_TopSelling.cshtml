@@ -1,0 +1,19 @@
+﻿@model IEnumerable<TechShop.Core.Models.ProductWithMinPrice>
+
+@foreach (var product in Model)
+{
+	<a asp-controller="Product" asp-action="Detail" asp-route-id="@product.UrlSlug">
+		<div class="product-widget">
+			<div class="product-img">
+				<img src="@product.Image" alt="@product.Name" onerror="this.onerror=null;this.src='/lib/electro-template/img/product01.png';">
+			</div>
+			<div class="product-body">
+				<p class="product-category">@product.CateName</p>
+				<h3 class="product-name">@product.Name</h3>
+				<h4 class="product-price">$@product.MinPrice<del class="product-old-price">
+					@* $@(Math.Round((product.MinPrice / (1 - (product.Discount / 100.0))), 2)) *@
+					</del></h4>
+			</div>
+		</div>
+	</a>
+}

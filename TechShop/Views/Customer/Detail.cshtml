@@ -1,0 +1,177 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@section Styles {
+    <style>
+        .circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 5px;
+            font-size: 50px;
+            background: white;
+            z-index: 11;
+            background-color: white;
+        }
+
+        .circle-success {
+            border: 10px solid #ccc;
+            color: #ccc;
+        }
+
+
+        .circle-secondary {
+            border: 10px solid #ccc;
+            color: #ccc;
+        }
+
+        .progress-indicator {
+            position: relative;
+            width: 100%;
+        }
+
+        .line-container {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 8px;
+            transform: translate(0, -50%);
+            background: transparent;
+        }
+
+        .line-background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #ccc;
+            z-index: 0;
+        }
+
+        .line-foreground {
+            position: absolute;
+            width: 0;
+            height: 100%;
+            background-color: #28a745;
+            z-index: 1;
+        }
+    </style>
+}
+
+@model TechShop.Core.Models.Invoice
+
+
+<div class="container p-0">
+    <div class="row">
+        <div class="col-md-5 col-xl-4">
+            @Html.Partial("_menuOptionCustomer")
+        </div>
+        <div class="col-md-7 col-xl-8">
+            <div class="row justify-content-center">
+                <div class="col-md-12 m-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <h2>Information of this Invoice</h2>
+                            </div>
+                            <div class="progress-indicator d-flex justify-content-between align-items-center progress-indicator mb-5 mt-3">
+                                <div class="d-flex flex-column justify-content-center align-items-center">
+                                    <div class="circle @(Model.Status >= 1 ? "circle-success" : "circle-secondary")">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </div>
+                                    <div style="bottom: -22px" class="position-absolute">Prepare</div>
+                                </div>
+                                <div class="d-flex flex-column justify-content-center align-items-center">
+                                    <div class="circle @(Model.Status >= 2 ? "circle-success" : "circle-secondary")">
+                                        <i class="fa-solid fa-truck"></i>
+                                    </div>
+                                    <div style="bottom: -22px" class="position-absolute">Delivering</div>
+                                </div>
+                                <div class="d-flex flex-column justify-content-center align-items-center">
+                                    <div class="circle @(Model.Status >= 3 ? "circle-success" : "circle-secondary")">
+                                        <i class="fa-solid fa-circle-check"></i>
+                                    </div>
+                                    <div style="bottom: -22px" class="position-absolute">Complete</div>
+                                </div>
+                                <div class="line-container">
+                                    <div class="line-background"></div>
+                                    <div class="line-foreground"></div>
+                                </div>
+                            </div>
+                            @* Show product have been sold *@
+                            <h2>Product for this Invoice</h2>
+                            <div class="card border-1">
+                                <div class="card-body">
+                                    <table id="tableProduct" class="table">
+                                        <thead>
+                                            <tr>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://kit.fontawesome.com/234dbdcb6e.js" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/jquery.color-animation/1/mainfile"></script>
+    <script>
+        $(document).ready(function () {
+            function updateLineForeground(status) {
+                var widthPercent;
+                var duration = 1500;
+
+                switch (status) {
+                    case 1:
+                        widthPercent = 0;
+                        break;
+                    case 2:
+                        widthPercent = 50;
+                        break;
+                    case 3:
+                        widthPercent = 100;
+                        break;
+                    default:
+                        widthPercent = 0;
+                        break;
+                }
+
+                $('.line-foreground').animate({ width: widthPercent + '%' }, {
+                    duration: duration,
+                    step: function (now) {
+
+                        if (now <= 25) {
+                            $('.circle-success').eq(0).animate({
+                                borderColor: '#28a745',
+                                color: '#28a745'
+                            }, 500);
+                        } else if (now <= 40) {
+                            $('.circle-success').eq(1).animate({
+                                borderColor: '#28a745',
+                                color: '#28a745'
+                            }, 500);
+                        } else if (now <= 90) {
+                            $('.circle-success').eq(2).animate({
+                                borderColor: '#28a745',
+                                color: '#28a745'
+                            }, 500);
+                        }
+                    }
+                });
+            }
+            updateLineForeground(@(!Model.Status.HasValue ? '0' : Model.Status));
+        });
+
+    </script>
+    <script src="~/lib/Datatables/dataTables.min.js"></script>
+    <script type="module" src="~/js/pageEvents/InvoiceProducts/invoiceProductsEvents_Client.js"></script>
+}

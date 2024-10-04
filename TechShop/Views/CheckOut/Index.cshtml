@@ -1,0 +1,291 @@
+﻿@model IEnumerable<TechShop.Core.Models.Order>
+@using Newtonsoft.Json
+
+<!-- BREADCRUMB -->
+<div id="breadcrumb" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="breadcrumb-header">Checkout</h3>
+                <ul class="breadcrumb-tree">
+                    <li><a href="#">Home</a></li>
+                    <li class="active">Checkout</li>
+                </ul>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /BREADCRUMB -->
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <form id="checkoutForm" action="/Checkout/Payment" method="post">
+                <div class="col-md-7">
+                    <!-- Billing Details -->
+                    <div class="billing-details">
+                        <div class="section-title">
+                            <h3 class="title">Billing address</h3>
+                        </div>
+                        <div class="form-group">
+                            <label for="Name">Name:</label>
+                            <input class="input" type="text" name="Name" placeholder="Name" >
+                        </div>
+                        <div class="form-group">
+                            <label for="tel">Telephone:</label>
+                            <input class="input" type="tel" name="tel" placeholder="Telephone" >
+                        </div>
+                        <div class="form-group">
+                            <label for="province">Province:</label>
+                            <select id="province" class="input" name="province" ></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="district">District:</label>
+                            <select id="district" class="input" name="district" disabled></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="ward">Ward:</label>
+                            <select id="ward" class="input" name="ward" disabled></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address:</label>
+                            <input class="input" type="text" name="address" placeholder="Address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="note">Note:</label>
+                            <input class="input" type="text" name="note" placeholder="Note" required>
+                        </div>
+                        <input type="hidden" id="provinceNameInput" name="provinceName">
+                        <input type="hidden" id="districtNameInput" name="districtName">
+                        <input type="hidden" id="wardNameInput" name="wardName">
+                    </div>
+                    <!-- /Billing Details -->
+                </div>
+
+                <!-- Order Details -->
+                <div class="col-md-5 order-details">
+                    <div class="section-title text-center">
+                        <h3 class="title">Your Order</h3>
+                    </div>
+                    <div class="order-summary">
+                        <div class="row mb-2">
+                            <div class="col-10"><strong>PRODUCT</strong></div>
+                            <div class="col-2"><strong>TOTAL</strong></div>
+                        </div>
+                        @{
+                            var totalAmount = 0.0;
+                        }
+                        <div class="order-products">
+                            @{
+                                // Set JsonSerializerSettings to ignore self-referencing loops
+                                var settings = new JsonSerializerSettings
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            };
+
+                                // Serialize the entire Model (which is a list of orders) using these settings
+                                var modelJson = JsonConvert.SerializeObject(Model, settings);
+                            }
+
+                            <!-- Hidden input field with serialized JSON containing all orders -->
+                            <input type="hidden" id="orderInput" name="orderInput" value='@Html.Raw(modelJson)' />
+                            @foreach (var order in Model)
+                            {
+                                var totalProduct = order.Quanitity * order.ProductColor.Price;
+                                totalAmount += totalProduct;
+                                <div class="row">
+                                    <div class="col-10" style="display: flex; align-items: center; margin-bottom: 5px;">
+                                        <img class="avt" src="@order?.ProductColor?.ProductHardware?.Product.Image" alt="loi~" style="width: 60px; height: 60px; object-fit: cover;">
+                                        <div style="display: flex;">
+                                            <span style="margin-left: 10px">@order.ProductColor.ProductHardware.Product.Name</span>
+                                            <div class="color-box" style="width: 20px; height: 20px; background-color: @order.ProductColor.RGB;border: 0.5px solid #000; margin-left: 10px; margin-right: 10px;"></div>
+                                            <span> x @order.Quanitity</span>
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="col-2">
+                                        @String.Format("{0:C}", order.Quanitity * order.ProductColor.Price)
+                                    </div>
+                                </div>
+
+                            }
+                        </div>
+                        <div class="order-col">
+                            <div>Shiping</div>
+                            <div><strong>FREE</strong></div>
+                        </div>
+                        <div class="order-col">
+                            <div><strong>TOTAL</strong></div>
+                            <div>
+                                <strong class="order-total">@String.Format("{0:C}", totalAmount)</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="payment-method">
+                        <div class="input-radio">
+                            <input type="radio" name="payment" id="payment-1" value="COD" checked>
+                            <label for="payment-1">
+                                <span></span>
+                                COD
+                            </label>
+                        </div>
+                        <div class="input-radio">
+                            <input type="radio" name="payment" id="payment-2" value="Online">
+                            <label for="payment-2">
+                                <span></span>
+                                Online Payment
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="primary-btn order-submit">Place order</button>
+                </div>
+                <!-- /Order Details -->
+            </form>
+        </div>
+
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<script src="~/lib/electro-template/js/jquery.min.js"></script>
+<!-- /SECTION -->
+
+
+@section Scripts {
+@{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+<script>
+    $(document).ready(function () {
+        // Fetch provinces
+            // Fetch provinces
+            $.get('https://provinces.open-api.vn/api/?depth=3', function (data) {
+                $('#province').append('<option value="">Select Province</option>');
+                data.forEach(function (province) {
+                    $('#province').append('<option value="' + province.code + '" data-name="' + province.name + '">' + province.name + '</option>');
+                });
+            });
+
+            // When province changes
+            $('#province').change(function () {
+                const provinceCode = $(this).val();
+                $('#district').empty().append('<option value="">Select District</option>').prop('disabled', true);
+                $('#ward').empty().append('<option value="">Select Ward</option>').prop('disabled', true);
+
+                if (provinceCode) {
+                    $.get('https://provinces.open-api.vn/api/p/' + provinceCode + '?depth=2', function (data) {
+                        data.districts.forEach(function (district) {
+                            $('#district').append('<option value="' + district.code + '" data-name="' + district.name + '">' + district.name + '</option>');
+                        });
+                        $('#district').prop('disabled', false);
+                    });
+                }
+            });
+
+            // When district changes
+            $('#district').change(function () {
+                const districtCode = $(this).val();
+                $('#ward').empty().append('<option value="">Select Ward</option>').prop('disabled', true);
+
+                if (districtCode) {
+                    $.get('https://provinces.open-api.vn/api/d/' + districtCode + '?depth=2', function (data) {
+                        data.wards.forEach(function (ward) {
+                            $('#ward').append('<option value="' + ward.code + '" data-name="' + ward.name + '">' + ward.name + '</option>');
+                        });
+                        $('#ward').prop('disabled', false);
+                    });
+                }
+            });
+            $.validator.addMethod("pattern", function (value, element, param) {
+                return this.optional(element) || param.test(value);
+            }, "Invalid input format.");
+            $("#checkoutForm").validate({
+                rules: {
+                    Name: {
+                        required: true,
+                        maxlength: 100,
+                        normalizer: function (value) {
+                            return $.trim(value);
+                        }
+                    },
+
+                    tel: {
+                        required: true,
+                        pattern: /^[0-9]{10}$/
+                    },
+
+                    province: {
+                        required: true
+                    },
+
+                    district: {
+                        required: true
+                    },
+
+                    ward: {
+                        required: true
+                    },
+                    address: {
+                        required: true
+                    }
+                },
+                messages: {
+                    Name: {
+                        required: "Please enter filter name. ",
+                        maxlength: "Max length is 100. "
+                    },
+                    tel: {
+                        required: "Please enter telephone number.",
+                        pattern: "Invalid telephone number."
+                    },
+                    province: {
+                        required: "Please select province."
+                    },
+                    district: {
+                        required: "Please select district."
+                    },
+                    ward: {
+                        required: "Please select ward."
+                    },
+                    address: {
+                        required: "Please enter address."
+                    }
+
+                },
+                errorClass: "text-danger",
+                validClass: "text-success",
+                errorElement: "span",
+                submitHandler: function (form) {
+                    var provinceName = $('#province option:selected').data('name');
+                    $('#provinceNameInput').val(provinceName);
+          
+                    // Lấy name của huyện
+                    var districtName = $('#district option:selected').data('name');
+                    $('#districtNameInput').val(districtName);
+
+                    // Lấy name của xã
+                    var wardName = $('#ward option:selected').data('name');
+                    $('#wardNameInput').val(wardName);
+       
+                    // Sau khi thay đổi giá trị, submit form
+                    form.submit();
+                }
+            });
+     
+
+    });
+
+
+</script>
+
+<script>
+
+  
+ </script>
+}

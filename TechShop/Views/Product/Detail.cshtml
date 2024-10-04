@@ -1,0 +1,808 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using TechShop.Core.Models
+@model TechShop.Core.Models.Product
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+@{
+    var user = await UserManager.GetUserAsync(User);
+}
+@section Styles {
+    <style>
+        .specification-grid {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            padding: 10px;
+        }
+
+        .spec-card {
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            padding: 10px;
+            text-align: center;
+            font-size: 12px;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+            .spec-card:hover, .spec-card.selected {
+                border-color: #e64a19;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .spec-card p {
+                margin: 3px 0;
+            }
+
+        .color-item {
+            display: inline-block;
+            margin: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .color-box {
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .color-item.active .color-box {
+            border: 2px solid #e64a19;
+        }
+
+        li .review-body .action-at-comment {
+            display: none;
+        }
+
+        li .review-body:hover .action-at-comment {
+            display: block;
+        }
+    </style>
+}
+
+<div id="breadcrumb" class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="breadcrumb-tree">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">All Categories</a></li>
+                    <li><a href="#">@Model?.Category?.Name</a></li>
+                    <li><a href="#">@Model?.Brand?.Name</a></li>
+                    <li class="active">@Model?.Name</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 col-md-push-2">
+                <div id="product-main-img">
+                    @if (Model?.Images != null)
+                    {
+                        @foreach (var slide in Model!.Images)
+                        {
+                            @if (slide.Type == 1)
+                            {
+                                <div class="product-preview">
+                                    <img src="@slide.UrlImage" alt="@Model.Name" title="@Model.Name">
+                                </div>
+                            }
+                        }
+                    }
+                </div>
+            </div>
+
+            <div class="col-md-2 col-md-pull-5">
+                <div id="product-imgs">
+                    @if (Model?.Images != null)
+                    {
+                        @foreach (var slide in Model!.Images)
+                        {
+                            @if (slide.Type == 1)
+                            {
+                                <div class="product-preview">
+                                    <img src="@slide.UrlImage" alt="@Model.Name" title="@Model.Name">
+                                </div>
+                            }
+                        }
+                    }
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="product-details">
+                    <h2 class="product-name">@Model.Name</h2>
+                    <div id="container-product-rating-reviews">
+                        <div class="product-rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <a class="review-link" href="#">0 Review(s) | Add your review</a>
+                    </div>
+                    <div id="priceplace">
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+                    <div class="product-options">
+                        <div class="row">
+                            <div class="specification-grid">
+                                @foreach (var hardware in Model.ProductHardwares)
+                                {
+                                    <div class="spec-card selected" data-hardware-id="@hardware.Id" data-colors='@Html.Raw(@Newtonsoft.Json.JsonConvert.SerializeObject(hardware.ProductColors.Select(c => new { c.Id, c.RGB, c.Price })))'>
+                                        <p>@hardware.Name</p>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label>
+                                Colors
+                            </label>
+                            <div id="color-list">
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                        <div class="add-to-cart">
+                            <div class="qty-label">
+                                Qty
+                                <div class="input-number">
+                                    <input value="1" type="number">
+                                    <span class="qty-up">+</span>
+                                    <span class="qty-down">-</span>
+                                </div>
+                            </div>
+                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                        </div>
+                    
+
+                    @* 	<ul class="product-links">
+                    <li>Share:</li>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fa fa-envelope"></i></a></li>
+                    </ul> *@
+
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div id="product-tab">
+                    <ul class="tab-nav">
+                        <li class="active"><a data-toggle="tab" href="#tab1">Description</a></li>
+                        @* <li><a data-toggle="tab" href="#tab2">Details</a></li> *@
+                        <li><a data-toggle="tab" href="#tab3">Reviews (0)</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div id="tab1" class="tab-pane fade in active">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    @Html.Raw(Model.Description)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab2" class="tab-pane fade in">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab3" class="tab-pane fade in">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div id="rating">
+                                        <div class="rating-avg">
+                                            <span id="rating-total-rate">0</span>
+                                            <div class="rating-stars">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                        </div>
+                                        <ul class="rating">
+                                            <li>
+                                                <div class="rating-stars">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </div>
+                                                <div class="rating-progress">
+                                                    <div></div>
+                                                </div>
+                                                <span class="sum">0</span>
+                                            </li>
+                                            <li>
+                                                <div class="rating-stars">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </div>
+                                                <div class="rating-progress">
+                                                    <div></div>
+                                                </div>
+                                                <span class="sum">0</span>
+                                            </li>
+                                            <li>
+                                                <div class="rating-stars">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </div>
+                                                <div class="rating-progress">
+                                                    <div></div>
+                                                </div>
+                                                <span class="sum">0</span>
+                                            </li>
+                                            <li>
+                                                <div class="rating-stars">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </div>
+                                                <div class="rating-progress">
+                                                    <div></div>
+                                                </div>
+                                                <span class="sum">0</span>
+                                            </li>
+                                            <li>
+                                                <div class="rating-stars">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                    <i class="fa fa-star-o"></i>
+                                                </div>
+                                                <div class="rating-progress">
+                                                    <div></div>
+                                                </div>
+                                                <span class="sum">0</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div id="reviews">
+                                        <ul class="reviews">
+                                        </ul>
+                                        <button class="btn btn-danger" id="btn-load-more-review">See more other review</button>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div id="review-form">
+                                        @if (SignInManager.IsSignedIn(User))
+                                        {
+                                            <form class="review-form" id="reviewForm">
+                                                <input class="input disabled" disabled type="text" value="@user.FullName" placeholder="Your Name">
+                                                <input class="input disabled" disabled type="email" value="@user.Email" placeholder="Your Email">
+                                                <textarea class="input" id="reviewText" placeholder="Your Review" required></textarea>
+                                                <div class="input-rating">
+                                                    <span>Your Rating: </span>
+                                                    <div class="stars">
+                                                        <input id="star5" name="rating" value="5" type="radio">
+                                                        <label for="star5"></label>
+                                                        <input id="star4" name="rating" value="4" type="radio">
+                                                        <label for="star4"></label>
+                                                        <input id="star3" name="rating" value="3" type="radio">
+                                                        <label for="star3"></label>
+                                                        <input id="star2" name="rating" value="2" type="radio">
+                                                        <label for="star2"></label>
+                                                        <input id="star1" name="rating" value="1" type="radio">
+                                                        <label for="star1"></label>
+                                                    </div>
+                                                </div>
+                                                <button type="submit" class="primary-btn">Submit</button>
+                                            </form>
+                                        }
+                                        else
+                                        {
+                                            <div>
+                                                To comment please <a href="/UserAuthentication/Login">Login here</a>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="https://kit.fontawesome.com/234dbdcb6e.js" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.spec-card');
+            const colorListContainer = document.getElementById('color-list');
+            var colorId
+            const selectCard = (card) => {
+                cards.forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+
+                const colors = JSON.parse(card.getAttribute('data-colors'));
+
+                colorListContainer.innerHTML = '';
+
+                if (colors && colors.length) {
+                    colors.forEach(color => {
+                        const colorCard = document.createElement('div');
+                        colorCard.className = 'color-item';
+                        colorCard.setAttribute('data-color-id', color.Id);
+                        colorCard.setAttribute('data-color-price', color.Price)
+                        const colorBox = document.createElement('div');
+                        colorBox.className = 'color-box';
+                        colorBox.style.backgroundColor = color.RGB;
+
+                        colorCard.appendChild(colorBox);
+                        colorListContainer.appendChild(colorCard);
+                    });
+
+                    document.querySelectorAll('.color-item').forEach(colorCard => {
+                        colorCard.addEventListener('click', () => {
+                            document.querySelectorAll('.color-item').forEach(c => c.classList.remove('active'));
+                            colorId = colorCard.getAttribute('data-color-id');
+                            var colorPrice = colorCard.getAttribute('data-color-price');
+                            colorCard.classList.add('active');
+                            document.getElementById('priceplace').innerHTML = `<h3 class="product-price">$${colorPrice}</h3>`;
+
+                        });
+                    });
+                } else {
+                    colorListContainer.innerHTML = '<p>No colors available for this hardware.</p>';
+                }
+            };
+
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    selectCard(card);
+                    document.getElementById('priceplace').innerHTML = ''
+                });
+            });
+
+            if (cards.length > 0) {
+                selectCard(cards[0]);
+            }
+
+            $('.add-to-cart-btn').on('click', function () {
+                if (!colorId) {
+                    showAlertError('Please select a color before adding to the cart.');
+                    return false;
+                }
+                var temp = $('.input-number input').val();
+                if (temp > 15 || temp < 1) {
+                    showAlertError('Quantity invalid');
+                    return false;
+                }
+                //write ajax to action  AddToCart form CheckoutController
+               
+                // Check if the user is authenticated before making the AJAX request
+                var isAuthenticated = '@User.Identity.IsAuthenticated' === 'True'; // Convert Razor bool to JS boolean
+
+                if (isAuthenticated) {
+                    // AJAX request for logged-in users
+                    $.ajax({
+                        url: '/Checkout/AddToCart',
+                        type: 'POST',
+                        data: {
+                            colorId: colorId,
+                            quantity: $('.input-number input').val()
+                        },
+                        success: function (response) {
+                            if (response.success) {
+                                showAlertSuccess('Product added to cart successfully.');
+                            } else {
+                                showAlertError('Failed to add product to cart.');
+                            }
+                        },
+                        error: function () {
+                            showAlertError('Failed to add product to cart.');
+                        }
+                    });
+                } else {
+                    // Save to localStorage for guest users
+                    let order = JSON.parse(localStorage.getItem("Order")) || [];
+
+                    let obj = order.find(c => c.colorId === colorId)
+                    if (obj == undefined || obj == null) {
+                        order.push({ colorId: colorId, quantity: $('.input-number input').val() });
+                    }else{
+                        obj.quantity = Number(obj.quantity) + Number($('.input-number input').val())
+                    }
+                    localStorage.setItem("Order", JSON.stringify(order));
+                    showAlertSuccess('Product added to cart (Guest).');
+                    $('#totalqty').html(order.length);
+                }
+            });
+        });
+
+    </script>
+    <script src="~/js/pageEvents/Products/productDetail_CommentEvents.js"></script>
+    <script>
+        $(document).ready(function () {
+            const product_rating = $("#container-product-rating-reviews")
+            const product_tab = $("#product-tab")
+            const rating = $("#rating")
+            const reviews = $(".reviews")
+            const reviewsForm = $("#reviewForm")
+            const btn_load_more_review = $("#btn-load-more-review")
+
+            const loggedInUserId = '@(user is not null ? user.Id : "null")';
+            const loggedInUserName = '@(user is not null ? user.UserName : "null")';
+            const loggedInUserEmail = '@(user is not null ? user.FullName : "null")';
+            const productId = '@(Model.Id is not null ? Model.Id : "null")';
+
+            let currentPage = 1
+
+            reviewsForm.on('submit', handleSubmitNewComment);
+            btn_load_more_review.off("click").on("click", hanldeLoadComments)
+
+            function setUp() {
+                methodGet("@Url.Action("GetCommentInDetailProduct_First", "Comment", new { id = Model.Id })", handleSuccessLoadCommentFirst)
+                methodGet("@Url.Action("CheckUserBuyProduct", "Comment", new {productId = Model.Id})", handleCheckBuyProduct)
+            }
+            setUp()
+
+            function handleCheckBuyProduct(response){
+                console.log(response)
+                if(!response.success){
+                    $("#reviewForm").hide()
+                }
+            }
+
+            function handleSubmitNewComment(event) {
+                event.preventDefault();
+                var reviewText = $('#reviewText').val().trim();
+                var ratingValue = $('input[name="rating"]:checked').val();
+
+                if (!ratingValue) {
+                    alert("Please choose a rating.");
+                    return;
+                }
+
+                $.ajax({
+                    url: `@Url.ActionLink("AddComment", "Comment")`,
+                    type: 'POST',
+                    data: {
+                        UserId: loggedInUserId,
+                        ProductId: productId,
+                        CommentText: reviewText,
+                        Rate: ratingValue
+                    },
+                    success: (response) => {
+                        $("textarea").val('')
+                        $("#reviewForm").hide()
+                        handleResponseSuccess(response, reviews, true)
+                        methodGet("@Url.Action("UpdateAgainDetailProduct", "Comment", new { productId = Model.Id })", hanldeReLoadEntireProduct)
+                        currentPage = 1
+                    },
+                    error: handleResponseFailed
+                });
+            }
+
+            function handleClickButtonReply() {
+                let id = $(this).data("id")
+                let replyInput = document.getElementById(`reply-form-${id}`);
+                if (replyInput.style.display === 'none') {
+                    replyInput.style.display = 'block';
+                    $(`#reply-form-${id}`).off("submit").on("submit", function (e) {
+                        e.preventDefault();
+                        let replyText = $(`#reply-text-${id}`).val().trim();
+                        if (replyText === '') {
+                            alert('Please write a reply before submitting.');
+                            return;
+                        }
+
+                        let reviewReply = $(`#reviews-${id}`);
+                        if (reviewReply.length == 0) {
+                            reviewReply = $(this).closest('.reviews');
+                        }
+
+                        $.ajax({
+                            url: `@Url.ActionLink("AddComment", "Comment")`,
+                            type: 'POST',
+                            data: {
+                                UserId: loggedInUserId,
+                                ProductId: productId,
+                                CommentText: replyText,
+                                Rate: 0,
+                                UserReplyId: id
+                            },
+                            success: (response) => {
+                                handleResponseSuccess(response, reviewReply, false)
+                                replyInput.style.display = 'none';
+                                $("textarea").val('')
+                            },
+                            error: handleResponseFailed
+                        });
+                    })
+                } else {
+                    replyInput.style.display = 'none';
+                }
+            }
+
+            function handleSuccessLoadCommentFirst(response) {
+                console.log(response)
+                if (response == null) {
+                    handleShowRatingStar(rating.find(".rating-stars i"), 0)
+                    handleShowRatingStar(product_rating.find(".product-rating i"), 0)
+                    return
+                }
+
+                hanldeReLoadEntireProduct(response)
+                reviews.empty()
+                hanldeLoadReview(response.comments, reviews, true)
+            }
+
+            function hanldeReLoadEntireProduct(response) {
+                console.log(response)
+                handleShowRatingStar(rating.find(".rating-stars i"), Math.floor(response.totalStar))
+                handleShowRatingStar(product_rating.find(".product-rating i"), Math.floor(response.totalStar))
+
+                product_rating.find("a").text(`${response.totalComment} Review(s) | Add your review`)
+                product_tab.find(".tab-nav li").eq(1).find("a").text(`Reviews (${response.totalComment})`)
+                rating.find("#rating-total-rate").text(`${response.totalStar}`)
+                rating.find(".rating-progress").eq(0).find("div").css({
+                    'width': `${response.percent5}%`
+                })
+
+                for (let i = 0; i < 5; i++) {
+                    let percentKey = `percent${5 - i}`;
+                    let starKey = `star${5 - i}`;
+
+                    rating.find(".rating-progress").eq(i).find("div").css({
+                        'width': `${response[percentKey]}%`
+                    });
+
+                    rating.find(".sum").eq(i).text(`${response[starKey]}`)
+                }
+            }
+
+            function handleSuccessLoadCommentSecond(response, reviews, btn_load_more_review, isComment) {
+                console.log(reviews)
+                if (response.success) {
+                    if (response.data.length)
+                        hanldeLoadReview(response.data, reviews, isComment)
+                    else
+                        btn_load_more_review.hide()
+                } else {
+                    console.log("Error")
+                }
+            }
+
+            function hanldeLoadReview(comments, reviews, isComment) {
+                comments.forEach((item, index) => {
+                    let tag = ``
+                    console.log(isComment)
+                    if (isComment)
+                        tag = `${showTagComments(item)}`
+                    else
+                        tag = `${showTagCommentReplies(item)}`
+                    reviews.append(tag)
+                })
+
+                $(".delete-review").off("click").on("click", handleDeleteReview)
+                $(".btn-reply-toggle").off("click").on("click", handleClickButtonReply)
+                $(".load-comment-reply").off("click").on("click", handleLoadCommentReply)
+            }
+
+            function handleResponseSuccess(response, tag_review, isComment) {
+                if (response.success) {
+                    showAlertSuccess('Comments added successfully.');
+                    let tag = isComment ? showTagComments(response.data) : showTagCommentReplies(response.data)
+                    tag_review.prepend(tag)
+
+                    $(".delete-review").off("click").on("click", handleDeleteReview)
+                    $(".btn-reply-toggle").off("click").on("click", handleClickButtonReply)
+                    $(".load-comment-reply").off("click").on("click", handleLoadCommentReply)
+                } else {
+                    showAlertError(response.message);
+                }
+            }
+
+            function handleResponseFailed() {
+                showAlertError('Failed to add Comments.');
+            }
+
+            function handleDeleteReview(event) {
+                event.preventDefault();
+                let id = $(this).data("id")
+                let url = `@Url.Action("DeleteComment", "Comment")?commentId=${id}`
+                methodGet(url, handleDeleteComment_Success)
+            }
+
+            function handleDeleteComment_Success(response) {
+                if (response.success) {
+                    showAlertSuccess(response.message)
+                    window.location.reload();
+                }
+                else {
+                    showAlertError(response.message)
+                }
+            }
+
+            function handleLoadCommentReply() {
+                let page = $(this).data('page')
+                let comment_reply_id = $(this).data('comment-reply-id')
+                page++
+                $(this).data('page', page)
+                let url = `@Url.Action("GetCommentReplyInDetailProduct", "Comment", new { productId = Model.Id })&nextPage=${page}&commentId=${comment_reply_id}`
+                const reviews_reply = $(`#reviews-${comment_reply_id}`)
+                methodGet(url, (response) => handleSuccessLoadCommentSecond(response, reviews_reply, $(this)), false)
+            }
+
+            function hanldeLoadComments() {
+                currentPage++
+                let url = `@Url.Action("GetCommentInDetailProduct_Second", "Comment", new { productId = Model.Id })&nextPage=${currentPage}`
+                methodGet(url, (response) => handleSuccessLoadCommentSecond(response, reviews, btn_load_more_review, true))
+            }
+
+            function showTagComments(item) {
+                if (item == null)
+                    return ''
+                return `
+                                <li data-id=${item.commentId}>
+                                    <div class="review-heading">
+                                        <h5 class="name">${item.customerName}</h5>
+                                        <p class="date">${formatDateTime(item.createAt)}</p>
+                                        <div class="review-rating">
+                                                ${drawRatingStar(item.rate)}
+                                        </div>
+                                    </div>
+                                    <div class="review-body d-flex justify-content-between">
+                                        <p>${item.commentText}</p>
+                                        ${checkUserLoginComment(item.customerId, item.commentId)}
+                                    </div>
+                                    <div class="reply-section">
+                                        <a class="btn btn-reply-toggle" style="cursor: pointer;" data-id="${item.commentId}">Reply</a>
+                                        <form id="reply-form-${item.commentId}" class="reply-form mt-2" style="display:none;">
+                                            <textarea id="reply-text-${item.commentId}" rows="2" class="form-control" required placeholder="Write a reply..."></textarea>
+                                            <button type="submit" id="reply-button-${item.commentId}" class="btn btn-success btn-sm mt-2">Submit Reply</button>
+                                        </form>
+                                        <div class="reply-container">
+                                            ${handleCheckHaveReply_returnTag(item.isReplies, item.commentId)}
+                                            <ul class="reviews review-replies mt-3" id="reviews-${item.commentId}">
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>`
+            }
+
+            function showTagCommentReplies(item) {
+                if (item == null)
+                    return ''
+                return `
+                                <li data-id=${item.commentId}>
+                                    <div class="review-heading">
+                                        <h5 class="name">${item.customerName}</h5>
+                                        <p class="date">${formatDateTime(item.createAt)}</p>
+                                    </div>
+                                    <div class="review-body d-flex justify-content-between">
+                                        <p><span class="text-primary">${item.repForUser}</span> ${item.commentText}</p>
+                                        ${checkUserLoginComment(item.customerId, item.commentId)}
+                                    </div>
+                                    <div class="reply-section">
+                                     <a class="btn btn-reply-toggle" style="cursor: pointer;" data-id="${item.commentId}">Reply</a>
+                                        <form id="reply-form-${item.commentId}" class="reply-form mt-2" style="display:none;">
+                                            <textarea id="reply-text-${item.commentId}" rows="2" class="form-control" required placeholder="Write a reply..."></textarea>
+                                            <button type="submit" id="reply-button-${item.commentId}" class="btn btn-success btn-sm mt-2">Submit Reply</button>
+                                        </form>
+                                    </div>
+                                </li>`
+            }
+
+            function handleCheckHaveReply_returnTag(check, id) {
+                if (!check)
+                    return ''
+                else
+                    return ` <a class="btn fw-bold px-0 mx-0 text-primary load-comment-reply" data-page=0 data-comment-reply-id="${id}">Load more comments</a>
+                                    `
+            }
+
+            function checkUserLoginComment(customerId, commentId) {
+                if (loggedInUserId === "null") {
+                    return '';
+                } else if (loggedInUserId === customerId) {
+                    return `<div class="action-at-comment">
+                                        <div class="dropdown">
+                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item delete-review" data-id=${commentId} href="#">Delete</a>
+                                            </div>
+                                        </div>
+                                    </div>`;
+                } else {
+                    return '';
+                }
+            }
+
+            function drawRatingStar(rate) {
+                console.log(rate)
+                let starHtml = '';
+                for (let i = 0; i < 5; i++) {
+                    if (i < rate) {
+                        starHtml += '<i class="fa fa-star"></i>';
+                    } else {
+                        starHtml += '<i class="fa fa-star-o"></i>';
+                    }
+                }
+                return starHtml;
+            }
+
+            function formatDateTime(datetimeString) {
+                let date = new Date(datetimeString);
+
+                let day = date.getDate();
+                let monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+                let month = monthNames[date.getMonth()];
+                let year = date.getFullYear();
+
+                let hours = date.getHours();
+                let minutes = date.getMinutes();
+                let ampm = hours >= 12 ? 'PM' : 'AM';
+
+                hours = hours % 12 || 12;
+
+                return `${day} ${month} ${year}, ${hours}:${minutes < 10 ? '0' : ''}${minutes} ${ampm}`;
+            }
+
+            function handleShowRatingStar(itemRateting, totalStar) {
+                let index = totalStar == null ? 0 : totalStar
+                console.log(index)
+
+                for (let i = 0; i < 5; i++) {
+                    itemRateting.eq(i).removeClass("fa-star-o")
+                }
+
+                for (let i = 0; i < 5; i++) {
+                    if (i >= index) {
+                        itemRateting.eq(i).addClass("fa-star-o")
+                    }
+                }
+            }
+
+            function methodGet(url, callBack) {
+                $.ajax({
+                    url: url,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (res) {
+                        callBack(res)
+                    }
+                });
+            }
+        })
+    </script>
+}

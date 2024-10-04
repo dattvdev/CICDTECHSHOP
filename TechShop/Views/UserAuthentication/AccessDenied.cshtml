@@ -1,0 +1,23 @@
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "Limit access";
+}
+
+
+<head>
+    <style>
+        .error{
+            display:flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="error">
+        <div class="error-heading">
+            <h1 class="text-danger" style="color:crimson">@ViewData["Title"]</h1>
+            <p class="text-danger">You cannot access this function.</p>
+        </div>
+    </div>
+</body>

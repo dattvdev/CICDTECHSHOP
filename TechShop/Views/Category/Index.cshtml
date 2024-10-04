@@ -1,0 +1,244 @@
+﻿@model IEnumerable<TechShop.Core.Models.Specification>
+<body>
+    <style>
+        .custom-btn {
+            background-color: #F1F3F4; /* Light gray background */
+            border: #D4D5D6 solid 1px;
+            border-radius: 10px;
+            padding: 10px 15px;
+            font-size: 14px;
+            color: #000; /* Black text */
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: none; /* Remove button shadow */
+        }
+
+            .custom-btn:hover {
+                background-color: #E0E0E0; /* Slightly darker gray on hover */
+            }
+
+            .custom-btn:active {
+                background-color: #D0D0D0; /* Even darker gray when clicked */
+            }
+
+        .custom-select {
+            margin-right: 8px; /* Space between buttons */
+        }
+
+        .custom-select-menu {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            z-index: 1000;
+        }
+
+        .custom-select-option {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+            .custom-select-option:hover {
+                background-color: #F0F0F0;
+            }
+
+        .custom-select {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .custom-select-menu {
+            display: none;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            padding: 10px;
+            width: 300px;
+        }
+
+            .custom-select-menu.open {
+                display: block;
+            }
+
+        .custom-select-option {
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid #e0e0e0;
+            margin: 5px;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+            .custom-select-option.selected {
+                background-color: #ff4d4f;
+                color: white;
+            }
+
+        .btn-custom {
+            margin-top: 10px;
+        }
+
+        #pagination-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+            #pagination-container a {
+                color: #000; /* Black text */
+                background-color: #fff; /* White background */
+                border: 1px solid #d32f2f; /* Red border */
+                padding: 10px 15px;
+                margin: 0 5px;
+                text-decoration: none;
+                border-radius: 5px;
+                transition: background-color 0.3s ease, color 0.3s ease;
+                font-family: Arial, sans-serif;
+            }
+
+                #pagination-container a:hover {
+                    background-color: #f5f5f5; /* Light grey on hover for better visibility */
+                }
+
+                #pagination-container a.active {
+                    background-color: #d32f2f; /* Red background for active page */
+                    color: #fff; /* White text for active page */
+                    pointer-events: none; /* Disable click on active page */
+                }
+
+                #pagination-container a:active {
+                    background-color: #b71c1c; /* Darker red on click */
+                }
+
+    </style>
+    <div class="container mt-5">
+        @foreach (var item in Model)
+        {
+            <div class="custom-select">
+                <button class="btn custom-btn" onclick="toggleDropdown(this)">@item.Name</button>
+                <div id="customSelectMenu" class="custom-select-menu">
+                    @foreach (var filter in item.Filters)
+                    {
+                        <div class="custom-select-option" data-value="@filter.Id">@filter.Name</div>
+                    }
+
+                </div>
+            </div>
+
+        }
+        <div class="btn-custom">
+            <button class="btn btn-danger" onclick="submitFilter()">Xem kết quả</button>
+        </div>
+
+        <div id="product-container">
+            <!-- Danh sách sản phẩm sẽ được tải tại đây -->
+        </div>
+
+        <div id="pagination-container">
+            <!-- Các liên kết phân trang sẽ được tải tại đây -->
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            submitFilter();
+        });
+        function toggleDropdown(button) {
+            const allDropdowns = document.querySelectorAll('.custom-select-menu');
+            allDropdowns.forEach(dropdown => {
+                if (dropdown !== button.nextElementSibling) {
+                    dropdown.classList.remove('open');
+                }
+            });
+            const dropdownMenu = button.nextElementSibling;
+            dropdownMenu.classList.toggle('open');
+        }
+        const options = document.querySelectorAll('.custom-select-option');
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                option.classList.toggle('selected');
+            });
+        });
+        document.addEventListener('click', function (event) {
+            const allDropdowns = document.querySelectorAll('.custom-select-menu.open');
+            allDropdowns.forEach(dropdown => {
+                if (!dropdown.contains(event.target) && !dropdown.previousElementSibling.contains(event.target)) {
+                    dropdown.classList.remove('open');
+                }
+            });
+        });
+        var selectedOptions;
+        function submitFilter() {
+            selectedOptions = document.querySelectorAll('.custom-select-option.selected');
+            submitResults(1);
+        }
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        const category = getQueryParam('category');
+        function submitResults(page = 1) {
+            const results = Array.from(selectedOptions).map(option => option.dataset.value);
+            $.ajax({
+                url: '/Category/Filter',
+                type: 'POST',
+                data: {
+                    ids: results,
+                    page: page,
+                    category: category
+                },
+                success: function (response) {
+                    console.log(response);
+                    $('#product-container').html(response.html);
+                    if (response.paginationInfo) {
+                        renderPagination(response.paginationInfo.totalPages, page);
+                    } else {
+                        console.error('PaginationInfo không tồn tại trong phản hồi');
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error('Lỗi khi gửi yêu cầu:', error);
+                }
+            });
+        }
+        function renderPagination(totalPages, currentPage) {
+            const container = document.getElementById('pagination-container');
+            container.innerHTML = '';
+            if (currentPage > 1) {
+                const prevLink = document.createElement('a');
+                prevLink.href = 'javascript:void(0)';
+                prevLink.textContent = '‹';
+                prevLink.classList.add('pagination-link');
+                prevLink.addEventListener('click', () => submitResults(currentPage - 1));
+                container.appendChild(prevLink);
+            }
+            for (let i = 1; i <= totalPages; i++) {
+                const pageLink = document.createElement('a');
+                pageLink.href = 'javascript:void(0)';
+                pageLink.textContent = i;
+                pageLink.classList.add('pagination-link');
+                if (i === currentPage) {
+                    pageLink.classList.add('active');
+                }
+                pageLink.addEventListener('click', () => submitResults(i));
+                container.appendChild(pageLink);
+            }
+            if (currentPage < totalPages) {
+                const nextLink = document.createElement('a');
+                nextLink.href = 'javascript:void(0)';
+                nextLink.textContent = '›';
+                nextLink.classList.add('pagination-link');
+                nextLink.addEventListener('click', () => submitResults(currentPage + 1));
+                container.appendChild(nextLink);
+            }
+        }
+    </script>
+
+</body>

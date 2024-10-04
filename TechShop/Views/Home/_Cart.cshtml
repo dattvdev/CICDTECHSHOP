@@ -1,0 +1,41 @@
+﻿@model IEnumerable<TechShop.Core.Models.Order>
+
+
+@foreach (var item in Model)
+{
+    <div class="product-widget product-widget-count ">
+        <div class="d-flex product-img align-items-center">
+            <div style="margin-right: 5px;">
+                <input type="hidden" id="" class="orderCheck" value="@item.ProductColorId" />
+            </div>
+            <img class="avt" src="@item?.ProductColor?.ProductHardware?.Product.Image" alt="@item?.ProductColor?.ProductHardware?.Product.Name" style="width: 60px; height: 60px; object-fit: cover;">
+        </div>
+        <div style="margin-left: 15px;" class="product-body">
+            <h3 class="product-name"><span><a href="/Product/Detail/@item.ProductColor.ProductHardware.Product.UrlSlug">@item?.ProductColor?.ProductHardware?.Product.Name</a> |</span>  <span id="colorName-@item.ProductColorId"></span><span> |  x @item.Quanitity</span> </h3>
+            <div class="row">
+              
+                <div class="col-10">
+
+                    <p style="margin-left:7px;">
+                        @((item.ProductColor.Price * item.Quanitity).ToString("F2"))$
+                        <input type="hidden" id="" class="itemPrice" value="@((item.ProductColor.Price * item.Quanitity))" />
+                    </p>
+
+                </div>
+                <div class="col-2">
+                    <i class="fa fa-trash" style="cursor: pointer; color:red" onclick="deleteOrder('@item.ProductColor.Id')"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var rgbColor = "@item.ProductColor.RGB"; // This should be in format "#RRGGBB"
+        console.log(rgbColor);
+        var colorMatch = ntc.name(rgbColor);
+        var colorName = colorMatch[1];
+        console.log(colorName);
+        document.getElementById("colorName-@item.ProductColorId").innerText = colorName;
+    </script>
+}
+
+

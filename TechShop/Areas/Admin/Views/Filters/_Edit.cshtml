@@ -1,0 +1,172 @@
+﻿@model TechShop.Core.Models.Filter
+
+
+
+<div class="modal .classeditModal  fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Edit Filter</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editForm" asp-action="Edit" method="post">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="CreatedAt" />
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CategoryId" class="control-label"></label>
+                        <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+                        <span asp-validation-for="CategoryId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SpecificationId" class="control-label"></label>
+                        <select asp-for="SpecificationId" class="form-control"></select>
+                        <span asp-validation-for="SpecificationId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <input type="submit" id="editsubmit" value="Save" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    $("#editForm").validate({
+        rules: {
+            Name: {
+                required: true,
+                maxlength: 100,
+                normalizer: function (value) {
+                    return $.trim(value);
+                }
+            }
+        },
+        messages: {
+            Name: {
+                required: "Please enter filter name. ",
+                maxlength: "Max length is 100. "
+            }
+        },
+        errorClass: "text-danger",
+        validClass: "text-success",
+        errorElement: "span"
+    });
+ </script>
+
+<script>
+    $(document).ready(function () {
+        $('#Name').on('input', function () {
+            $('#nameExistError').remove();
+        });
+
+        $('#CategoryId').on('change', function () {
+            $('#nameExistError').remove();
+        });
+
+        $('#editsubmit').on('click', function (e) {
+            e.preventDefault();
+
+            var form = $('#editForm');
+            var name = $('#Name').val();
+            var categoryId = $('#CategoryId').val();
+            var specificationId = $('#SpecificationId').val();
+            console.log(categoryId);
+            checkFilterExist(name, categoryId, specificationId, handleExist, handleNotExist);
+        });
+
+        function checkFilterExist(name, categoryId, specificationId, existCallback, notExistCallback) {
+            $.ajax({
+                url: '@Url.Action("IsFilterExist", "Filters")',
+                type: 'GET',
+                data: {
+                    name: name,
+                    categoryId: categoryId,
+                    specificationId: specificationId
+                },
+                success: function (data) {
+                    data ? existCallback() : notExistCallback();
+                },
+                error: function (xhr) {
+                    console.log(xhr.responseText);
+                }
+            });
+        }
+
+        function handleExist() {
+            $('#nameExistError').remove();
+            $('#Name').after('<span id="nameExistError" class="text-danger">Filter with this name and category, specification already exists.</span>');
+        }
+        function handleNotExist() {
+            $('#nameExistError').remove();
+            var form = $('#editForm');
+            if (form.valid()) {
+                submitForm(form);
+            }
+        }
+
+        function submitForm(form) {
+            var url = form.attr('action');
+            var data = form.serialize();
+
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: data,
+                success: function (response) {
+                    $('#filtersTableContainer').html(response);
+                    if (response.length != 0) {
+                        showAlertSuccess("Edit success!");
+                    } else {
+                        showAlertError("Edit failed!");
+                    }
+                },
+                error: function (xhr) {
+                    console.log(xhr.responseText);
+                }
+            });
+
+            $('#editModal').modal('hide');
+        }
+
+        function loadSpecifications(categoryId) {
+            if (categoryId) {
+                $.ajax({
+                    url: '@Url.Action("GetSpecificationsByCategory", "Filters")',
+                    type: 'GET',
+                    data: { categoryId: categoryId },
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data.length, data[0]);
+                        var $specificationSelect = $('#SpecificationId');
+                        $specificationSelect.empty();
+                        for (let index = 0; index < data.length; ++index) {
+                            const element = data[index];
+                            $specificationSelect.append('<option value="' + element.id + '">' + element.name + '</option>');
+                        }
+                    }
+                });
+            } else {
+
+            }
+        }
+        // Gọi khi trang vừa tải
+        var initialCategoryId = $('#CategoryId').val();
+        loadSpecifications(initialCategoryId);
+
+        // Gọi khi thay đổi giá trị của CategoryId
+        $('#CategoryId').change(function () {
+            var categoryId = $(this).val();
+            loadSpecifications(categoryId);
+        });
+    });
+</script>

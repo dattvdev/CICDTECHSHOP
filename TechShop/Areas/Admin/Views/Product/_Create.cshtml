@@ -1,0 +1,128 @@
+﻿@model TechShop.Areas.Admin.ViewModels.ProductListViewModel
+
+<div class="modal fade" id="createProduct" tabindex="-1" aria-labelledby="centeredModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="centeredModalLabel">Create</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<form id="createProductForm" asp-action="Create" asp-area="Admin" method="post" asp-controller="Product">
+					<div class="mb-3">
+						<label for="name" class="form-label">Name</label>
+						<input type="text" class="form-control" id="name" name="name">
+						<span class="text-danger"></span>
+					</div>
+					<div class="mb-3">
+						<label for="categoryId" class="form-label">Category</label>
+						<select id="selectCategoryCreate" name="categoryId" class="form-select" aria-label="Default select example">
+							@foreach (var category in Model.Categories)
+							{
+								<option value="@category.Id">@category.Name</option>
+							}
+						</select>
+						<span class="text-danger"></span>
+					</div>
+					<div class="mb-3">
+						<label for="brandId" class="form-label">Brand</label>
+						<select id="selectBrandCreate" name="brandId" class="form-select" aria-label="Default select example">
+							@foreach (var brand in Model.Brands)
+							{
+								<option value="@brand.Id">@brand.Name</option>
+							}
+						</select>
+						<span class="text-danger"></span>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						<button type="button" id="btnCreateProduct" class="btn btn-primary">Create</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	$.validator.addMethod("uniqueName", function (value, element) {
+		var isSuccess = false;
+		$.ajax({
+			type: "POST",
+			url: '@Url.Action("IsProductNameAvailable", "Product", new { area = "Admin" })',
+			data: { name: value },
+			dataType: "json",
+			async: false,
+			success: function (response) {
+				isSuccess = response;
+			}
+		});
+		return !isSuccess;
+	}, "This name is already taken, please choose another.");
+	$("#createProductForm").validate({
+		rules: {
+			name: {
+				required: true,
+				uniqueName: true,
+				maxlength: 100,
+				normalizer: function (value) {
+					return $.trim(value);
+				}
+			},
+			categoryId: {
+				required: true
+			},
+			brandId: {
+				required: true
+			}
+		},
+		messages: {
+			name: {
+				required: "Please enter the product name",
+				uniqueName: "This name is already taken, please choose another",
+				maxlength: "The product name must not exceed 100 characters"
+			},
+			categoryId: {
+				required: "Please select a category"
+			},
+			brandId: {
+				required: "Please select a brand"
+			}
+		},
+		errorClass: "text-danger",
+		errorElement: "span"
+	});
+	$('#createProduct').on('hidden.bs.modal', function () {
+		$("#createProductForm")[0].reset(); 
+		$("#createProductForm").validate().resetForm(); 
+		$("#createProductForm .form-control").removeClass("text-success text-danger");
+	});
+	$('#btnCreateProduct').on('click', function (e) {
+		e.preventDefault(); 
+		var form = $('#createProductForm');
+		if (form.valid()) {
+			var formData = {
+				productName: $('#name').val(),
+				categoryId: $('#selectCategoryCreate').val(),
+				brandId: $('#selectBrandCreate').val()
+			};
+			$.ajax({
+				type: "POST",
+				url: '@Url.Action("Create", "Product", new { area = "Admin" })',
+				data: formData,
+				dataType: "json",
+				success: function (response) {
+					if(response.isSuccess) {
+						window.location.href = response.redirectUrl;
+					} else {
+						showAlertError(response.message);
+					}
+				},
+				error: function (xhr, status, error) {
+					console.error("AJAX Error: " + status + " - " + error);
+				}
+			});
+			$("#createProduct").modal("hide");
+		}
+	});
+</script>				
