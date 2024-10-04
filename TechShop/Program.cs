@@ -74,8 +74,8 @@ namespace TechShop
 
             builder.Services.Configure<EmailSenderOptions>(builder.Configuration.GetSection("MailSetting"));
 
-            DotEnv.Load(options: new DotEnvOptions(probeForEnv: true));
-            Cloudinary cloudinary = new Cloudinary(Environment.GetEnvironmentVariable("CLOUDINARY_URL"));
+            //DotEnv.Load(options: new DotEnvOptions(probeForEnv: true));
+            Cloudinary cloudinary = new Cloudinary("cloudinary://377843956877849:ToDQR4i4uXt9O_ck2N7Wgn9g-oY@du2ke2ics");
             cloudinary.Api.Secure = true;
 
             builder.Services.AddSingleton(cloudinary);
