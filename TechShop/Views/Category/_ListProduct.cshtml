@@ -7,7 +7,7 @@
 		@foreach (var product in Model)
 		{
 			<div class="col-md-4">
-				<a class="product" href="https://localhost:7061/Product/Detail/@product.UrlSlug">
+					<a class="product" style="width:25%" asp-controller="Product" asp-action="Detail" asp-route-id="@product.UrlSlug">
 					<!-- Product Image -->
 					<div class="product-img">
 						<div style="width: 100%; height: 250px">
