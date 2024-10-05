@@ -174,7 +174,8 @@ namespace TechShop.Controllers
                 }
                 _context.invoices.Add(invoice);
                 _context.SaveChanges();
-                return Redirect(createPayment.checkoutUrl);
+				//  return Redirect(createPayment.checkoutUrl);
+				return View();
 			}
 
             foreach (var order in orders)
